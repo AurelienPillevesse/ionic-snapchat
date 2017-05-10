@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-/*import { Camera } from '@ionic-native/camera';*/
-/*import { CameraPreview } from 'cordova-plugin-camera-preview';*/
+import { CameraPreview, CameraPreviewOptions } from '@ionic-native/camera-preview';
 
 /**
 * Generated class for the Snap page.
@@ -10,7 +9,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 * See http://ionicframework.com/docs/components/#navigation for more info
 * on Ionic pages and navigation.
 */
-declare var CameraPreview: any;
 @IonicPage()
 @Component({
     selector: 'page-snap',
@@ -18,23 +16,30 @@ declare var CameraPreview: any;
 })
 export class Snap {
 
-    constructor(/*private cameraPreview, *//*private camera: Camera, */public navCtrl: NavController, public navParams: NavParams) {
+    constructor(private cameraPreview: CameraPreview, /*private camera: Camera, */public navCtrl: NavController, public navParams: NavParams) {
     }
 
     ionViewDidLoad() {
-        const cameraPreviewOpts = {
+        const cameraPreviewOpts: CameraPreviewOptions = {
             x: 0,
             y: 0,
             width: window.screen.width,
             height: window.screen.height,
             camera: 'rear',
+            toBack: false,
             tapPhoto: true,
-            previewDrag: true,
-            toBack: true,
-            alpha: 1
+            previewDrag: false
         };
 
-        CameraPreview.startCamera(cameraPreviewOpts);
+        // start camera
+        this.cameraPreview.startCamera(cameraPreviewOpts).then(
+            (res) => {
+                console.log(res)
+            },
+            (err) => {
+                console.log(err)
+            }
+        );
 
         console.log('ionViewDidLoad Snap');
     }
