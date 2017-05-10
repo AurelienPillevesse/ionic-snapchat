@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { User} from '../../model/user'
 /**
  * Generated class for the SignUp page.
  *
@@ -13,12 +13,18 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'sign-up.html',
 })
 export class SignUp {
+	public user: User = new User('','','','');
+
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SignUp');
+  }
+
+  registerUser(){
+  	console.log(this.user);
   }
 
 }
