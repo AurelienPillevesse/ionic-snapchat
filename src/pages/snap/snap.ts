@@ -45,23 +45,26 @@ export class Snap {
         console.log('ionViewDidLoad Snap');
     }
 
+    switchCamera() {
+        this.cameraPreview.switchCamera();
+    }
 
-    /*takePicture() {
-    const options: CameraOptions = {
-    quality: 100,
-    destinationType: this.camera.DestinationType.DATA_URL,
-    encodingType: this.camera.EncodingType.JPEG,
-    mediaType: this.camera.MediaType.PICTURE
-}
 
-this.camera.getPicture(options).then((imageData) => {
-// imageData is either a base64 encoded string or a file URI
-// If it's base64:
-let base64Image = 'data:image/jpeg;base64,' + imageData;
-alert(base64Image);
-}, (err) => {
-// Handle error
-});
-}*/
+    takePicture() {
+        const pictureOpts = {
+            width: 1280,
+            height: 1280,
+            quality: 100
+        }
+
+        let picture = null;
+
+        this.cameraPreview.takePicture(pictureOpts).then((imageData) => {
+            picture = 'data:image/jpeg;base64,' + imageData;
+            console.log(picture);
+        }, (err) => {
+            console.log(err);
+        });
+    }
 
 }

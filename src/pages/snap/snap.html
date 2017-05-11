@@ -6,25 +6,19 @@ Ionic pages and navigation.
 -->
 <!--<ion-header>
 
-    <ion-navbar>
-        <ion-title>snap</ion-title>
-    </ion-navbar>
+<ion-navbar>
+<ion-title>snap</ion-title>
+</ion-navbar>
 
 </ion-header>-->
 
 
 <ion-content padding>
-    <!--<div id="ionball"></div>
-
     <ion-fab right top small>
-        <button ion-fab color="light"><ion-icon></ion-icon></button>
+        <button ion-fab color="light" (click)="switchCamera()"><ion-icon name="ios-reverse-camera-outline"></ion-icon></button>
     </ion-fab>
 
-    <ion-fab left top small>
-        <button ion-fab color="light"><ion-icon></ion-icon></button>
-    </ion-fab>-->
-
     <ion-fab small class="middle-bottom">
-        <button ion-fab color="light"></button>
+        <button ion-fab color="light" (click)="takePicture()"></button>
     </ion-fab>
 </ion-content>
