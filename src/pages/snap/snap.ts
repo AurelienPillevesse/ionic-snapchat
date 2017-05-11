@@ -26,9 +26,10 @@ export class Snap {
             width: window.screen.width,
             height: window.screen.height,
             camera: 'rear',
-            toBack: false,
-            tapPhoto: true,
-            previewDrag: false
+            toBack: true,
+            tapPhoto: false,
+            previewDrag: false,
+            alpha: 1
         };
 
         // start camera
