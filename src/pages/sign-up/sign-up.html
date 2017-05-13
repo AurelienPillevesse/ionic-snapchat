@@ -12,17 +12,20 @@ Ionic pages and navigation.
 </ion-header>
 
 <ion-content>
-    <ion-item>
-      <ion-input [(ngModel)]="user.name" ngControl="name" placeholder="name"></ion-input>
+  <h2 class="form_signup_title">Type here your personal information</h2>
+  <div class="form_signup_container">
+    <ion-item class="input_container">
+      <ion-input class="input_signup" text-center  [(ngModel)]="user.name" ngControl="name" placeholder="name"></ion-input>
     </ion-item>
-    <ion-item>
-      <ion-input [(ngModel)]="user.firstname" ngControl="firstname" placeholder="firstname"></ion-input>
+    <ion-item class="input_container">
+      <ion-input class="input_signup" text-center  [(ngModel)]="user.firstname" ngControl="firstname" placeholder="firstname"></ion-input>
     </ion-item>
-    <ion-item>
-      <ion-input [(ngModel)]="user.login" ngControl="login" placeholder="login"></ion-input>
+    <ion-item class="input_container">
+      <ion-input class="input_signup" text-center  [(ngModel)]="user.login" ngControl="login" placeholder="login"></ion-input>
     </ion-item>
-    <ion-item>
-      <ion-input [(ngModel)]="user.pass" ngControl="pass" placeholder="pass"></ion-input>
+    <ion-item class="input_container">
+      <ion-input class="input_signup" text-center  [(ngModel)]="user.pass" ngControl="pass" placeholder="pass"></ion-input>
     </ion-item>
+  </div>
     <button ion-button full (click)="registerUser()" class="button_signup">Create my account</button>
 </ion-content>

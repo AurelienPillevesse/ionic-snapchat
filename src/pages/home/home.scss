@@ -1,5 +1,5 @@
 page-home {
-
+  background-color: yellow;
 }
 .bottom_button_container{
   position: absolute;
@@ -13,8 +13,15 @@ page-home {
   font-size: 3rem;
 }
 .red_color{
-  background: linear-gradient(to right, #c21500, #ffc500);
+  background:  #f44336;
 }
 .blue_color{
-  background: linear-gradient(to right, #b3ffab, #12fff7);
+  background: #d500f9;
+}
+.logo_app{
+  margin: auto;
+}
+.logo_app_container{
+  height: 60%;
+  display: flex;
 }
