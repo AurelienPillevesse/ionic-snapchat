@@ -15,8 +15,9 @@ import { CameraPreview, CameraPreviewOptions } from '@ionic-native/camera-previe
     templateUrl: 'snap.html',
 })
 export class Snap {
+    public picture: String;
 
-    constructor(private cameraPreview: CameraPreview, /*private camera: Camera, */public navCtrl: NavController, public navParams: NavParams) {
+    constructor(private cameraPreview: CameraPreview, public navCtrl: NavController, public navParams: NavParams) {
     }
 
     ionViewDidLoad() {
@@ -57,11 +58,9 @@ export class Snap {
             quality: 100
         }
 
-        let picture = null;
-
         this.cameraPreview.takePicture(pictureOpts).then((imageData) => {
             this.cameraPreview.stopCamera();
-            picture = 'data:image/jpeg;base64,' + imageData;
+            this.picture = 'data:image/jpeg;base64,' + imageData;
             //console.log(picture);
         }, (err) => {
             console.log(err);
