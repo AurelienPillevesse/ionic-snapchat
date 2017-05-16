@@ -13,6 +13,18 @@ import { SignUp } from '../pages/sign-up/sign-up';
 import { SignIn } from '../pages/sign-in/sign-in';
 import { Snap } from '../pages/snap/snap';
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+
+export const firebaseConfig = {
+  apiKey: "AIzaSyCe7MaeGS6o-Qtm1DjFGm6E9lwsB85QGJE",
+  authDomain: "snapchat-ionic.firebaseapp.com",
+  databaseURL: "https://snapchat-ionic.firebaseio.com",
+  projectId: "snapchat-ionic",
+  storageBucket: "snapchat-ionic.appspot.com",
+  messagingSenderId: "328338315687"
+};
+
 @NgModule({
   declarations: [
     MyApp,
@@ -23,7 +35,9 @@ import { Snap } from '../pages/snap/snap';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule    
   ],
   bootstrap: [IonicApp],
   entryComponents: [
