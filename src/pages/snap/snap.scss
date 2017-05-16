@@ -5,3 +5,7 @@ page-snap {
         left: calc(50% - 25px);
     }
 }
+
+html, body, ion-app, ion-content, ion-page {
+  background-color: transparent !important;
+}

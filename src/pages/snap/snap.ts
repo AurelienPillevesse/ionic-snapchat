@@ -60,8 +60,9 @@ export class Snap {
         let picture = null;
 
         this.cameraPreview.takePicture(pictureOpts).then((imageData) => {
+            this.cameraPreview.stopCamera();
             picture = 'data:image/jpeg;base64,' + imageData;
-            console.log(picture);
+            //console.log(picture);
         }, (err) => {
             console.log(err);
         });
