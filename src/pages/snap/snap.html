@@ -15,7 +15,12 @@ Ionic pages and navigation.
 
 <ion-content>
     <div *ngIf="displayFriendMenu" class="friendMenu">
-        Ajouter des amigos
+        [Login]
+        Score: 0
+
+        <button color="light">Ils m'ont ajouté</button>
+        <button color="light">Ajouter des amis</button>
+        <button color="light">Mes amis</button>
     </div>
 
     <ion-fab small class="middle-top" *ngIf="!displayFriendMenu && !tookSnap">
