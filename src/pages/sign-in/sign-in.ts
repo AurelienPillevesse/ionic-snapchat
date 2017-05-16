@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { User} from '../../model/user';
-import { Snap } from '../snap/snap';
+//import { Snap } from '../snap/snap';
 /**
 * Generated class for the SignIn page.
 *
@@ -15,7 +15,7 @@ import { Snap } from '../snap/snap';
 })
 export class SignIn {
 public user: User = new User('','','','');
-    snap = Snap;
+    snap = 'Snap';
 
     constructor(public navCtrl: NavController, public navParams: NavParams) {
     }
