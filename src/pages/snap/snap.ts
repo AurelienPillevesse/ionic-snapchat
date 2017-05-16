@@ -16,6 +16,7 @@ import { CameraPreview, CameraPreviewOptions } from '@ionic-native/camera-previe
 })
 export class Snap {
     public picture: String;
+    public displayFriendMenu: Boolean = false;
 
     constructor(private cameraPreview: CameraPreview, public navCtrl: NavController, public navParams: NavParams) {
     }
@@ -50,6 +51,9 @@ export class Snap {
         this.cameraPreview.switchCamera();
     }
 
+    clickFriendMenu() {
+        this.displayFriendMenu = true;
+    }
 
     takePicture() {
         const pictureOpts = {

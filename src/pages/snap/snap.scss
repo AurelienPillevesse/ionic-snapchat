@@ -1,9 +1,20 @@
 page-snap {
-    .middle-bottom {
-        position: absolute;
-        bottom: 30px;
-        left: calc(50% - 25px);
-    }
+  .middle-bottom {
+    position: absolute;
+    bottom: 30px;
+    left: calc(50% - 25px);
+  }
+
+  .middle-top {
+    position: absolute;
+    top: 10px;
+    left: calc(50% - 25px);
+  }
+
+  .friendMenu {
+    position: absolute;
+    top: 0px;
+  }
 }
 
 html, body, ion-app, ion-content, ion-page {
