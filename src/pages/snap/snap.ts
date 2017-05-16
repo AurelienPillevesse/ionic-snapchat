@@ -17,11 +17,49 @@ import { CameraPreview, CameraPreviewOptions } from '@ionic-native/camera-previe
 export class Snap {
     public picture: String;
     public displayFriendMenu: Boolean = false;
+    public tookSnap: Boolean = false;
 
     constructor(private cameraPreview: CameraPreview, public navCtrl: NavController, public navParams: NavParams) {
     }
 
     ionViewDidLoad() {
+        this.startCamera();
+    }
+
+    switchCamera() {
+        this.cameraPreview.switchCamera();
+    }
+
+    clickFriendMenu() {
+        this.displayFriendMenu = true;
+    }
+
+    closeFriendMenu() {
+        this.displayFriendMenu = false;
+    }
+
+    closeTookSnap() {
+        this.tookSnap = false;
+        this.startCamera();
+    }
+
+    takePicture() {
+        const pictureOpts = {
+            width: 1280,
+            height: 1280,
+            quality: 100
+        }
+
+        this.cameraPreview.takePicture(pictureOpts).then((imageData) => {
+            this.cameraPreview.stopCamera();
+            this.picture = 'data:image/jpeg;base64,' + imageData;
+            this.tookSnap = true;
+        }, (err) => {
+            console.log(err);
+        });
+    }
+
+    startCamera() {
         const cameraPreviewOpts: CameraPreviewOptions = {
             x: 0,
             y: 0,
@@ -43,32 +81,6 @@ export class Snap {
                 console.log(err)
             }
         );
-
-        console.log('ionViewDidLoad Snap');
-    }
-
-    switchCamera() {
-        this.cameraPreview.switchCamera();
-    }
-
-    clickFriendMenu() {
-        this.displayFriendMenu = true;
-    }
-
-    takePicture() {
-        const pictureOpts = {
-            width: 1280,
-            height: 1280,
-            quality: 100
-        }
-
-        this.cameraPreview.takePicture(pictureOpts).then((imageData) => {
-            this.cameraPreview.stopCamera();
-            this.picture = 'data:image/jpeg;base64,' + imageData;
-            //console.log(picture);
-        }, (err) => {
-            console.log(err);
-        });
     }
 
 }
