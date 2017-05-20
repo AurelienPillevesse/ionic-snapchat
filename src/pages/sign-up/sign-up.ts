@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { User} from '../../model/user'
 import {AngularFireDatabase,FirebaseListObservable} from 'angularfire2/database';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @IonicPage()
 @Component({
@@ -13,7 +14,7 @@ export class SignUp {
   public user: User = new User(null,null,null,null);
   public users:  FirebaseListObservable<User[]>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public af: AngularFireDatabase) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public af: AngularFireDatabase, afAuth: AngularFireAuth) {
     //this.http = http;
     this.users = af.list('/users');
     console.log(af.list('/users'));
@@ -34,5 +35,14 @@ export class SignUp {
     });
   }
 
+  const authObserver = afAuth.authState.subscribe( user => {
+    if (user) {
+      this.rootPage = HomePage;
+      authObserver.unsubscribe();
+    } else {
+      this.rootPage = 'LoginPage';
+      authObserver.unsubscribe();
+    }
+  });
 
 }
