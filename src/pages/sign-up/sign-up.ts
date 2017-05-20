@@ -1,9 +1,13 @@
 import { Component } from '@angular/core';
-//import { Http } from '@angular/http';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { User} from '../../model/user'
-import {AngularFireDatabase,FirebaseListObservable} from 'angularfire2/database';
-import { AngularFireAuth } from 'angularfire2/auth';
+import {
+  IonicPage,
+  NavController,
+  LoadingController,
+  Loading,
+  AlertController } from 'ionic-angular';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthProvider } from '../../providers/auth-service/auth-service';
+import { EmailValidator } from '../../validators/email';
 
 @IonicPage()
 @Component({
@@ -11,38 +15,50 @@ import { AngularFireAuth } from 'angularfire2/auth';
   templateUrl: 'sign-up.html',
 })
 export class SignUp {
-  public user: User = new User(null,null,null,null);
-  public users:  FirebaseListObservable<User[]>;
+public signupForm: FormGroup;
+ loading: Loading;
+ constructor(public navCtrl: NavController, public authProvider: AuthProvider,
+   public formBuilder: FormBuilder, public loadingCtrl: LoadingController,
+   public alertCtrl: AlertController) {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public af: AngularFireDatabase, afAuth: AngularFireAuth) {
-    //this.http = http;
-    this.users = af.list('/users');
-    console.log(af.list('/users'));
+     this.signupForm = formBuilder.group({
+       email: ['', Validators.compose([Validators.required, EmailValidator.isValid])],
+       password: ['', Validators.compose([Validators.minLength(6), Validators.required])]
+     });
+   }
 
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SignUp');
-  }
-
-  registerUser(){
-
-    this.users.push({
-      name: this.user.name,
-      surname: this.user.surname,
-      login: this.user.login,
-      pass: this.user.pass,
-    });
-  }
-
-  const authObserver = afAuth.authState.subscribe( user => {
-    if (user) {
-      this.rootPage = HomePage;
-      authObserver.unsubscribe();
-    } else {
-      this.rootPage = 'LoginPage';
-      authObserver.unsubscribe();
-    }
-  });
-
+  /**
+   * If the form is valid it will call the AuthData service to sign the user up password displaying a loading
+   *  component while the user waits.
+   *
+   * If the form is invalid it will just log the form value, feel free to handle that as you like.
+   */
+   signupUser(){
+   if (!this.signupForm.valid){
+     console.log(this.signupForm.value);
+   } else {
+     this.authProvider.signupUser(this.signupForm.value.email,
+         this.signupForm.value.password)
+     .then(() => {
+       this.loading.dismiss().then( () => {
+         this.navCtrl.setRoot('Snap');
+       });
+     }, (error) => {
+       this.loading.dismiss().then( () => {
+         let alert = this.alertCtrl.create({
+           message: error.message,
+           buttons: [
+             {
+               text: "Ok",
+               role: 'cancel'
+             }
+           ]
+         });
+         alert.present();
+       });
+     });
+     this.loading = this.loadingCtrl.create();
+     this.loading.present();
+   }
+ }
 }

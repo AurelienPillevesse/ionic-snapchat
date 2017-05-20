@@ -8,13 +8,11 @@ import { CameraPreview } from '@ionic-native/camera-preview';
 
 import { Firebase } from '@ionic-native/firebase';
 import { MyApp } from './app.component';
-/*import { HomePage } from '../pages/home/home';
-import { SignUp } from '../pages/sign-up/sign-up';
-import { SignIn } from '../pages/sign-in/sign-in';
-import { Snap } from '../pages/snap/snap';*/
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AuthProvider } from '../providers/auth-service/auth-service';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyCe7MaeGS6o-Qtm1DjFGm6E9lwsB85QGJE",
@@ -33,7 +31,7 @@ export const firebaseConfig = {
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireDatabaseModule    
+    AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -44,7 +42,9 @@ export const firebaseConfig = {
     Firebase,
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AngularFireAuth,
+    AuthProvider
   ]
 })
 export class AppModule {}
