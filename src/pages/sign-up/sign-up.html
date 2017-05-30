@@ -21,6 +21,18 @@ Ionic pages and navigation.
          <ion-input formControlName="email" type="email" placeholder="Your email address"
            [class.invalid]="!signupForm.controls.email.valid && signupForm.controls.email.dirty"></ion-input>
        </ion-item>
+       <ion-item>
+         <ion-label stacked>Name</ion-label>
+         <ion-input formControlName="name" type="name" placeholder="Your name address"
+           [class.invalid]="!signupForm.controls.name.valid && signupForm.controls.name.dirty"></ion-input>
+       </ion-item>
+       <ion-item>
+         <ion-label stacked>lastname</ion-label>
+         <ion-input formControlName="lastname" type="lastname" placeholder="Your lastname address"
+           [class.invalid]="!signupForm.controls.lastname.valid && signupForm.controls.lastname.dirty"></ion-input>
+       </ion-item>
+
+
        <ion-item class="error-message" *ngIf="!signupForm.controls.email.valid  && signupForm.controls.email.dirty">
          <p>Please enter a valid email.</p>
        </ion-item>
@@ -34,9 +46,7 @@ Ionic pages and navigation.
          <p>Your password needs more than 6 characters.</p>
        </ion-item>
 
-       <button ion-button block type="submit">
-         Create an Account
-       </button>
+       <button ion-button full type="submit" class="button_signup">Create an Account</button>
 
      </form>
   </div>
