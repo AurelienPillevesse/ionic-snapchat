@@ -1,8 +1,6 @@
-export class User{
+export class Picture{
 
-	constructor(public name:string, public lastname:string, public login:string, public score:int ){
+	constructor(public content: string, public from: string, public to: Array<string>){
 
 	}
-
-	
 }
