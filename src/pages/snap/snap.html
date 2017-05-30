@@ -32,6 +32,10 @@
         <button ion-fab color="light"><ion-icon name="md-send"></ion-icon></button>
     </ion-fab>
 
+    <ion-fab left bottom small *ngIf="!displayFriendMenu && !tookSnap">
+        <button ion-fab color="light" [navPush]="feed" (click)="closeCamera()"><ion-icon name="md-arrow-dropleft-circle"></ion-icon></button>
+    </ion-fab>
+
 
     <img [src]="picture" *ngIf="tookSnap"/>
 </ion-content>

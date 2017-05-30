@@ -18,12 +18,17 @@ export class Snap {
     public picture: String;
     public displayFriendMenu: Boolean = false;
     public tookSnap: Boolean = false;
+    public feed: String = 'Feed';
 
     constructor(private cameraPreview: CameraPreview, public navCtrl: NavController, public navParams: NavParams) {
     }
 
     ionViewDidLoad() {
         this.startCamera();
+    }
+
+    closeCamera() {
+        this.cameraPreview.stopCamera();
     }
 
     switchCamera() {

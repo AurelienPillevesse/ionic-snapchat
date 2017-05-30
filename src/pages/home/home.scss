@@ -1,28 +1,30 @@
 page-home {
   background-color: yellow;
-}
-.bottom_button_container{
-  position: absolute;
-  bottom: 0px;
-  width: 100%;
-  height: 40%;
-}
-.big-btn{
-  margin:0px;
-  height: 50%;
-  font-size: 3rem;
-}
-.red_color{
-  background:  #f44336;
-}
-.blue_color{
-  background: #d500f9;
-}
-.logo_app{
-  margin: auto;
-  height: 50%;
-}
-.logo_app_container{
-  height: 60%;
-  display: flex;
+  
+  .bottom_button_container{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    height: 40%;
+  }
+  .big-btn{
+    margin:0px;
+    height: 50%;
+    font-size: 3rem;
+  }
+  .red_color{
+    background:  #f44336;
+  }
+  .blue_color{
+    background: #d500f9;
+  }
+  .logo_app{
+    margin: auto;
+    height: 50%;
+  }
+  .logo_app_container{
+    height: 60%;
+    display: flex;
+  }
+
 }
