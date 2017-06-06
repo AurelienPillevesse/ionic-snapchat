@@ -10,6 +10,7 @@ import {
   import { AngularFireDatabase,FirebaseListObservable} from 'angularfire2/database';
   import { User} from '../../model/user'
   import { EmailValidator } from '../../validators/email';
+  import { Storage } from '@ionic/storage';
 
   @IonicPage()
   @Component({
@@ -20,12 +21,12 @@ import {
     public signupForm: FormGroup;
     users: FirebaseListObservable<User[]>;
     loading: Loading;
-
+    private storage: Storage;
 
 
     constructor(public navCtrl: NavController, public authProvider: AuthProvider,
       public formBuilder: FormBuilder, public loadingCtrl: LoadingController,
-      public alertCtrl: AlertController, angularfire: AngularFireDatabase) {
+      public alertCtrl: AlertController, angularfire: AngularFireDatabase, private storage: Storage) {
       this.users = angularfire.list('/users');
       this.signupForm =  formBuilder.group({
         email: ['', Validators.compose([Validators.required, EmailValidator.isValid])],
@@ -33,6 +34,7 @@ import {
         lastname: ['', Validators.compose([Validators.required])],
         password: ['', Validators.compose([Validators.minLength(6), Validators.required])]
       });
+      this.storage = storage;
     }
 
     signupUser(){
@@ -67,12 +69,13 @@ import {
 
 
     registerUser(login:string,name:string,lastname:string){
-      this.users.push({
+      var result = this.users.push({
         name: name,
         lastname: lastname,
         login: login,
         score: 0,
       });
+      this.storage.set('userId',result.key);
     }
 
   }

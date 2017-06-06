@@ -4,7 +4,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AngularFireAuth } from 'angularfire2/auth';
 
-//import { HomePage } from '../pages/home/home';
 @Component({
   templateUrl: 'app.html'
 })
