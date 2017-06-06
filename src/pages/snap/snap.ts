@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { CameraPreview, CameraPreviewOptions } from '@ionic-native/camera-preview';
 
-import { AngularFireDatabase,FirebaseListObservable} from 'angularfire2/database';
+import { AngularFireDatabase} from 'angularfire2/database';
 
 /**
 * Generated class for the Snap page.
@@ -22,11 +22,13 @@ export class Snap {
     public tookSnap: Boolean = false;
     public feed: String = 'Feed';
     public user;
+    private snaps: any;
 
-    constructor(private cameraPreview: CameraPreview, public navCtrl: NavController, public navParams: NavParams, private storage: Storage) {
+    constructor(private cameraPreview: CameraPreview, public navCtrl: NavController, public navParams: NavParams, private storage: Storage, private af:AngularFireDatabase) {
         this.storage.get('user').then((val) => {
             this.user = val;
         });
+        this.snaps = af.list('/snaps');
     }
 
     ionViewDidLoad() {
