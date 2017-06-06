@@ -24,7 +24,6 @@ export class Snap {
     public tookSnap: Boolean = false;
     public feed: String = 'Feed';
     public user;
-    public loginTry;
 
     constructor(private cameraPreview: CameraPreview, public navCtrl: NavController, public navParams: NavParams, private storage: Storage) {
         this.storage.get('user').then((val) => {
