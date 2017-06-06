@@ -29,7 +29,7 @@
     </ion-fab>
 
     <ion-fab right bottom small *ngIf="tookSnap">
-        <button ion-fab color="light"><ion-icon name="md-send"></ion-icon></button>
+        <button ion-fab color="light"  (click)="sendPicture()"><ion-icon name="md-send"></ion-icon></button>
     </ion-fab>
 
     <ion-fab left bottom small *ngIf="!displayFriendMenu && !tookSnap">
