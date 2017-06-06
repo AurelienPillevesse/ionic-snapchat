@@ -60,7 +60,7 @@ export class Snap {
         const pictureOpts = {
             width: 1280,
             height: 1280,
-            quality: 100
+            quality: 85
         }
 
         this.cameraPreview.takePicture(pictureOpts).then((imageData) => {
@@ -98,7 +98,7 @@ export class Snap {
 
     sendPicture(){
         this.uploadPicture(this.user.login, 10);
-        this.navCtrl.setRoot('Feed');
+        this.navCtrl.push('Feed');
     }
 
     uploadPicture(senderLogin:string, duration:number){
