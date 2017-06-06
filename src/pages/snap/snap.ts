@@ -5,8 +5,6 @@ import { CameraPreview, CameraPreviewOptions } from '@ionic-native/camera-previe
 
 import { AngularFireDatabase,FirebaseListObservable} from 'angularfire2/database';
 
-import { Storage } from '@ionic/storage';
-
 /**
 * Generated class for the Snap page.
 *
@@ -97,17 +95,15 @@ export class Snap {
     }
 
     sendPicture(){
-      let user = this.storage.get('user');
-      this.uploadPicture(user.login,10);
-      this.navCtrl.setRoot('Feed');
+        this.uploadPicture(this.user.login, 10);
+        this.navCtrl.setRoot('Feed');
     }
 
     uploadPicture(senderLogin:string, duration:number){
-
-      this.snaps.push({
-        login: senderLogin,
-        dataPicture: this.picture,
-        duration: 10,
-      })
+        this.snaps.push({
+            login: senderLogin,
+            dataPicture: this.picture,
+            duration: 10,
+        })
     }
 }
