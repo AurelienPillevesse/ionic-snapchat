@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { Storage } from '@ionic/storage';
 import { CameraPreview, CameraPreviewOptions } from '@ionic-native/camera-preview';
 
 import { AngularFireDatabase,FirebaseListObservable} from 'angularfire2/database';
@@ -23,9 +23,13 @@ export class Snap {
     public displayFriendMenu: Boolean = false;
     public tookSnap: Boolean = false;
     public feed: String = 'Feed';
+    public user;
+    public loginTry;
 
     constructor(private cameraPreview: CameraPreview, public navCtrl: NavController, public navParams: NavParams, private storage: Storage) {
-
+        this.storage.get('user').then((val) => {
+            this.user = val;
+        });
     }
 
     ionViewDidLoad() {
