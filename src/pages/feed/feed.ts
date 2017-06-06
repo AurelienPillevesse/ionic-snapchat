@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 
 /**
 * Generated class for the Feed page.
@@ -19,11 +20,16 @@ export class Feed {
         from: "Pipic2"
     }];
 
-    constructor(public navCtrl: NavController, public navParams: NavParams) {
+    constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage) {
     }
 
     ionViewDidLoad() {
         console.log('ionViewDidLoad Feed');
     }
 
+    ionViewWillEnter() {
+        this.storage.get('user').then(() => {
+            this.navCtrl.push('snap');
+        });
+    }
 }
