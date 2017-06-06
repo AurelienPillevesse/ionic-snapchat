@@ -13,7 +13,12 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
     templateUrl: 'feed.html',
 })
 export class Feed {
-    
+    snaps = [{
+        from: "Pipic1"
+    }, {
+        from: "Pipic2"
+    }];
+
     constructor(public navCtrl: NavController, public navParams: NavParams) {
     }
 
