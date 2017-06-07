@@ -103,7 +103,7 @@ export class Snap {
 
     uploadPicture(senderLogin:string, duration:number){
         this.snaps.push({
-            login: senderLogin,
+            from: senderLogin,
             dataPicture: this.picture,
             duration: 10,
         })

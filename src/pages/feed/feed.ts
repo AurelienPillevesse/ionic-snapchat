@@ -16,23 +16,16 @@ import { AngularFireDatabase} from 'angularfire2/database';
 export class Feed {
     snaps = [];
 
-
     constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage, private af:AngularFireDatabase) {
       this.af.list('/snaps', {preserveSnapshot: true})
       .subscribe(snaps => {
           snaps.forEach(snap => {
-            this.snaps.push(snap);
+            this.snaps.push(snap.val());
           });
       })
     }
 
     ionViewDidLoad() {
         console.log('ionViewDidLoad Feed');
-    }
-
-    ionViewWillEnter() {
-        this.storage.get('user').then(() => {
-            this.navCtrl.push('snap');
-        });
     }
 }

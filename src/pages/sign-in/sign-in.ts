@@ -51,7 +51,7 @@ export class SignIn {
                         this.angularfire.list('/users', {preserveSnapshot: true})
                         .subscribe(users => {
                             users.forEach(user => {
-                                if(this.loginForm.value.email) {
+                                if(this.loginForm.value.email == user.val().login) {
                                     this.storage.set('userId', user.key);
                                     this.storage.set('user', user.val());
                                 }

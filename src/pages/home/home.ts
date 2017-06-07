@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 
+
 //import { SignUp } from '../sign-up/sign-up';
 //import { SignIn } from '../sign-in/sign-in';
 
@@ -15,9 +16,10 @@ export class HomePage {
     signIn = 'SignIn';
 
     constructor(public navCtrl: NavController, private storage: Storage) {
-        if(this.storage.get('user')) {
-            this.navCtrl.setRoot('Snap');
-        }
+        this.storage.get('user').then((val) => {
+            if(val != null) {
+                this.navCtrl.setRoot('Snap');
+            }
+        });
     }
-
 }

@@ -6,6 +6,7 @@
         <button ion-button color="light">Ils m'ont ajouté</button>
         <button ion-button color="light">Ajouter des amis</button>
         <button ion-button color="light">Mes amis</button>
+        <button ion-button color="light">Deconnexion</button>
     </div>
 
     <ion-fab class="middle-top" *ngIf="!displayFriendMenu && !tookSnap">
@@ -33,7 +34,8 @@
     </ion-fab>
 
     <ion-fab left bottom *ngIf="!displayFriendMenu && !tookSnap">
-        <button ion-button outline [navPush]="feed" (click)="closeCamera()" class="takePhotoButton"><img class="takePhotoButtonImage" src="assets/images/more.svg" alt=""></button>
+        <button ion-button outline [navPush]="feed" class="takePhotoButton"><img class="takePhotoButtonImage" src="assets/images/more.svg" alt=""></button>
+        <!--(click)="closeCamera()"-->
     </ion-fab>
 
 

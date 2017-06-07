@@ -1,6 +1,7 @@
 # ionic-snapchat
 
-- [ ] Lazy loading
-- [ ] Display friend menu
+- [x] Lazy loading
+- [x] Display friend menu
 - [ ] Add friend
-- [ ] Send picture
+- [x] Send picture
+- [x] Log out (delete localstorage)
