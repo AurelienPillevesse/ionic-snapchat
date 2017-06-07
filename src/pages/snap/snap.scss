@@ -25,3 +25,15 @@ page-snap {
 html, body, ion-app, ion-content, ion-page {
     background-color: transparent !important;
 }
+
+.takePhotoButton{
+  height: 75px;
+  width: 75px;
+  margin-left: -10px;
+  border: none;
+}
+
+.takePhotoButtonImage{
+  height: 100px;
+  width: 100px;
+}

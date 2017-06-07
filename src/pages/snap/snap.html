@@ -3,37 +3,37 @@
         {{ user.login }}
         Score: 0
 
-        <button color="light">Ils m'ont ajouté</button>
-        <button color="light">Ajouter des amis</button>
-        <button color="light">Mes amis</button>
+        <button ion-button color="light">Ils m'ont ajouté</button>
+        <button ion-button color="light">Ajouter des amis</button>
+        <button ion-button color="light">Mes amis</button>
     </div>
 
-    <ion-fab small class="middle-top" *ngIf="!displayFriendMenu && !tookSnap">
-        <button ion-fab color="light" (click)="clickFriendMenu()"><ion-icon name="md-person-add"></ion-icon></button>
+    <ion-fab class="middle-top" *ngIf="!displayFriendMenu && !tookSnap">
+        <button ion-button outline (click)="clickFriendMenu()" class="takePhotoButton"><img class="takePhotoButtonImage" src="assets/images/user.svg" alt=""></button>
     </ion-fab>
 
-    <ion-fab right top small *ngIf="!displayFriendMenu && !tookSnap">
-        <button ion-fab color="light" (click)="switchCamera()"><ion-icon name="md-reverse-camera"></ion-icon></button>
+    <ion-fab right top *ngIf="!displayFriendMenu && !tookSnap">
+        <button ion-button outline (click)="switchCamera()" class="takePhotoButton"><img class="takePhotoButtonImage" src="assets/images/revert.svg" alt=""></button>
     </ion-fab>
 
-    <ion-fab right top small *ngIf="displayFriendMenu">
-        <button ion-fab color="light" (click)="closeFriendMenu()"><ion-icon name="md-close"></ion-icon></button>
+    <ion-fab right top *ngIf="displayFriendMenu">
+        <button ion-button outline (click)="closeFriendMenu()" class="takePhotoButton"><ion-icon name="md-close"></ion-icon></button>
     </ion-fab>
 
-    <ion-fab right top small *ngIf="tookSnap">
-        <button ion-fab color="light" (click)="closeTookSnap()"><ion-icon name="md-close"></ion-icon></button>
+    <ion-fab right top *ngIf="tookSnap">
+        <button ion-button outline (click)="closeTookSnap()"><ion-icon name="md-close"></ion-icon></button>
     </ion-fab>
 
-    <ion-fab small class="middle-bottom" *ngIf="!displayFriendMenu && !tookSnap">
-        <button ion-fab color="light" (click)="takePicture()"></button>
+    <ion-fab class="middle-bottom" *ngIf="!displayFriendMenu && !tookSnap">
+        <button ion-button outline (click)="takePicture()" class="takePhotoButton"><img class="takePhotoButtonImage" src="assets/images/photo-camera.svg" alt=""></button>
     </ion-fab>
 
-    <ion-fab right bottom small *ngIf="tookSnap">
-        <button ion-fab color="light"  (click)="sendPicture()"><ion-icon name="md-send"></ion-icon></button>
+    <ion-fab right bottom *ngIf="tookSnap">
+        <button ion-button (click)="sendPicture()"></button>
     </ion-fab>
 
-    <ion-fab left bottom small *ngIf="!displayFriendMenu && !tookSnap">
-        <button ion-fab color="light" [navPush]="feed" (click)="closeCamera()"><ion-icon name="md-arrow-dropleft-circle"></ion-icon></button>
+    <ion-fab left bottom *ngIf="!displayFriendMenu && !tookSnap">
+        <button ion-button outline [navPush]="feed" (click)="closeCamera()" class="takePhotoButton"><img class="takePhotoButtonImage" src="assets/images/more.svg" alt=""></button>
     </ion-fab>
 
 
