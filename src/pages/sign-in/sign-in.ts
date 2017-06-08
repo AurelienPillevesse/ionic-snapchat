@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { AuthProvider } from "../../providers/auth-service/auth-service";
 import { EmailValidator } from "../../validators/email";
 import { Storage } from "@ionic/storage";
-import { AngularFireDatabase, FirebaseListObservable } from "angularfire2/database";
+import { AngularFireDatabase } from "angularfire2/database";
 
 //import { Snap } from '../snap/snap';
 /**
