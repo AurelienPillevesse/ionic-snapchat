@@ -7,7 +7,7 @@ Ionic pages and navigation.
 <ion-header>
 
     <ion-navbar>
-        <ion-title>feed</ion-title>
+        <ion-title>Mes Snap</ion-title>
     </ion-navbar>
 
 </ion-header>
@@ -15,12 +15,12 @@ Ionic pages and navigation.
 
 <ion-content>
     <ion-list *ngIf="!showSnap">
-        <button ion-item *ngFor="let snap of snaps" (click)="openSnap(snap)">
-            <span class="square">
-            </span>
-            {{ snap.from }}
-        </button>
+      <button ion-item *ngFor="let snap of snaps" (click)="openSnap(snap)">
+        <ion-icon name="square" item-start class="customIconSize"></ion-icon>
+        <div class="labelSnap">
+          {{ snap.from }}
+        </div>
+      </button>
     </ion-list>
-
     <img [src]="picture" *ngIf="showSnap"/>
 </ion-content>

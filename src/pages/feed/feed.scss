@@ -1,9 +1,9 @@
 page-feed {
     .square {
-        border: solid 15px red;
-        width: 30px;
-        height: 30px;
-        border-radius: 10px;
+        width: 60px;
+        height: 60px;
+        border-radius: 6px;
+        background-color: red;
     }
 
     .square-seen {
@@ -12,4 +12,20 @@ page-feed {
         height: 30px;
         border-radius: 10px;
     }
+
+    .snapContainer{
+      height: 75px;
+    }
+
+    .customIconSize{
+      color: red;
+      font-size: 35px;
+    }
+
+    .labelSnap{
+      display: inline;
+      height: 100%;
+      padding: 5px;
+    }
+
 }
