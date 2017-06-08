@@ -71,7 +71,7 @@ export class Snap {
 
     this.cameraPreview.takePicture(pictureOpts).then(
       imageData => {
-        this.cameraPreview.stopCamera();
+        //this.cameraPreview.stopCamera();
         this.picture = "data:image/jpeg;base64," + imageData;
         this.tookSnap = true;
       },
@@ -107,7 +107,8 @@ export class Snap {
 
   sendPicture() {
     this.uploadPicture(this.user.login, 10);
-    this.navCtrl.push("Feed");
+    this.tookSnap = false;
+    //this.navCtrl.push("Feed");
   }
 
   uploadPicture(senderLogin: string, duration: number) {
