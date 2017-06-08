@@ -15,7 +15,7 @@ Ionic pages and navigation.
 
 <ion-content>
     <ion-list>
-        <button ion-item *ngFor="let snap of snaps">
+        <button ion-item *ngFor="let snap of snaps" (click)="openSnap()">
             <span class="square">
             </span>
             {{ snap.from }}

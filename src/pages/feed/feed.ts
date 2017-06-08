@@ -28,4 +28,8 @@ export class Feed {
     ionViewDidLoad() {
         console.log('ionViewDidLoad Feed');
     }
+
+    openSnap() {
+        
+    }
 }
