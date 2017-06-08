@@ -12,10 +12,10 @@ Ionic pages and navigation.
 
 </ion-header>
 
-
-<ion-content>
+<div class="pageContentStyle">
+  <ion-content>
     <ion-list *ngIf="!showSnap">
-      <button ion-item *ngFor="let snap of snaps" (click)="openSnap(snap)">
+      <button ion-item *ngFor="let snap of snaps" (click)="openSnap(snap)" class="snapContainer">
         <ion-icon name="square" item-start class="customIconSize"></ion-icon>
         <div class="labelSnap">
           {{ snap.from }}
@@ -23,4 +23,5 @@ Ionic pages and navigation.
       </button>
     </ion-list>
     <img [src]="picture" *ngIf="showSnap"/>
-</ion-content>
+  </ion-content>
+</div>

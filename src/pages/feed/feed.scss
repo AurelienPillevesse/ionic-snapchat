@@ -13,19 +13,22 @@ page-feed {
         border-radius: 10px;
     }
 
-    .snapContainer{
-      height: 75px;
-    }
-
     .customIconSize{
       color: red;
       font-size: 35px;
     }
 
     .labelSnap{
-      display: inline;
-      height: 100%;
-      padding: 5px;
+      display: inline-block;
+      position: relative;
+      top: -5px;
+      font-size: 20px;
+      margin: auto;
+      margin-left: 10px;
     }
 
+    .pageContentStyle{
+      height: 100%;
+      background-color: white;
+    }
 }
