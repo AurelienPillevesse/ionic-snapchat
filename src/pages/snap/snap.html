@@ -6,7 +6,7 @@
         <button ion-button color="light">Ils m'ont ajouté</button>
         <button ion-button color="light">Ajouter des amis</button>
         <button ion-button color="light">Mes amis</button>
-        <button ion-button color="light">Deconnexion</button>
+        <button ion-button color="light" (click)="logout()">Deconnexion</button>
     </div>
 
     <ion-fab class="middle-top" *ngIf="!displayFriendMenu && !tookSnap">

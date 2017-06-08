@@ -15,6 +15,8 @@ import { AngularFireDatabase} from 'angularfire2/database';
 })
 export class Feed {
     snaps = [];
+    showSnap = false;
+    picture = null;
 
     constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage, private af:AngularFireDatabase) {
       this.af.list('/snaps', {preserveSnapshot: true})
@@ -29,7 +31,8 @@ export class Feed {
         console.log('ionViewDidLoad Feed');
     }
 
-    openSnap() {
-        
+    openSnap(snap) {
+        this.picture = snap.dataPicture;
+        this.showSnap = true;
     }
 }

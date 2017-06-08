@@ -14,11 +14,13 @@ Ionic pages and navigation.
 
 
 <ion-content>
-    <ion-list>
-        <button ion-item *ngFor="let snap of snaps" (click)="openSnap()">
+    <ion-list *ngIf="!showSnap">
+        <button ion-item *ngFor="let snap of snaps" (click)="openSnap(snap)">
             <span class="square">
             </span>
             {{ snap.from }}
         </button>
     </ion-list>
+
+    <img [src]="picture" *ngIf="showSnap"/>
 </ion-content>
