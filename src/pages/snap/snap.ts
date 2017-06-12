@@ -122,6 +122,7 @@ export class Snap {
   logout() {
     this.storage.remove("userId").then(() => {
       this.storage.remove("user").then(() => {
+        this.closeCamera();
         this.navCtrl.setRoot("HomePage");
       });
     });
