@@ -1,7 +1,25 @@
 # ionic-snapchat
 
+Use:
+    - Local storage
+    - Camera preview
+    - Firebase
+
+Tests:
+    - Karma
+
+Documentation:
+    - Compodoc
+
+Todo:
+- [ ] Providers
+- [ ] Modules
+- [ ] Documentation
+
+Done:
 - [x] Lazy loading
-- [x] Display friend menu
-- [ ] Add friend
-- [x] Send picture
-- [x] Log out (delete localstorage)
+- [x] Send snap
+- [x] Register
+- [x] Login
+- [x] Logout
+- [x] Localstorage for user informations
