@@ -41,3 +41,37 @@ html, body, ion-app, ion-content, ion-page {
   height: 75px;
   width: 75px;
 }
+
+.btnUser{
+  background-color: transparent;
+  color: white;
+  font-size: 25px;
+  margin: 10px;
+  box-shadow: none;
+  &.deconnectionColor{
+    color: #e53935;
+  }
+}
+
+.userNameField{
+  color: #76ff03;
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 10%;
+}
+
+.scoreField{
+  color: white;
+  font-size: 25px;
+  text-align: center;
+}
+
+.logo_app{
+  margin: auto;
+  height: 50%;
+  opacity: .7;
+}
+.logo_app_container{
+  height: 50%;
+  display: flex;
+}

@@ -1,16 +1,19 @@
 <ion-content>
     <div *ngIf="displayFriendMenu" class="friendMenu">
-        <div>
+      <div class="logo_app_container">
+        <img class="logo_app" src="assets/images/alien_logo.svg" alt="Logo">
+      </div>
+        <div class="userNameField">
             {{ user.login }}
         </div>
-        <div>
+        <div class="scoreField">
             Score: {{ user.score }}
         </div>
 
-        <button ion-button block color="light">Ils m'ont ajouté</button>
-        <button ion-button block color="light">Ajouter des amis</button>
-        <button ion-button block color="light">Mes amis</button>
-        <button ion-button block color="light" (click)="logout()">Deconnexion</button>
+        <button ion-button block color="light" class="btnUser" >Ils m'ont ajouté</button>
+        <button ion-button block color="light" class="btnUser" >Ajouter des amis</button>
+        <button ion-button block color="light" class="btnUser" >Mes amis</button>
+        <button ion-button block color="light" class="btnUser deconnectionColor"  (click)="logout()">Deconnexion</button>
     </div>
 
     <ion-fab class="middle-top" *ngIf="!displayFriendMenu && !tookSnap">
