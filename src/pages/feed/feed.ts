@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Storage } from '@ionic/storage';
-import { AngularFireDatabase} from 'angularfire2/database';
+import { Component } from "@angular/core";
+import { IonicPage, NavController, NavParams } from "ionic-angular";
+import { Storage } from "@ionic/storage";
+import { AngularFireDatabase } from "angularfire2/database";
 /**
 * Generated class for the Feed page.
 *
@@ -10,29 +10,41 @@ import { AngularFireDatabase} from 'angularfire2/database';
 */
 @IonicPage()
 @Component({
-    selector: 'page-feed',
-    templateUrl: 'feed.html',
+  selector: "page-feed",
+  templateUrl: "feed.html"
 })
 export class Feed {
-    snaps = [];
-    showSnap = false;
-    picture = null;
+  snaps = [];
+  showSnap = false;
+  picture = null;
+  TIME_IN_MS: number = 10000;
 
-    constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage, private af:AngularFireDatabase) {
-      this.af.list('/snaps', {preserveSnapshot: true})
-      .subscribe(snaps => {
-          snaps.forEach(snap => {
-            this.snaps.push(snap.val());
-          });
-      })
-    }
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private storage: Storage,
+    private af: AngularFireDatabase
+  ) {
+    this.af.list("/snaps", { preserveSnapshot: true }).subscribe(snaps => {
+      snaps.forEach(snap => {
+        this.snaps.push(snap.val());
+      });
+    });
+  }
 
-    ionViewDidLoad() {
-        console.log('ionViewDidLoad Feed');
-    }
+  ionViewDidLoad() {
+    console.log("ionViewDidLoad Feed");
+  }
 
-    openSnap(snap) {
-        this.picture = snap.dataPicture;
-        this.showSnap = true;
-    }
+  openSnap(snap) {
+    this.picture = snap.dataPicture;
+    this.showSnap = true;
+    this.displaySnapTimeout();
+  }
+
+  displaySnapTimeout() {
+    setTimeout(() => {
+      this.showSnap = false;
+    }, this.TIME_IN_MS);
+  }
 }
