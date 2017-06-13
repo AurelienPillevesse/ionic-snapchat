@@ -18,6 +18,7 @@ export class Feed {
   showSnap = false;
   picture = null;
   TIME_IN_MS: number = 10000;
+  timeoutDisplaySnap = null;
 
   constructor(
     public navCtrl: NavController,
@@ -43,8 +44,13 @@ export class Feed {
   }
 
   displaySnapTimeout() {
-    setTimeout(() => {
+    this.timeoutDisplaySnap = setTimeout(() => {
       this.showSnap = false;
     }, this.TIME_IN_MS);
+  }
+
+  clickOnSnapToClose() {
+    this.showSnap = false;
+    clearTimeout(this.timeoutDisplaySnap);
   }
 }

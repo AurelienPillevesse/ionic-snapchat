@@ -22,6 +22,6 @@ Ionic pages and navigation.
         </div>
       </button>
     </ion-list>
-    <img [src]="picture" *ngIf="showSnap"/>
+    <img [src]="picture" *ngIf="showSnap" (click)="clickOnSnapToClose()">
   </ion-content>
 </div>
