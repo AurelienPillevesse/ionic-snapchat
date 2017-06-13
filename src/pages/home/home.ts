@@ -16,11 +16,14 @@ export class HomePage {
     signIn = 'SignIn';
 
     constructor(public navCtrl: NavController, private storage: Storage,private splashScreen: SplashScreen) {
-        this.splashScreen.hide();
         this.storage.get('user').then((val) => {
             if(val != null) {
                 this.navCtrl.setRoot('Snap');
             }
         });
     }
+
+      ionViewDidLoad() {
+          this.splashScreen.hide();
+      }
 }

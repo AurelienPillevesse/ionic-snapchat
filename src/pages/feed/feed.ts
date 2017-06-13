@@ -57,12 +57,8 @@ export class Feed {
     }, this.TIME_IN_MS);
   }
 
-<<<<<<< HEAD
-
-=======
   clickOnSnapToClose() {
     this.showSnap = false;
     clearTimeout(this.timeoutDisplaySnap);
   }
->>>>>>> 1b0407648ffc4d230e738e7f8cafcc9a68de9c98
 }
