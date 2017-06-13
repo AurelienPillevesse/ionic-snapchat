@@ -21,24 +21,25 @@ export class Feed {
   picture = null;
   TIME_IN_MS: number = 10000;
   timeoutDisplaySnap = null;
-  //public loading: Loading;
+  public loading: Loading;
 
-  //public loadingCtrl: LoadingController
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     private storage: Storage,
-    private af: AngularFireDatabase
+    private af: AngularFireDatabase,
+    public loadingCtrl: LoadingController
   ) {
+    this.loading = this.loadingCtrl.create();
+    this.loading.present();
+
     this.af.list("/snaps", { preserveSnapshot: true }).subscribe(snaps => {
       snaps.forEach(snap => {
         this.snaps.push(snap.val());
       });
-      //this.loading.dismiss();
-    });
 
-    //this.loading = this.loadingCtrl.create();
-    //this.loading.present();
+      this.loading.dismiss();
+    });
   }
 
   ionViewDidLoad() {
