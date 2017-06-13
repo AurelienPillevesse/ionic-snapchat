@@ -13,7 +13,7 @@ export class MyApp {
   constructor(platform: Platform, afAuth: AngularFireAuth, statusBar: StatusBar, splashScreen: SplashScreen) {
     const authObserver = afAuth.authState.subscribe( user => {
       if (user) {
-        this.rootPage = 'HomePage';
+        this.rootPage = 'Snap';
         authObserver.unsubscribe();
       } else {
         this.rootPage = 'HomePage';
