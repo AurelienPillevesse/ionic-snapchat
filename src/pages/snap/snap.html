@@ -1,12 +1,16 @@
 <ion-content>
     <div *ngIf="displayFriendMenu" class="friendMenu">
-        {{ user.login }}
-        Score: 0
+        <div>
+            {{ user.login }}
+        </div>
+        <div>
+            Score: {{ user.score }}
+        </div>
 
-        <button ion-button color="light">Ils m'ont ajouté</button>
-        <button ion-button color="light">Ajouter des amis</button>
-        <button ion-button color="light">Mes amis</button>
-        <button ion-button color="light" (click)="logout()">Deconnexion</button>
+        <button ion-button block color="light">Ils m'ont ajouté</button>
+        <button ion-button block color="light">Ajouter des amis</button>
+        <button ion-button block color="light">Mes amis</button>
+        <button ion-button block color="light" (click)="logout()">Deconnexion</button>
     </div>
 
     <ion-fab class="middle-top" *ngIf="!displayFriendMenu && !tookSnap">
@@ -18,7 +22,7 @@
     </ion-fab>
 
     <ion-fab right top *ngIf="displayFriendMenu">
-        <button ion-button outline (click)="closeFriendMenu()" class="takePhotoButton"><ion-icon name="md-close"></ion-icon></button>
+        <button ion-button outline (click)="closeFriendMenu()" class="closeButton"><ion-icon name="md-close"></ion-icon></button>
     </ion-fab>
 
     <ion-fab right top *ngIf="tookSnap">
