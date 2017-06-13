@@ -2,7 +2,7 @@ import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams, LoadingController, Loading } from "ionic-angular";
 import { Storage } from "@ionic/storage";
 import { AngularFireDatabase } from "angularfire2/database";
-import {LoadingModal} from './components/loading-modal/loading-modal';
+import { LoadingModal } from "./components/loading-modal/loading-modal";
 
 /**
 * Generated class for the Feed page.
@@ -57,12 +57,8 @@ export class Feed {
     }, this.TIME_IN_MS);
   }
 
-<<<<<<< HEAD
-
-=======
   clickOnSnapToClose() {
     this.showSnap = false;
     clearTimeout(this.timeoutDisplaySnap);
   }
->>>>>>> 1b0407648ffc4d230e738e7f8cafcc9a68de9c98
 }
