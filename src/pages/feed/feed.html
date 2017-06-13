@@ -14,6 +14,7 @@ Ionic pages and navigation.
 
 <div class="pageContentStyle">
   <ion-content>
+
     <ion-list *ngIf="!showSnap">
       <button ion-item *ngFor="let snap of snaps" (click)="openSnap(snap)" class="snapContainer">
         <ion-icon name="square" item-start class="customIconSize"></ion-icon>

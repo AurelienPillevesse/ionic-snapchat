@@ -2,6 +2,8 @@ import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
 import { Storage } from "@ionic/storage";
 import { AngularFireDatabase } from "angularfire2/database";
+import {LoadingModal} from './components/loading-modal/loading-modal';
+
 /**
 * Generated class for the Feed page.
 *
@@ -47,4 +49,6 @@ export class Feed {
       this.showSnap = false;
     }, this.TIME_IN_MS);
   }
+
+
 }

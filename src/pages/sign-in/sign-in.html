@@ -49,11 +49,9 @@ Ionic pages and navigation.
       <p>Your password needs more than 6 characters.</p>
     </ion-item>
 
-    <button ion-button block type="submit">
-      Login
-    </button>
+    <button ion-button full [navPush]="snap" class="button_signup" type="submit">Valider</button>
 
   </form>
 
-  <button ion-button full [navPush]="snap" class="button_signup">Valider</button>
+
 </ion-content>
