@@ -9,7 +9,9 @@
         "build": "ionic-app-scripts build",
         "lint": "ionic-app-scripts lint",
         "ionic:build": "ionic-app-scripts build",
-        "ionic:serve": "ionic-app-scripts serve"
+        "ionic:serve": "ionic-app-scripts serve",
+        "compodoc": "./node_modules/.bin/compodoc -d ./docs/ -p ./tsconfig.json",
+        "git-push": "npm run compodoc && git add ./docs && git commit -m 'Update docs' && git push -u origin master"
     },
     "dependencies": {
         "@angular/common": "4.0.2",
