@@ -66,7 +66,7 @@ export class Snap {
     const pictureOpts = {
       width: 1280,
       height: 1280,
-      quality: 85
+      quality: 75
     };
 
     this.cameraPreview.takePicture(pictureOpts).then(
