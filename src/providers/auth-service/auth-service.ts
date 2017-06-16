@@ -29,7 +29,13 @@ export class AuthProvider {
     return this.afAuth.auth.signOut();
   }
 
-  signupUser(newEmail: string, newPassword: string): firebase.Promise<any> {
-    return this.afAuth.auth.createUserWithEmailAndPassword(newEmail, newPassword);
+  signupUser(newEmail: string, newPassword: string, lastName: string, name: string): firebase.Promise<any> {
+    return this.afAuth.auth.createUserWithEmailAndPassword(newEmail, newPassword).then(
+      newUser => {
+              firebase.database().ref("/users").child(newUser.uid).set({
+          lastname: lastName, login: newEmail ,name: name, score:0
+        })
+        
+      });
   }
 }

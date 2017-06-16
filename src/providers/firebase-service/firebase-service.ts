@@ -51,7 +51,7 @@ export class FirebaseServiceProvider {
       return this.authData.loginUser(this.loginForm.value.email, this.loginForm.value.password).then(
         authData => {
           console.log("before dismissLoading");
-          return this.dismissLoading();
+          //return this.dismissLoading();
         },
         error => {
           this.loading.dismiss().then(() => {
@@ -82,8 +82,7 @@ export class FirebaseServiceProvider {
   loadUsers(): Promise<any> {
     return this.af
       .list("/users", { preserveSnapshot: true })
-      .map(users =>
-        users.map(user => {
+      .map(users => users.map(user => {
           if (this.loginForm.value.email == user.val().login) {
             console.log("before setAllStorageUser");
             return this.setStorageUserId(user);
@@ -105,7 +104,6 @@ export class FirebaseServiceProvider {
     return this.storage.set("user", user.val()).then(() => {
       console.log(user.val().login);
       console.log("user set");
-      return;
     });
   }
 

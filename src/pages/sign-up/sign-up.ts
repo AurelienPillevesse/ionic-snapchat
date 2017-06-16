@@ -40,8 +40,7 @@ export class SignUp {
             if (!this.signupForm.valid){
                 console.log(this.signupForm.value);
             } else {
-                this.authProvider.signupUser(this.signupForm.value.email,
-                    this.signupForm.value.password)
+                this.authProvider.signupUser(this.signupForm.value.email, this.signupForm.value.password, this.signupForm.value.lastname, this.signupForm.value.name)
                     .then(() => {
                         this.loading.dismiss().then( () => {
                             this.navCtrl.setRoot('Snap');
@@ -62,7 +61,7 @@ export class SignUp {
                     });
                     this.loading = this.loadingCtrl.create();
                     this.loading.present();
-                    this.registerUser(this.signupForm.value.email,this.signupForm.value.name,this.signupForm.value.lastname);
+                    //this.registerUser(this.signupForm.value.email,this.signupForm.value.name,this.signupForm.value.lastname);
                 }
             }
 
