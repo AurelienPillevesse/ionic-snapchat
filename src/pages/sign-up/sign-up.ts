@@ -1,12 +1,17 @@
-import { Component } from "@angular/core";
 import { IonicPage, NavController, LoadingController, Loading, AlertController } from "ionic-angular";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { AuthProvider } from "../../providers/auth-service/auth-service";
 import { AngularFireDatabase, FirebaseListObservable } from "angularfire2/database";
-import { User } from "../../model/user";
+import { AuthProvider } from "../../providers/auth-service/auth-service";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { EmailValidator } from "../../validators/email";
+import { Component } from "@angular/core";
 import { Storage } from "@ionic/storage";
+import { User } from "../../model/user";
 
+/**
+ * The SignUp component
+ *
+ * Allows a user to register on the application.
+ */
 @IonicPage()
 @Component({
   selector: "page-sign-up",

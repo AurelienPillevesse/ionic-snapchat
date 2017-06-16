@@ -400,6 +400,12 @@
     <code>src/pages/sign-up/sign-up.ts</code>
 </p>
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>The SignUp component</p><br/><p>Allows a user to register on the application.</p><br/>
+    </p>
 
 
 
@@ -451,7 +457,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/pages/sign-up/sign-up.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/pages/sign-up/sign-up.ts:23</a></div>
                             </td>
                         </tr>
     
@@ -480,7 +486,7 @@
     
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/pages/sign-up/sign-up.ts:39</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/pages/sign-up/sign-up.ts:44</a></div>
                             </td>
                         </tr>
     
@@ -562,7 +568,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/pages/sign-up/sign-up.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/pages/sign-up/sign-up.ts:23</a></div>
                             </td>
                         </tr>
                 </tbody>
@@ -612,7 +618,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/pages/sign-up/sign-up.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/pages/sign-up/sign-up.ts:21</a></div>
                             </td>
                         </tr>
                 </tbody>
@@ -632,7 +638,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/pages/sign-up/sign-up.ts:17</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/pages/sign-up/sign-up.ts:22</a></div>
                             </td>
                         </tr>
                 </tbody>
@@ -642,15 +648,20 @@
 
 
     <div class="tab-pane fade tab-source-code" id="source">
-        <pre class="line-numbers"><code class="language-typescript">import { Component } from &quot;@angular/core&quot;;
-import { IonicPage, NavController, LoadingController, Loading, AlertController } from &quot;ionic-angular&quot;;
-import { FormBuilder, FormGroup, Validators } from &quot;@angular/forms&quot;;
-import { AuthProvider } from &quot;../../providers/auth-service/auth-service&quot;;
+        <pre class="line-numbers"><code class="language-typescript">import { IonicPage, NavController, LoadingController, Loading, AlertController } from &quot;ionic-angular&quot;;
 import { AngularFireDatabase, FirebaseListObservable } from &quot;angularfire2/database&quot;;
-import { User } from &quot;../../model/user&quot;;
+import { AuthProvider } from &quot;../../providers/auth-service/auth-service&quot;;
+import { FormBuilder, FormGroup, Validators } from &quot;@angular/forms&quot;;
 import { EmailValidator } from &quot;../../validators/email&quot;;
+import { Component } from &quot;@angular/core&quot;;
 import { Storage } from &quot;@ionic/storage&quot;;
+import { User } from &quot;../../model/user&quot;;
 
+/**
+ * The SignUp component
+ *
+ * Allows a user to register on the application.
+ */
 @IonicPage()
 @Component({
   selector: &quot;page-sign-up&quot;,

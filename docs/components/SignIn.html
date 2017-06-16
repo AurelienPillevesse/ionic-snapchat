@@ -404,7 +404,7 @@
         <h3>Description</h3>
     </p>
     <p class="comment">
-        <p>Generated class for the SignIn page.</p><br/><p>See <a href="http://ionicframework.com/docs/components/#navigation">http://ionicframework.com/docs/components/#navigation</a> for more info<br/>on Ionic pages and navigation.</p><br/>
+        <p>The SignIn component</p><br/><p>Allows a user to login on the application.</p><br/>
     </p>
 
 
@@ -457,7 +457,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/pages/sign-in/sign-in.ts:19</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/pages/sign-in/sign-in.ts:17</a></div>
                             </td>
                         </tr>
     
@@ -486,7 +486,7 @@
     
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/pages/sign-in/sign-in.ts:25</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/pages/sign-in/sign-in.ts:23</a></div>
                             </td>
                         </tr>
     
@@ -517,7 +517,7 @@
     
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/pages/sign-in/sign-in.ts:31</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/pages/sign-in/sign-in.ts:29</a></div>
                             </td>
                         </tr>
     
@@ -548,7 +548,7 @@
     
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/pages/sign-in/sign-in.ts:35</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/pages/sign-in/sign-in.ts:33</a></div>
                             </td>
                         </tr>
     
@@ -585,7 +585,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/pages/sign-in/sign-in.ts:19</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/pages/sign-in/sign-in.ts:17</a></div>
                             </td>
                         </tr>
                 </tbody>
@@ -615,13 +615,11 @@ import { IonicPage, NavController } from &quot;ionic-angular&quot;;
 import { FormGroup } from &quot;@angular/forms&quot;;
 import { Component } from &quot;@angular/core&quot;;
 
-//import { Snap } from &#x27;../snap/snap&#x27;;
 /**
-* Generated class for the SignIn page.
-*
-* See http://ionicframework.com/docs/components/#navigation for more info
-* on Ionic pages and navigation.
-*/
+ * The SignIn component
+ *
+ * Allows a user to login on the application.
+ */
 @IonicPage()
 @Component({
   selector: &quot;page-sign-in&quot;,
@@ -669,15 +667,6 @@ Ionic pages and navigation.
 
 &lt;ion-content class&#x3D;&quot;pageContentStyle&quot; &gt;
   &lt;h2 class&#x3D;&quot;form_signup_title&quot;&gt;Type here your personal information&lt;/h2&gt;
-  &lt;!--&lt;div class&#x3D;&quot;form_signup_container&quot;&gt;
-
-    &lt;ion-item class&#x3D;&quot;input_container&quot;&gt;
-      &lt;ion-input class&#x3D;&quot;input_signup&quot; text-center [(ngModel)]&#x3D;&quot;user.login&quot; ngControl&#x3D;&quot;login&quot; placeholder&#x3D;&quot;login&quot;&gt;&lt;/ion-input&gt;
-    &lt;/ion-item&gt;
-    &lt;ion-item class&#x3D;&quot;input_container&quot;&gt;
-      &lt;ion-input class&#x3D;&quot;input_signup&quot; text-center [(ngModel)]&#x3D;&quot;user.pass&quot; ngControl&#x3D;&quot;pass&quot; placeholder&#x3D;&quot;pass&quot;&gt;&lt;/ion-input&gt;
-    &lt;/ion-item&gt;
-  &lt;/div&gt;--&gt;
 
   &lt;form [formGroup]&#x3D;&quot;loginForm&quot; (submit)&#x3D;&quot;loginUser()&quot; novalidate&gt;
 
@@ -735,7 +724,7 @@ Ionic pages and navigation.
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><!--Generated template for the SignIn page.See http://ionicframework.com/docs/components/#navigation for more info onIonic pages and navigation.--><ion-header>  <ion-navbar>    <ion-title>signIn</ion-title>  </ion-navbar></ion-header><ion-content class="pageContentStyle" >  <h2 class="form_signup_title">Type here your personal information</h2>  <!--<div class="form_signup_container">    <ion-item class="input_container">      <ion-input class="input_signup" text-center [(ngModel)]="user.login" ngControl="login" placeholder="login"></ion-input>    </ion-item>    <ion-item class="input_container">      <ion-input class="input_signup" text-center [(ngModel)]="user.pass" ngControl="pass" placeholder="pass"></ion-input>    </ion-item>  </div>-->  <form [formGroup]="loginForm" (submit)="loginUser()" novalidate>    <ion-item>      <ion-label stacked>Email</ion-label>      <ion-input  class="input_signup" #email formControlName="email" type="email" placeholder="Your email address"        [class.invalid]="!loginForm.controls.email.valid &&          loginForm.controls.email.dirty"></ion-input>    </ion-item>    <ion-item class="error-message" *ngIf="!loginForm.controls.email.valid  &&      loginForm.controls.email.dirty">      <p>Please enter a valid email.</p>    </ion-item>    <ion-item>      <ion-label stacked>Password</ion-label>      <ion-input class="input_signup" #password formControlName="password" type="password" placeholder="Your password"        [class.invalid]="!loginForm.controls.password.valid &&          loginForm.controls.password.dirty"></ion-input>    </ion-item>    <ion-item class="error-message" *ngIf="!loginForm.controls.password.valid  &&      loginForm.controls.password.dirty">      <p>Your password needs more than 6 characters.</p>    </ion-item>    <button ion-button full [navPush]="snap" class="button_signup" type="submit">Valider</button>  </form></ion-content></div>'
+        var COMPONENT_TEMPLATE = '<div><!--Generated template for the SignIn page.See http://ionicframework.com/docs/components/#navigation for more info onIonic pages and navigation.--><ion-header>  <ion-navbar>    <ion-title>signIn</ion-title>  </ion-navbar></ion-header><ion-content class="pageContentStyle" >  <h2 class="form_signup_title">Type here your personal information</h2>  <form [formGroup]="loginForm" (submit)="loginUser()" novalidate>    <ion-item>      <ion-label stacked>Email</ion-label>      <ion-input  class="input_signup" #email formControlName="email" type="email" placeholder="Your email address"        [class.invalid]="!loginForm.controls.email.valid &&          loginForm.controls.email.dirty"></ion-input>    </ion-item>    <ion-item class="error-message" *ngIf="!loginForm.controls.email.valid  &&      loginForm.controls.email.dirty">      <p>Please enter a valid email.</p>    </ion-item>    <ion-item>      <ion-label stacked>Password</ion-label>      <ion-input class="input_signup" #password formControlName="password" type="password" placeholder="Your password"        [class.invalid]="!loginForm.controls.password.valid &&          loginForm.controls.password.dirty"></ion-input>    </ion-item>    <ion-item class="error-message" *ngIf="!loginForm.controls.password.valid  &&      loginForm.controls.password.dirty">      <p>Your password needs more than 6 characters.</p>    </ion-item>    <button ion-button full [navPush]="snap" class="button_signup" type="submit">Valider</button>  </form></ion-content></div>'
     var COMPONENTS = [{'name': 'Feed', 'selector': 'page-feed'},{'name': 'HomePage', 'selector': 'page-home'},{'name': 'MyApp', 'selector': ''},{'name': 'SignIn', 'selector': 'page-sign-in'},{'name': 'SignUp', 'selector': 'page-sign-up'},{'name': 'Snap', 'selector': 'page-snap'},{'name': 'Stories', 'selector': 'page-stories'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'SignIn'};

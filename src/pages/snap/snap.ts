@@ -6,11 +6,10 @@ import { Storage } from "@ionic/storage";
 import { User } from "../../model/user";
 
 /**
-* Generated class for the Snap page.
-*
-* See http://ionicframework.com/docs/components/#navigation for more info
-* on Ionic pages and navigation.
-*/
+ * The Snap component
+ *
+ * Display the main view of the application, to take snaps.
+ */
 @IonicPage()
 @Component({
   selector: "page-snap",

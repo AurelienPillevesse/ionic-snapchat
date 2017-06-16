@@ -1,23 +1,21 @@
-import { IonicPage, NavController, AlertController } from "ionic-angular";
-import { SplashScreen } from "@ionic-native/splash-screen";
+import { IonicPage, NavController } from "ionic-angular";
 import { Component } from "@angular/core";
-import { Storage } from "@ionic/storage";
 
+/**
+ * The home component
+ *
+ * Display buttons to go on signin or signup pages thanks to buttons.
+ */
 @IonicPage()
 @Component({
   selector: "page-home",
   templateUrl: "home.html"
 })
 export class HomePage {
-  signUp = "SignUp";
-  signIn = "SignIn";
+  signUp: string = "SignUp";
+  signIn: string = "SignIn";
 
-  constructor(
-    private alertCtrl: AlertController,
-    public navCtrl: NavController,
-    private storage: Storage,
-    private splashScreen: SplashScreen
-  ) {}
+  constructor(private alertCtrl: AlertController, public navCtrl: NavController) {}
 
   ionViewCanEnter() {}
 

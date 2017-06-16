@@ -15,15 +15,6 @@ Ionic pages and navigation.
 
 <ion-content class="pageContentStyle" >
   <h2 class="form_signup_title">Type here your personal information</h2>
-  <!--<div class="form_signup_container">
-
-    <ion-item class="input_container">
-      <ion-input class="input_signup" text-center [(ngModel)]="user.login" ngControl="login" placeholder="login"></ion-input>
-    </ion-item>
-    <ion-item class="input_container">
-      <ion-input class="input_signup" text-center [(ngModel)]="user.pass" ngControl="pass" placeholder="pass"></ion-input>
-    </ion-item>
-  </div>-->
 
   <form [formGroup]="loginForm" (submit)="loginUser()" novalidate>
 

@@ -3,13 +3,11 @@ import { IonicPage, NavController } from "ionic-angular";
 import { FormGroup } from "@angular/forms";
 import { Component } from "@angular/core";
 
-//import { Snap } from '../snap/snap';
 /**
-* Generated class for the SignIn page.
-*
-* See http://ionicframework.com/docs/components/#navigation for more info
-* on Ionic pages and navigation.
-*/
+ * The SignIn component
+ *
+ * Allows a user to login on the application.
+ */
 @IonicPage()
 @Component({
   selector: "page-sign-in",

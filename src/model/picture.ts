@@ -1,6 +1,6 @@
-export class Picture{
-
-	constructor(public content: string, public from: string, public to: Array<string>){
-		
-	}
+/**
+ * The Picture class
+ */
+export class Picture {
+  constructor(public content: string, public from: string, public to: Array<string>) {}
 }
