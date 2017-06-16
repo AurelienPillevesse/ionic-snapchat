@@ -33,11 +33,8 @@ export class Snap {
   ngOnInit() {
     if (this.user == null) {
       this.storage.get("userUID").then(userUID => {
-        console.log("current USERUID");
-        console.log(userUID);
         this.authData.currentUserInfo(userUID).on("value", data => {
           this.user = new User(data.val().name, data.val().lastname, data.val().login, data.val().score);
-          console.log(this.user);
         });
       });
     }

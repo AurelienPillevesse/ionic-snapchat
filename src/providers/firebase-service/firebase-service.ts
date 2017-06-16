@@ -42,9 +42,7 @@ export class FirebaseServiceProvider {
     this.loading = this.loadingCtrl.create();
     this.loading.present();
 
-    if (!this.loginForm.valid) {
-      console.log(this.loginForm.value);
-    } else {
+    if (this.loginForm.valid) {
       return this.authData.loginUser(this.loginForm.value.email, this.loginForm.value.password).then(
         authData => {
           return this.loading.dismiss().then(() => {
