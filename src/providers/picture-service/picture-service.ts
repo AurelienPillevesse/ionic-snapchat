@@ -103,11 +103,11 @@ export class PictureServiceProvider {
   }
 
   logout(): Promise<any> {
-    return this.storage.remove("userId").then(() => {
-      return this.storage.remove("user").then(() => {
-        console.log("everything remove");
-        return this.closeCamera();
-      });
+    //return this.storage.remove("userId").then(() => {
+    return this.storage.remove("user").then(() => {
+      console.log("everything remove");
+      return this.closeCamera();
     });
+    //});
   }
 }

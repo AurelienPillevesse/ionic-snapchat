@@ -9,6 +9,7 @@ import firebase from "firebase/app";
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/first";
 import "rxjs/add/operator/toPromise";
+import { User } from "../../model/user";
 
 /*
 Generated class for the FirebaseServiceProvider provider.
@@ -50,8 +51,15 @@ export class FirebaseServiceProvider {
     } else {
       return this.authData.loginUser(this.loginForm.value.email, this.loginForm.value.password).then(
         authData => {
-          console.log("before dismissLoading");
-          //return this.dismissLoading();
+          console.log("before dismiss");
+          return this.loading.dismiss().then(() => {
+            console.log("before authdata");
+            return this.authData.currentUserInfo(authData.uid).on("value", data => {
+              let user = new User(data.val().name, data.val().lastname, data.val().login, data.val().score);
+              console.log("before storage");
+              return this.storage.set("user", user);
+            });
+          });
         },
         error => {
           this.loading.dismiss().then(() => {
@@ -82,7 +90,8 @@ export class FirebaseServiceProvider {
   loadUsers(): Promise<any> {
     return this.af
       .list("/users", { preserveSnapshot: true })
-      .map(users => users.map(user => {
+      .map(users =>
+        users.map(user => {
           if (this.loginForm.value.email == user.val().login) {
             console.log("before setAllStorageUser");
             return this.setStorageUserId(user);
