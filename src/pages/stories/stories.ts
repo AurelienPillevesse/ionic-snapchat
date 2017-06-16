@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component } from "@angular/core";
+import { IonicPage, NavController, NavParams } from "ionic-angular";
 
 /**
  * Generated class for the Stories page.
@@ -9,16 +9,11 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
  */
 @IonicPage()
 @Component({
-  selector: 'page-stories',
-  templateUrl: 'stories.html',
+  selector: "page-stories",
+  templateUrl: "stories.html"
 })
 export class Stories {
+  constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad Stories');
-  }
-
+  ionViewDidLoad() {}
 }

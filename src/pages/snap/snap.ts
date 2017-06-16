@@ -1,9 +1,9 @@
-import { Component } from "@angular/core";
+import { PictureServiceProvider } from "../../providers/picture-service/picture-service";
+import { AuthProvider } from "../../providers/auth-service/auth-service";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
+import { Component } from "@angular/core";
 import { Storage } from "@ionic/storage";
-import { CameraPreview, CameraPreviewOptions } from "@ionic-native/camera-preview";
-
-import { AngularFireDatabase } from "angularfire2/database";
+import { User } from "../../model/user";
 
 /**
 * Generated class for the Snap page.
@@ -17,114 +17,64 @@ import { AngularFireDatabase } from "angularfire2/database";
   templateUrl: "snap.html"
 })
 export class Snap {
-  public picture: String;
-  public displayFriendMenu: Boolean = false;
-  public tookSnap: Boolean = false;
   public feed: String = "Feed";
-  public user;
-  private snaps: any;
+  public user: User;
 
   constructor(
-    private cameraPreview: CameraPreview,
     public navCtrl: NavController,
     public navParams: NavParams,
-    private storage: Storage,
-    private af: AngularFireDatabase
+    private pictureServiceProvider: PictureServiceProvider,
+    public authData: AuthProvider,
+    public storage: Storage
   ) {
-    this.storage.get("user").then(val => {
-      this.user = val;
-    });
-    this.snaps = af.list("/snaps");
+    this.pictureServiceProvider.initialize();
+  }
+
+  ngOnInit() {
+    if (this.user == null) {
+      this.storage.get("userUID").then(userUID => {
+        this.authData.currentUserInfo(userUID).on("value", data => {
+          this.user = new User(data.val().name, data.val().lastname, data.val().login, data.val().score);
+        });
+      });
+    }
   }
 
   ionViewDidLoad() {
-    this.startCamera();
+    this.pictureServiceProvider.startCamera();
   }
 
   closeCamera() {
-    this.cameraPreview.stopCamera();
+    this.pictureServiceProvider.closeCamera();
   }
 
   switchCamera() {
-    this.cameraPreview.switchCamera();
+    this.pictureServiceProvider.switchCamera();
   }
 
   clickFriendMenu() {
-    this.displayFriendMenu = true;
+    this.pictureServiceProvider.clickFriendMenu();
   }
 
   closeFriendMenu() {
-    this.displayFriendMenu = false;
+    this.pictureServiceProvider.closeFriendMenu();
   }
 
   closeTookSnap() {
-    this.tookSnap = false;
-    this.startCamera();
+    this.pictureServiceProvider.closeTookSnap();
   }
 
   takePicture() {
-    const pictureOpts = {
-      width: 1280,
-      height: 1280,
-      quality: 75
-    };
-
-    this.cameraPreview.takePicture(pictureOpts).then(
-      imageData => {
-        //this.cameraPreview.stopCamera();
-        this.picture = "data:image/jpeg;base64," + imageData;
-        this.tookSnap = true;
-      },
-      err => {
-        console.log(err);
-      }
-    );
-  }
-
-  startCamera() {
-    const cameraPreviewOpts: CameraPreviewOptions = {
-      x: 0,
-      y: 0,
-      width: window.screen.width,
-      height: window.screen.height,
-      camera: "rear",
-      toBack: true,
-      tapPhoto: false,
-      previewDrag: false,
-      alpha: 1
-    };
-
-    // start camera
-    this.cameraPreview.startCamera(cameraPreviewOpts).then(
-      res => {
-        console.log(res);
-      },
-      err => {
-        console.log(err);
-      }
-    );
+    this.pictureServiceProvider.takePicture();
   }
 
   sendPicture() {
-    this.uploadPicture(this.user.login, 10);
-    this.tookSnap = false;
-    //this.navCtrl.push("Feed");
-  }
-
-  uploadPicture(senderLogin: string, duration: number) {
-    this.snaps.push({
-      from: senderLogin,
-      dataPicture: this.picture,
-      duration: 10
-    });
+    this.pictureServiceProvider.sendPicture(this.user);
   }
 
   logout() {
-    this.storage.remove("userId").then(() => {
-      this.storage.remove("user").then(() => {
-        this.closeCamera();
-        this.navCtrl.setRoot("HomePage");
-      });
+    this.pictureServiceProvider.logout().then(() => {
+      this.navCtrl.setRoot("HomePage");
     });
   }
 }

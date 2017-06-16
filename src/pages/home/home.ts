@@ -1,10 +1,7 @@
-import { Component } from "@angular/core";
-import { IonicPage, NavController } from "ionic-angular";
-import { Storage } from "@ionic/storage";
+import { IonicPage, NavController, AlertController } from "ionic-angular";
 import { SplashScreen } from "@ionic-native/splash-screen";
-
-//import { SignUp } from '../sign-up/sign-up';
-//import { SignIn } from '../sign-in/sign-in';
+import { Component } from "@angular/core";
+import { Storage } from "@ionic/storage";
 
 @IonicPage()
 @Component({
@@ -15,15 +12,14 @@ export class HomePage {
   signUp = "SignUp";
   signIn = "SignIn";
 
-  constructor(public navCtrl: NavController, private storage: Storage, private splashScreen: SplashScreen) {
-    this.storage.get("user").then(val => {
-      if (val != null) {
-        this.navCtrl.setRoot("Snap");
-      }
-    });
-  }
+  constructor(
+    private alertCtrl: AlertController,
+    public navCtrl: NavController,
+    private storage: Storage,
+    private splashScreen: SplashScreen
+  ) {}
 
-  ionViewDidLoad() {
-    this.splashScreen.hide();
-  }
+  ionViewCanEnter() {}
+
+  ionViewDidLoad() {}
 }
