@@ -1,6 +1,11 @@
 import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
 import { PictureServiceProvider } from "../../providers/picture-service/picture-service";
+import { FirebaseServiceProvider } from "../../providers/firebase-service/firebase-service";
+import { User } from "../../model/user";
+
+import { AuthProvider } from "../../providers/auth-service/auth-service";
+import { Storage } from "@ionic/storage";
 
 /**
 * Generated class for the Snap page.
@@ -15,15 +20,31 @@ import { PictureServiceProvider } from "../../providers/picture-service/picture-
 })
 export class Snap {
   public feed: String = "Feed";
+  public user: User;
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private pictureServiceProvider: PictureServiceProvider
+    private pictureServiceProvider: PictureServiceProvider,
+    private firebaseServiceProvider: FirebaseServiceProvider,
+    public authData: AuthProvider,
+    public storage: Storage
   ) {
     this.pictureServiceProvider.initialize();
-    console.log("initialize");
-    this.pictureServiceProvider.getUserFromLocalStorageAndAllSnaps();
+  }
+
+  ngOnInit() {
+    //this.firebaseServiceProvider.currentUser(this.user);
+    if (this.user == null) {
+      this.storage.get("userUID").then(userUID => {
+        console.log("current USERUID");
+        console.log(userUID);
+        this.authData.currentUserInfo(userUID).on("value", data => {
+          this.user = new User(data.val().name, data.val().lastname, data.val().login, data.val().score);
+          console.log(this.user);
+        });
+      });
+    }
   }
 
   ionViewDidLoad() {
@@ -55,7 +76,7 @@ export class Snap {
   }
 
   sendPicture() {
-    this.pictureServiceProvider.sendPicture();
+    this.pictureServiceProvider.sendPicture(this.user);
   }
 
   logout() {

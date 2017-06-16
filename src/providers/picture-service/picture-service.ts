@@ -3,6 +3,9 @@ import "rxjs/add/operator/map";
 import { CameraPreview, CameraPreviewOptions } from "@ionic-native/camera-preview";
 import { Storage } from "@ionic/storage";
 import { AngularFireDatabase } from "angularfire2/database";
+import { LoadingController, Loading } from "ionic-angular";
+import { User } from "../../model/user";
+import firebase from "firebase/app";
 
 /*
 Generated class for the PictureServiceProvider provider.
@@ -15,25 +18,44 @@ export class PictureServiceProvider {
   public picture: String;
   public displayFriendMenu: Boolean;
   public tookSnap: Boolean;
-  public user;
+  public loading: Loading;
+  //public user;
   public snaps: any;
 
-  constructor(private cameraPreview: CameraPreview, private storage: Storage, private af: AngularFireDatabase) {
+  constructor(
+    private cameraPreview: CameraPreview,
+    private storage: Storage,
+    private af: AngularFireDatabase,
+    public loadingCtrl: LoadingController
+  ) {
     console.log("Hello PictureServiceProvider Provider");
   }
 
   initialize() {
     this.displayFriendMenu = false;
     this.tookSnap = false;
+    this.snaps = this.af.list("/snaps");
   }
 
-  getUserFromLocalStorageAndAllSnaps() {
-    this.storage.get("user").then(val => {
-      this.user = val;
-      console.log("getUserFromLocalStorageAndAllSnaps");
-      console.log(this.user.login);
+  /*getAllSnaps() {
+  this.storage.get("user").then(val => {
+  this.user = val;
+  console.log("getUserFromLocalStorageAndAllSnaps");
+  console.log(this.user.login);
+});
+}*/
+
+  getAllSnap(snaps) {
+    this.loading = this.loadingCtrl.create();
+    this.loading.present();
+
+    this.af.list("/snaps", { preserveSnapshot: true }).subscribe(dbSnaps => {
+      dbSnaps.forEach(dbSnap => {
+        snaps.push(dbSnap.val());
+      });
+
+      this.loading.dismiss();
     });
-    this.snaps = this.af.list("/snaps");
   }
 
   startCamera() {
@@ -76,14 +98,6 @@ export class PictureServiceProvider {
     );
   }
 
-  uploadPicture(senderLogin: string, duration: number) {
-    this.snaps.push({
-      from: senderLogin,
-      dataPicture: this.picture,
-      duration: duration
-    });
-  }
-
   closeTookSnap() {
     this.tookSnap = false;
     this.startCamera();
@@ -97,14 +111,35 @@ export class PictureServiceProvider {
     this.displayFriendMenu = false;
   }
 
-  sendPicture() {
-    this.uploadPicture(this.user.login, 10);
+  sendPicture(user: User) {
+    this.uploadPicture(user, 10);
     this.tookSnap = false;
+  }
+
+  uploadPicture(user: User, duration: number) {
+    this.snaps.push({
+      from: user.login,
+      dataPicture: this.picture,
+      duration: duration
+    });
+    this.updateUserScore(user);
+  }
+
+  updateUserScore(user: User) {
+    user.score++;
+    this.storage.get("userUID").then(userUID => {
+      firebase.database().ref("/users").child(userUID).set({
+        lastname: user.lastname,
+        score: user.score,
+        name: user.name,
+        login: user.login
+      });
+    });
   }
 
   logout(): Promise<any> {
     //return this.storage.remove("userId").then(() => {
-    return this.storage.remove("user").then(() => {
+    return this.storage.remove("userUID").then(() => {
       console.log("everything remove");
       return this.closeCamera();
     });

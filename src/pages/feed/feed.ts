@@ -1,4 +1,4 @@
-import { FirebaseServiceProvider } from "../../providers/firebase-service/firebase-service";
+import { PictureServiceProvider } from "../../providers/picture-service/picture-service";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
 import { Component } from "@angular/core";
 
@@ -23,9 +23,9 @@ export class Feed {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private firebaseServiceProvider: FirebaseServiceProvider
+    private pictureServiceProvider: PictureServiceProvider
   ) {
-    firebaseServiceProvider.getAllSnap(this.snaps);
+    pictureServiceProvider.getAllSnap(this.snaps);
   }
 
   openSnap(snap) {

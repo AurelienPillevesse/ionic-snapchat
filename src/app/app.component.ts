@@ -23,13 +23,13 @@ export class MyApp {
   ) {
     const authObserver = afAuth.authState.subscribe(user => {
       if (user) {
-        authProvider.currentUserInfo(user.uid).on("value", data => {
+        /*authProvider.currentUserInfo(user.uid).on("value", data => {
           let user = new User(data.val().name, data.val().lastname, data.val().login, data.val().score);
           storage.set("user", user).then(() => {
-            this.rootPage = "Snap";
-            authObserver.unsubscribe();
           });
-        });
+        });*/
+        this.rootPage = "Snap";
+        authObserver.unsubscribe();
       } else {
         this.rootPage = "HomePage";
         authObserver.unsubscribe();

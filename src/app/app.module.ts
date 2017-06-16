@@ -1,21 +1,21 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { ErrorHandler, NgModule } from '@angular/core';
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-import { SplashScreen } from '@ionic-native/splash-screen';
-import { StatusBar } from '@ionic-native/status-bar';
+import { BrowserModule } from "@angular/platform-browser";
+import { ErrorHandler, NgModule } from "@angular/core";
+import { IonicApp, IonicErrorHandler, IonicModule } from "ionic-angular";
+import { SplashScreen } from "@ionic-native/splash-screen";
+import { StatusBar } from "@ionic-native/status-bar";
 
-import { CameraPreview } from '@ionic-native/camera-preview';
+import { CameraPreview } from "@ionic-native/camera-preview";
 
-import { Firebase } from '@ionic-native/firebase';
-import { MyApp } from './app.component';
+import { Firebase } from "@ionic-native/firebase";
+import { MyApp } from "./app.component";
 
-import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
-import { AngularFireAuth } from 'angularfire2/auth';
-import { AuthProvider } from '../providers/auth-service/auth-service';
-import { IonicStorageModule } from '@ionic/storage';
-import { FirebaseServiceProvider } from '../providers/firebase-service/firebase-service';
-import { PictureServiceProvider } from '../providers/picture-service/picture-service';
+import { AngularFireModule } from "angularfire2";
+import { AngularFireDatabaseModule } from "angularfire2/database";
+import { AngularFireAuth } from "angularfire2/auth";
+import { AuthProvider } from "../providers/auth-service/auth-service";
+import { IonicStorageModule } from "@ionic/storage";
+import { FirebaseServiceProvider } from "../providers/firebase-service/firebase-service";
+import { PictureServiceProvider } from "../providers/picture-service/picture-service";
 
 export const firebaseConfig = {
   apiKey: "AIzaSyCe7MaeGS6o-Qtm1DjFGm6E9lwsB85QGJE",
@@ -27,9 +27,7 @@ export const firebaseConfig = {
 };
 
 @NgModule({
-  declarations: [
-    MyApp
-  ],
+  declarations: [MyApp],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
@@ -38,15 +36,13 @@ export const firebaseConfig = {
     IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
-  entryComponents: [
-    MyApp
-  ],
+  entryComponents: [MyApp],
   providers: [
     CameraPreview,
     Firebase,
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
     AngularFireAuth,
     AuthProvider,
     FirebaseServiceProvider,

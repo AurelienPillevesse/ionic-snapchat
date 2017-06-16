@@ -23,11 +23,8 @@ export class SignIn {
   }
 
   loginUser() {
-    //BUG
     this.firebaseServiceProvider.login().then(() => {
-      console.log("before root");
       this.navCtrl.setRoot("Snap");
-      console.log("after root");
     });
   }
 

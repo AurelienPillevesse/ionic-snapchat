@@ -21,6 +21,7 @@ for more info on providers and Angular 2 DI.
 export class FirebaseServiceProvider {
   public loginForm: FormGroup;
   public loading: Loading;
+  public user: User;
 
   constructor(
     public loadingCtrl: LoadingController,
@@ -53,12 +54,7 @@ export class FirebaseServiceProvider {
         authData => {
           console.log("before dismiss");
           return this.loading.dismiss().then(() => {
-            console.log("before authdata");
-            return this.authData.currentUserInfo(authData.uid).on("value", data => {
-              let user = new User(data.val().name, data.val().lastname, data.val().login, data.val().score);
-              console.log("before storage");
-              return this.storage.set("user", user);
-            });
+            return this.storage.set("userUID", authData.uid);
           });
         },
         error => {
@@ -80,52 +76,18 @@ export class FirebaseServiceProvider {
     console.log("end login() from firebase-service");
   }
 
-  dismissLoading(): Promise<any> {
-    return this.loading.dismiss().then(() => {
-      console.log("before loadUsers");
-      return this.loadUsers();
-    });
-  }
-
-  loadUsers(): Promise<any> {
-    return this.af
-      .list("/users", { preserveSnapshot: true })
-      .map(users =>
-        users.map(user => {
-          if (this.loginForm.value.email == user.val().login) {
-            console.log("before setAllStorageUser");
-            return this.setStorageUserId(user);
-          }
-        })
-      )
-      .first()
-      .toPromise();
-  }
-
-  setStorageUserId(user): Promise<any> {
-    return this.storage.set("userId", user.key).then(() => {
-      console.log("userid set");
-      this.setStorageUser(user);
-    });
-  }
-
-  setStorageUser(user): Promise<any> {
-    return this.storage.set("user", user.val()).then(() => {
-      console.log(user.val().login);
-      console.log("user set");
-    });
-  }
-
-  getAllSnap(snaps) {
-    this.loading = this.loadingCtrl.create();
-    this.loading.present();
-
-    this.af.list("/snaps", { preserveSnapshot: true }).subscribe(dbSnaps => {
-      dbSnaps.forEach(dbSnap => {
-        snaps.push(dbSnap.val());
+  /*currentUser(user): User {
+    if (this.user == null) {
+      this.storage.get("userUID").then(userUID => {
+        console.log("current USERUID");
+        console.log(userUID);
+        this.authData.currentUserInfo(userUID).on("value", data => {
+          this.user = new User(data.val().name, data.val().lastname, data.val().email, data.val().image);
+          console.log(this.user);
+          return this.user;
+        });
       });
-
-      this.loading.dismiss();
-    });
-  }
+    }
+    return this.user;
+  }*/
 }
