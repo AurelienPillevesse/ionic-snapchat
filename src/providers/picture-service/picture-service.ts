@@ -1,9 +1,8 @@
-import { Injectable } from "@angular/core";
-import "rxjs/add/operator/map";
 import { CameraPreview, CameraPreviewOptions } from "@ionic-native/camera-preview";
-import { Storage } from "@ionic/storage";
 import { AngularFireDatabase } from "angularfire2/database";
 import { LoadingController, Loading } from "ionic-angular";
+import { Injectable } from "@angular/core";
+import { Storage } from "@ionic/storage";
 import { User } from "../../model/user";
 import firebase from "firebase/app";
 
@@ -19,7 +18,6 @@ export class PictureServiceProvider {
   public displayFriendMenu: Boolean;
   public tookSnap: Boolean;
   public loading: Loading;
-  //public user;
   public snaps: any;
 
   constructor(
@@ -27,23 +25,13 @@ export class PictureServiceProvider {
     private storage: Storage,
     private af: AngularFireDatabase,
     public loadingCtrl: LoadingController
-  ) {
-    console.log("Hello PictureServiceProvider Provider");
-  }
+  ) {}
 
   initialize() {
     this.displayFriendMenu = false;
     this.tookSnap = false;
     this.snaps = this.af.list("/snaps");
   }
-
-  /*getAllSnaps() {
-  this.storage.get("user").then(val => {
-  this.user = val;
-  console.log("getUserFromLocalStorageAndAllSnaps");
-  console.log(this.user.login);
-});
-}*/
 
   getAllSnap(snaps) {
     this.loading = this.loadingCtrl.create();
@@ -138,11 +126,8 @@ export class PictureServiceProvider {
   }
 
   logout(): Promise<any> {
-    //return this.storage.remove("userId").then(() => {
     return this.storage.remove("userUID").then(() => {
-      console.log("everything remove");
       return this.closeCamera();
     });
-    //});
   }
 }

@@ -5,11 +5,8 @@ import { AngularFireDatabase } from "angularfire2/database";
 import { EmailValidator } from "../../validators/email";
 import { Injectable } from "@angular/core";
 import { Storage } from "@ionic/storage";
-import firebase from "firebase/app";
-import "rxjs/add/operator/map";
-import "rxjs/add/operator/first";
-import "rxjs/add/operator/toPromise";
 import { User } from "../../model/user";
+import firebase from "firebase/app";
 
 /*
 Generated class for the FirebaseServiceProvider provider.
@@ -30,9 +27,7 @@ export class FirebaseServiceProvider {
     public af: AngularFireDatabase,
     public authData: AuthProvider,
     public storage: Storage
-  ) {
-    console.log("Hello FirebaseServiceProvider Provider");
-  }
+  ) {}
 
   initializeLoginForm(): FormGroup {
     this.loginForm = this.formBuilder.group({
@@ -52,7 +47,6 @@ export class FirebaseServiceProvider {
     } else {
       return this.authData.loginUser(this.loginForm.value.email, this.loginForm.value.password).then(
         authData => {
-          console.log("before dismiss");
           return this.loading.dismiss().then(() => {
             return this.storage.set("userUID", authData.uid);
           });
@@ -73,21 +67,5 @@ export class FirebaseServiceProvider {
         }
       );
     }
-    console.log("end login() from firebase-service");
   }
-
-  /*currentUser(user): User {
-    if (this.user == null) {
-      this.storage.get("userUID").then(userUID => {
-        console.log("current USERUID");
-        console.log(userUID);
-        this.authData.currentUserInfo(userUID).on("value", data => {
-          this.user = new User(data.val().name, data.val().lastname, data.val().email, data.val().image);
-          console.log(this.user);
-          return this.user;
-        });
-      });
-    }
-    return this.user;
-  }*/
 }

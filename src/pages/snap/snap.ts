@@ -1,11 +1,9 @@
-import { Component } from "@angular/core";
-import { IonicPage, NavController, NavParams } from "ionic-angular";
 import { PictureServiceProvider } from "../../providers/picture-service/picture-service";
-import { FirebaseServiceProvider } from "../../providers/firebase-service/firebase-service";
-import { User } from "../../model/user";
-
 import { AuthProvider } from "../../providers/auth-service/auth-service";
+import { IonicPage, NavController, NavParams } from "ionic-angular";
+import { Component } from "@angular/core";
 import { Storage } from "@ionic/storage";
+import { User } from "../../model/user";
 
 /**
 * Generated class for the Snap page.
@@ -26,7 +24,6 @@ export class Snap {
     public navCtrl: NavController,
     public navParams: NavParams,
     private pictureServiceProvider: PictureServiceProvider,
-    private firebaseServiceProvider: FirebaseServiceProvider,
     public authData: AuthProvider,
     public storage: Storage
   ) {
@@ -34,7 +31,6 @@ export class Snap {
   }
 
   ngOnInit() {
-    //this.firebaseServiceProvider.currentUser(this.user);
     if (this.user == null) {
       this.storage.get("userUID").then(userUID => {
         console.log("current USERUID");
@@ -81,9 +77,7 @@ export class Snap {
 
   logout() {
     this.pictureServiceProvider.logout().then(() => {
-      console.log("before root");
       this.navCtrl.setRoot("HomePage");
-      console.log("after root");
     });
   }
 }

@@ -1,9 +1,9 @@
-import { Injectable } from "@angular/core";
-import { AngularFireAuth } from "angularfire2/auth";
-import firebase from "firebase/app";
 import { LoadingController, Loading, AlertController } from "ionic-angular";
-import { Storage } from "@ionic/storage";
 import { AngularFireDatabase } from "angularfire2/database";
+import { AngularFireAuth } from "angularfire2/auth";
+import { Injectable } from "@angular/core";
+import { Storage } from "@ionic/storage";
+import firebase from "firebase/app";
 
 @Injectable()
 export class AuthProvider {
