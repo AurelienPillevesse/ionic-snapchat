@@ -1,13 +1,13 @@
 <ion-content>
-    <div *ngIf="displayFriendMenu" class="friendMenu">
+    <div *ngIf="pictureServiceProvider.displayFriendMenu" class="friendMenu">
       <div class="logo_app_container">
         <img class="logo_app" src="assets/images/alien_logo.svg" alt="Logo">
       </div>
         <div class="userNameField">
-            {{ user.login }}
+            {{ pictureServiceProvider.user.login }}
         </div>
         <div class="scoreField">
-            Score: {{ user.score }}
+            Score: {{ pictureServiceProvider.user.score }}
         </div>
 
         <button ion-button block color="light" class="btnUser" >Ils m'ont ajouté</button>
@@ -16,35 +16,34 @@
         <button ion-button block color="light" class="btnUser deconnectionColor"  (click)="logout()">Deconnexion</button>
     </div>
 
-    <ion-fab class="middle-top" *ngIf="!displayFriendMenu && !tookSnap">
-        <button ion-button outline (click)="clickFriendMenu()" class="takePhotoButton"><img class="takePhotoButtonImage" src="assets/images/user.svg" alt=""></button>
+    <ion-fab class="middle-top" *ngIf="!pictureServiceProvider.displayFriendMenu && !pictureServiceProvider.tookSnap">
+        <button ion-fab outline (click)="clickFriendMenu()" class="takePhotoButton"><img class="takePhotoButtonImage" src="assets/images/user.svg" alt=""></button>
     </ion-fab>
 
-    <ion-fab right top *ngIf="!displayFriendMenu && !tookSnap">
-        <button ion-button outline (click)="switchCamera()" class="takePhotoButton"><img class="takePhotoButtonImage" src="assets/images/revert.svg" alt=""></button>
+    <ion-fab right top *ngIf="!pictureServiceProvider.displayFriendMenu && !pictureServiceProvider.tookSnap">
+        <button ion-fab outline (click)="switchCamera()" class="takePhotoButton"><img class="takePhotoButtonImage" src="assets/images/revert.svg" alt=""></button>
     </ion-fab>
 
-    <ion-fab right top *ngIf="displayFriendMenu">
-        <button ion-button outline (click)="closeFriendMenu()" class="closeButton"><ion-icon name="md-close"></ion-icon></button>
+    <ion-fab right top *ngIf="pictureServiceProvider.displayFriendMenu">
+        <button ion-fab outline (click)="closeFriendMenu()" class="closeButton"><ion-icon name="md-close"></ion-icon></button>
     </ion-fab>
 
-    <ion-fab right top *ngIf="tookSnap">
-        <button ion-button outline (click)="closeTookSnap()"><ion-icon name="md-close"></ion-icon></button>
+    <ion-fab right top *ngIf="pictureServiceProvider.tookSnap">
+        <button ion-fab outline (click)="closeTookSnap()"><ion-icon name="md-close"></ion-icon></button>
     </ion-fab>
 
-    <ion-fab class="middle-bottom" *ngIf="!displayFriendMenu && !tookSnap">
-        <button ion-button outline (click)="takePicture()" class="takePhotoButton"><img class="takePhotoButtonImage" src="assets/images/photo-camera.svg" alt=""></button>
+    <ion-fab class="middle-bottom" *ngIf="!pictureServiceProvider.displayFriendMenu && !pictureServiceProvider.tookSnap">
+        <button ion-fab outline (click)="takePicture()" class="takePhotoButton"><img class="takePhotoButtonImage" src="assets/images/photo-camera.svg" alt=""></button>
     </ion-fab>
 
-    <ion-fab right bottom *ngIf="tookSnap">
-        <button ion-button (click)="sendPicture()"></button>
+    <ion-fab right bottom *ngIf="pictureServiceProvider.tookSnap">
+        <button ion-fab (click)="sendPicture()"></button>
     </ion-fab>
 
-    <ion-fab left bottom *ngIf="!displayFriendMenu && !tookSnap">
-        <button ion-button outline [navPush]="feed" class="takePhotoButton"><img class="takePhotoButtonImage" src="assets/images/more.svg" alt=""></button>
-        <!--(click)="closeCamera()"-->
+    <ion-fab left bottom *ngIf="!pictureServiceProvider.displayFriendMenu && !pictureServiceProvider.tookSnap">
+        <button ion-fab outline [navPush]="feed" class="takePhotoButton"><img class="takePhotoButtonImage" src="assets/images/more.svg" alt=""></button>
     </ion-fab>
 
 
-    <img [src]="picture" *ngIf="tookSnap"/>
+    <img [src]="pictureServiceProvider.picture" *ngIf="pictureServiceProvider.tookSnap"/>
 </ion-content>

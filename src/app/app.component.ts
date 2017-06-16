@@ -1,22 +1,22 @@
-import { Component } from '@angular/core';
-import { Platform } from 'ionic-angular';
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
-import { AngularFireAuth } from 'angularfire2/auth';
+import { Component } from "@angular/core";
+import { Platform } from "ionic-angular";
+import { StatusBar } from "@ionic-native/status-bar";
+import { SplashScreen } from "@ionic-native/splash-screen";
+import { AngularFireAuth } from "angularfire2/auth";
 
 @Component({
-  templateUrl: 'app.html'
+  templateUrl: "app.html"
 })
 export class MyApp {
-  rootPage:any = 'HomePage';
+  rootPage: any = "HomePage";
 
   constructor(platform: Platform, afAuth: AngularFireAuth, statusBar: StatusBar, splashScreen: SplashScreen) {
-    const authObserver = afAuth.authState.subscribe( user => {
+    const authObserver = afAuth.authState.subscribe(user => {
       if (user) {
-        this.rootPage = 'Snap';
+        this.rootPage = "Snap";
         authObserver.unsubscribe();
       } else {
-        this.rootPage = 'HomePage';
+        this.rootPage = "HomePage";
         authObserver.unsubscribe();
       }
     });

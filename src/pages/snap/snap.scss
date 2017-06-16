@@ -20,6 +20,10 @@ page-snap {
     z-index: 999;
     top: 0px;
   }
+
+  button {
+      background-color: transparent!important;
+  }
 }
 
 html, body, ion-app, ion-content, ion-page {

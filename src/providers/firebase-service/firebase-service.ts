@@ -5,7 +5,10 @@ import { AngularFireDatabase } from "angularfire2/database";
 import { EmailValidator } from "../../validators/email";
 import { Injectable } from "@angular/core";
 import { Storage } from "@ionic/storage";
+import firebase from "firebase/app";
 import "rxjs/add/operator/map";
+import "rxjs/add/operator/first";
+import "rxjs/add/operator/toPromise";
 
 /*
 Generated class for the FirebaseServiceProvider provider.
@@ -29,32 +32,26 @@ export class FirebaseServiceProvider {
     console.log("Hello FirebaseServiceProvider Provider");
   }
 
-  initializeLoginForm() {
+  initializeLoginForm(): FormGroup {
     this.loginForm = this.formBuilder.group({
       email: ["", Validators.compose([Validators.required, EmailValidator.isValid])],
       password: ["", Validators.compose([Validators.minLength(6), Validators.required])]
     });
+
+    return this.loginForm;
   }
 
-  login() {
+  login(): firebase.Promise<any> {
+    this.loading = this.loadingCtrl.create();
+    this.loading.present();
+
     if (!this.loginForm.valid) {
       console.log(this.loginForm.value);
     } else {
-      this.authData.loginUser(this.loginForm.value.email, this.loginForm.value.password).then(
+      return this.authData.loginUser(this.loginForm.value.email, this.loginForm.value.password).then(
         authData => {
-          this.loading.dismiss().then(() => {
-            this.af.list("/users", { preserveSnapshot: true }).subscribe(users => {
-              users.forEach(user => {
-                if (this.loginForm.value.email == user.val().login) {
-                  this.storage.set("userId", user.key).then(() => {
-                    this.storage.set("user", user.val()).then(() => {
-                      return; //this.navCtrl.setRoot("Snap");
-                    });
-                  });
-                }
-              });
-            });
-          });
+          console.log("before dismissLoading");
+          return this.dismissLoading();
         },
         error => {
           this.loading.dismiss().then(() => {
@@ -71,13 +68,48 @@ export class FirebaseServiceProvider {
           });
         }
       );
-
-      this.loading = this.loadingCtrl.create();
-      this.loading.present();
     }
+    console.log("end login() from firebase-service");
   }
 
-  getAllSnap(snaps): any {
+  dismissLoading(): Promise<any> {
+    return this.loading.dismiss().then(() => {
+      console.log("before loadUsers");
+      return this.loadUsers();
+    });
+  }
+
+  loadUsers(): Promise<any> {
+    return this.af
+      .list("/users", { preserveSnapshot: true })
+      .map(users =>
+        users.map(user => {
+          if (this.loginForm.value.email == user.val().login) {
+            console.log("before setAllStorageUser");
+            return this.setStorageUserId(user);
+          }
+        })
+      )
+      .first()
+      .toPromise();
+  }
+
+  setStorageUserId(user): Promise<any> {
+    return this.storage.set("userId", user.key).then(() => {
+      console.log("userid set");
+      this.setStorageUser(user);
+    });
+  }
+
+  setStorageUser(user): Promise<any> {
+    return this.storage.set("user", user.val()).then(() => {
+      console.log(user.val().login);
+      console.log("user set");
+      return;
+    });
+  }
+
+  getAllSnap(snaps) {
     this.loading = this.loadingCtrl.create();
     this.loading.present();
 

@@ -1,5 +1,6 @@
 import { FirebaseServiceProvider } from "../../providers/firebase-service/firebase-service";
 import { IonicPage, NavController } from "ionic-angular";
+import { FormGroup } from "@angular/forms";
 import { Component } from "@angular/core";
 
 //import { Snap } from '../snap/snap';
@@ -15,13 +16,19 @@ import { Component } from "@angular/core";
   templateUrl: "sign-in.html"
 })
 export class SignIn {
+  public loginForm: FormGroup;
+
   constructor(public navCtrl: NavController, private firebaseServiceProvider: FirebaseServiceProvider) {
-    firebaseServiceProvider.initializeLoginForm();
+    this.loginForm = firebaseServiceProvider.initializeLoginForm();
   }
 
   loginUser() {
-    this.firebaseServiceProvider.login();
-    this.navCtrl.setRoot("Snap");
+    //BUG
+    this.firebaseServiceProvider.login().then(() => {
+      console.log("before root");
+      this.navCtrl.setRoot("Snap");
+      console.log("after root");
+    });
   }
 
   goToResetPassword() {
