@@ -30,6 +30,8 @@ export class PictureServiceProvider {
   getUserFromLocalStorageAndAllSnaps() {
     this.storage.get("user").then(val => {
       this.user = val;
+      console.log("getUserFromLocalStorageAndAllSnaps");
+      console.log(this.user.login);
     });
     this.snaps = this.af.list("/snaps");
   }

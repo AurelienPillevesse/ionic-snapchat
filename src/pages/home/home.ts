@@ -23,7 +23,7 @@ export class HomePage {
   ) {}
 
   ionViewCanEnter() {
-    this.storage
+    /*this.storage
       .get("user")
       .then(val => {
         console.log(val);
@@ -33,6 +33,6 @@ export class HomePage {
       })
       .then(() => {
         this.splashScreen.hide();
-      });
+    });*/
   }
 }
