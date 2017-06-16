@@ -452,7 +452,7 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
-                            <code>constructor(navCtrl: NavController, navParams: NavParams, firebaseServiceProvider: <a href="../injectables/FirebaseServiceProvider.html">FirebaseServiceProvider</a>)</code>
+                            <code>constructor(navCtrl: NavController, navParams: NavParams, pictureServiceProvider: <a href="../injectables/PictureServiceProvider.html">PictureServiceProvider</a>)</code>
                         </td>
                     </tr>
                         <tr>
@@ -715,7 +715,7 @@
 
 
     <div class="tab-pane fade tab-source-code" id="source">
-        <pre class="line-numbers"><code class="language-typescript">import { FirebaseServiceProvider } from &quot;../../providers/firebase-service/firebase-service&quot;;
+        <pre class="line-numbers"><code class="language-typescript">import { PictureServiceProvider } from &quot;../../providers/picture-service/picture-service&quot;;
 import { IonicPage, NavController, NavParams } from &quot;ionic-angular&quot;;
 import { Component } from &quot;@angular/core&quot;;
 
@@ -740,9 +740,9 @@ export class Feed {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private firebaseServiceProvider: FirebaseServiceProvider
+    private pictureServiceProvider: PictureServiceProvider
   ) {
-    firebaseServiceProvider.getAllSnap(this.snaps);
+    pictureServiceProvider.getAllSnap(this.snaps);
   }
 
   openSnap(snap) {

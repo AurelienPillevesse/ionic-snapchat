@@ -486,7 +486,7 @@
     
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/pages/stories/stories.ts:20</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/pages/stories/stories.ts:18</a></div>
                             </td>
                         </tr>
     
@@ -543,8 +543,8 @@
 
 
     <div class="tab-pane fade tab-source-code" id="source">
-        <pre class="line-numbers"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
-import { IonicPage, NavController, NavParams } from &#x27;ionic-angular&#x27;;
+        <pre class="line-numbers"><code class="language-typescript">import { Component } from &quot;@angular/core&quot;;
+import { IonicPage, NavController, NavParams } from &quot;ionic-angular&quot;;
 
 /**
  * Generated class for the Stories page.
@@ -554,18 +554,13 @@ import { IonicPage, NavController, NavParams } from &#x27;ionic-angular&#x27;;
  */
 @IonicPage()
 @Component({
-  selector: &#x27;page-stories&#x27;,
-  templateUrl: &#x27;stories.html&#x27;,
+  selector: &quot;page-stories&quot;,
+  templateUrl: &quot;stories.html&quot;
 })
 export class Stories {
+  constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
-
-  ionViewDidLoad() {
-    console.log(&#x27;ionViewDidLoad Stories&#x27;);
-  }
-
+  ionViewDidLoad() {}
 }
 </code></pre>
     </div>

@@ -402,12 +402,12 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <code>constructor(http: <a href="https://angular.io/docs/ts/latest/api/http/index/Http-class.html" target="_blank">Http</a>)</code>
+                                    <code>constructor(cameraPreview: CameraPreview, storage: Storage, af: AngularFireDatabase, loadingCtrl: LoadingController)</code>
                                 </td>
                             </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/providers/picture-service/picture-service.ts:12</a></div>
+                                        <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/providers/picture-service/picture-service.ts:21</a></div>
                                     </td>
                                 </tr>
             
@@ -415,6 +415,415 @@
                     </table>
             </section>
 
+            <section>
+                
+                    <h3 id="methods">
+                        Methods
+                    </h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> initialize</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+            <code>initialize()</code>
+                                </td>
+                            </tr>
+            
+            
+                                <tr>
+                                    <td class="col-md-4">
+                                        <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/providers/picture-service/picture-service.ts:30</a></div>
+                                    </td>
+                                </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+            
+                                        <div class="io-description">
+                                            <b>Returns : </b>    <code>void</code>
+            
+                                        </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> getAllSnap</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+            <code>getAllSnap(snaps: any)</code>
+                                </td>
+                            </tr>
+            
+            
+                                <tr>
+                                    <td class="col-md-4">
+                                        <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/providers/picture-service/picture-service.ts:36</a></div>
+                                    </td>
+                                </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+            
+                                        <div class="io-description">
+                                            <b>Returns : </b>    <code>void</code>
+            
+                                        </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> startCamera</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+            <code>startCamera()</code>
+                                </td>
+                            </tr>
+            
+            
+                                <tr>
+                                    <td class="col-md-4">
+                                        <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/providers/picture-service/picture-service.ts:49</a></div>
+                                    </td>
+                                </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+            
+                                        <div class="io-description">
+                                            <b>Returns : </b>    <code>void</code>
+            
+                                        </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> closeCamera</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+            <code>closeCamera()</code>
+                                </td>
+                            </tr>
+            
+            
+                                <tr>
+                                    <td class="col-md-4">
+                                        <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">src/providers/picture-service/picture-service.ts:65</a></div>
+                                    </td>
+                                </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+            
+                                        <div class="io-description">
+                                            <b>Returns : </b>    <code>void</code>
+            
+                                        </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> switchCamera</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+            <code>switchCamera()</code>
+                                </td>
+                            </tr>
+            
+            
+                                <tr>
+                                    <td class="col-md-4">
+                                        <div class="io-line">Defined in <a href="" data-line="69" class="link-to-prism">src/providers/picture-service/picture-service.ts:69</a></div>
+                                    </td>
+                                </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+            
+                                        <div class="io-description">
+                                            <b>Returns : </b>    <code>void</code>
+            
+                                        </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> takePicture</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+            <code>takePicture()</code>
+                                </td>
+                            </tr>
+            
+            
+                                <tr>
+                                    <td class="col-md-4">
+                                        <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">src/providers/picture-service/picture-service.ts:73</a></div>
+                                    </td>
+                                </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+            
+                                        <div class="io-description">
+                                            <b>Returns : </b>    <code>void</code>
+            
+                                        </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> closeTookSnap</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+            <code>closeTookSnap()</code>
+                                </td>
+                            </tr>
+            
+            
+                                <tr>
+                                    <td class="col-md-4">
+                                        <div class="io-line">Defined in <a href="" data-line="89" class="link-to-prism">src/providers/picture-service/picture-service.ts:89</a></div>
+                                    </td>
+                                </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+            
+                                        <div class="io-description">
+                                            <b>Returns : </b>    <code>void</code>
+            
+                                        </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> clickFriendMenu</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+            <code>clickFriendMenu()</code>
+                                </td>
+                            </tr>
+            
+            
+                                <tr>
+                                    <td class="col-md-4">
+                                        <div class="io-line">Defined in <a href="" data-line="94" class="link-to-prism">src/providers/picture-service/picture-service.ts:94</a></div>
+                                    </td>
+                                </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+            
+                                        <div class="io-description">
+                                            <b>Returns : </b>    <code>void</code>
+            
+                                        </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> closeFriendMenu</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+            <code>closeFriendMenu()</code>
+                                </td>
+                            </tr>
+            
+            
+                                <tr>
+                                    <td class="col-md-4">
+                                        <div class="io-line">Defined in <a href="" data-line="98" class="link-to-prism">src/providers/picture-service/picture-service.ts:98</a></div>
+                                    </td>
+                                </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+            
+                                        <div class="io-description">
+                                            <b>Returns : </b>    <code>void</code>
+            
+                                        </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> sendPicture</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+            <code>sendPicture(user: <a href="../classes/User.html">User</a>)</code>
+                                </td>
+                            </tr>
+            
+            
+                                <tr>
+                                    <td class="col-md-4">
+                                        <div class="io-line">Defined in <a href="" data-line="102" class="link-to-prism">src/providers/picture-service/picture-service.ts:102</a></div>
+                                    </td>
+                                </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+            
+                                        <div class="io-description">
+                                            <b>Returns : </b>    <code>void</code>
+            
+                                        </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> uploadPicture</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+            <code>uploadPicture(user: <a href="../classes/User.html">User</a>, duration: number)</code>
+                                </td>
+                            </tr>
+            
+            
+                                <tr>
+                                    <td class="col-md-4">
+                                        <div class="io-line">Defined in <a href="" data-line="107" class="link-to-prism">src/providers/picture-service/picture-service.ts:107</a></div>
+                                    </td>
+                                </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+            
+                                        <div class="io-description">
+                                            <b>Returns : </b>    <code>void</code>
+            
+                                        </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> updateUserScore</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+            <code>updateUserScore(user: <a href="../classes/User.html">User</a>)</code>
+                                </td>
+                            </tr>
+            
+            
+                                <tr>
+                                    <td class="col-md-4">
+                                        <div class="io-line">Defined in <a href="" data-line="116" class="link-to-prism">src/providers/picture-service/picture-service.ts:116</a></div>
+                                    </td>
+                                </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+            
+                                        <div class="io-description">
+                                            <b>Returns : </b>    <code>void</code>
+            
+                                        </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> logout</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+            <code>logout()</code>
+                                </td>
+                            </tr>
+            
+            
+                                <tr>
+                                    <td class="col-md-4">
+                                        <div class="io-line">Defined in <a href="" data-line="128" class="link-to-prism">src/providers/picture-service/picture-service.ts:128</a></div>
+                                    </td>
+                                </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+            
+                                        <div class="io-description">
+                                            <b>Returns : </b>    <code>Promise&lt;any&gt;</code>
+            
+                                        </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+            </section>
 
             <section>
                 
@@ -425,37 +834,252 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <b> http</b>
+                                    <b><span class="modifier">Static</span> displayFriendMenu</b>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <code>http:     <code><a href="https://angular.io/docs/ts/latest/api/http/index/Http-class.html" target="_blank" >Http</a></code>
+                                    <span class="modifier-icon fa fa-export"></span><code>displayFriendMenu:     <code>Boolean</code>
+            </bcode>
+                                </td>
+                            </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/providers/picture-service/picture-service.ts:18</a></div>
+                                    </td>
+                                </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b><span class="modifier">Static</span> loading</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <span class="modifier-icon fa fa-export"></span><code>loading:     <code>Loading</code>
+            </bcode>
+                                </td>
+                            </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/providers/picture-service/picture-service.ts:20</a></div>
+                                    </td>
+                                </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> loadingCtrl</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>loadingCtrl:     <code>LoadingController</code>
             </bcode>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b><span class="modifier">Static</span> picture</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <span class="modifier-icon fa fa-export"></span><code>picture:     <code>String</code>
+            </bcode>
+                                </td>
+                            </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/providers/picture-service/picture-service.ts:17</a></div>
+                                    </td>
+                                </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b><span class="modifier">Static</span> snaps</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <span class="modifier-icon fa fa-export"></span><code>snaps:     <code>any</code>
+            </bcode>
+                                </td>
+                            </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/providers/picture-service/picture-service.ts:21</a></div>
+                                    </td>
+                                </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b><span class="modifier">Static</span> tookSnap</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <span class="modifier-icon fa fa-export"></span><code>tookSnap:     <code>Boolean</code>
+            </bcode>
+                                </td>
+                            </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/providers/picture-service/picture-service.ts:19</a></div>
+                                    </td>
+                                </tr>
+                        </tbody>
+                    </table>
             </section>
     </div>
     <div class="tab-pane fade tab-source-code" id="source">
-        <pre class="line-numbers"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
-import { Http } from &#x27;@angular/http&#x27;;
-import &#x27;rxjs/add/operator/map&#x27;;
+        <pre class="line-numbers"><code class="language-typescript">import { CameraPreview, CameraPreviewOptions } from &quot;@ionic-native/camera-preview&quot;;
+import { AngularFireDatabase } from &quot;angularfire2/database&quot;;
+import { LoadingController, Loading } from &quot;ionic-angular&quot;;
+import { Injectable } from &quot;@angular/core&quot;;
+import { Storage } from &quot;@ionic/storage&quot;;
+import { User } from &quot;../../model/user&quot;;
+import firebase from &quot;firebase/app&quot;;
 
 /*
-  Generated class for the PictureServiceProvider provider.
+Generated class for the PictureServiceProvider provider.
 
-  See https://angular.io/docs/ts/latest/guide/dependency-injection.html
-  for more info on providers and Angular 2 DI.
+See https://angular.io/docs/ts/latest/guide/dependency-injection.html
+for more info on providers and Angular 2 DI.
 */
 @Injectable()
 export class PictureServiceProvider {
+  public picture: String;
+  public displayFriendMenu: Boolean;
+  public tookSnap: Boolean;
+  public loading: Loading;
+  public snaps: any;
 
-  constructor(public http: Http) {
-    console.log(&#x27;Hello PictureServiceProvider Provider&#x27;);
+  constructor(
+    private cameraPreview: CameraPreview,
+    private storage: Storage,
+    private af: AngularFireDatabase,
+    public loadingCtrl: LoadingController
+  ) {}
+
+  initialize() {
+    this.displayFriendMenu &#x3D; false;
+    this.tookSnap &#x3D; false;
+    this.snaps &#x3D; this.af.list(&quot;/snaps&quot;);
   }
 
+  getAllSnap(snaps) {
+    this.loading &#x3D; this.loadingCtrl.create();
+    this.loading.present();
+
+    this.af.list(&quot;/snaps&quot;, { preserveSnapshot: true }).subscribe(dbSnaps &#x3D;&gt; {
+      dbSnaps.forEach(dbSnap &#x3D;&gt; {
+        snaps.push(dbSnap.val());
+      });
+
+      this.loading.dismiss();
+    });
+  }
+
+  startCamera() {
+    const cameraPreviewOpts: CameraPreviewOptions &#x3D; {
+      x: 0,
+      y: 0,
+      width: window.screen.width,
+      height: window.screen.height,
+      camera: &quot;rear&quot;,
+      toBack: true,
+      tapPhoto: false,
+      previewDrag: false,
+      alpha: 1
+    };
+
+    this.cameraPreview.startCamera(cameraPreviewOpts);
+  }
+
+  closeCamera() {
+    this.cameraPreview.stopCamera();
+  }
+
+  switchCamera() {
+    this.cameraPreview.switchCamera();
+  }
+
+  takePicture() {
+    const pictureOpts &#x3D; {
+      width: 1280,
+      height: 1280,
+      quality: 75
+    };
+
+    this.cameraPreview.takePicture(pictureOpts).then(
+      imageData &#x3D;&gt; {
+        this.picture &#x3D; &quot;data:image/jpeg;base64,&quot; + imageData;
+        this.tookSnap &#x3D; true;
+      },
+      err &#x3D;&gt; {}
+    );
+  }
+
+  closeTookSnap() {
+    this.tookSnap &#x3D; false;
+    this.startCamera();
+  }
+
+  clickFriendMenu() {
+    this.displayFriendMenu &#x3D; true;
+  }
+
+  closeFriendMenu() {
+    this.displayFriendMenu &#x3D; false;
+  }
+
+  sendPicture(user: User) {
+    this.uploadPicture(user, 10);
+    this.tookSnap &#x3D; false;
+  }
+
+  uploadPicture(user: User, duration: number) {
+    this.snaps.push({
+      from: user.login,
+      dataPicture: this.picture,
+      duration: duration
+    });
+    this.updateUserScore(user);
+  }
+
+  updateUserScore(user: User) {
+    user.score++;
+    this.storage.get(&quot;userUID&quot;).then(userUID &#x3D;&gt; {
+      firebase.database().ref(&quot;/users&quot;).child(userUID).set({
+        lastname: user.lastname,
+        score: user.score,
+        name: user.name,
+        login: user.login
+      });
+    });
+  }
+
+  logout(): Promise&lt;any&gt; {
+    return this.storage.remove(&quot;userUID&quot;).then(() &#x3D;&gt; {
+      return this.closeCamera();
+    });
+  }
 }
 </code></pre>
     </div>

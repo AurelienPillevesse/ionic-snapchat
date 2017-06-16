@@ -407,7 +407,7 @@
                             </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/providers/firebase-service/firebase-service.ts:20</a></div>
+                                        <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/providers/firebase-service/firebase-service.ts:21</a></div>
                                     </td>
                                 </tr>
             
@@ -436,7 +436,7 @@
             
                                 <tr>
                                     <td class="col-md-4">
-                                        <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/providers/firebase-service/firebase-service.ts:33</a></div>
+                                        <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/providers/firebase-service/firebase-service.ts:32</a></div>
                                     </td>
                                 </tr>
             
@@ -467,7 +467,7 @@
             
                                 <tr>
                                     <td class="col-md-4">
-                                        <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/providers/firebase-service/firebase-service.ts:42</a></div>
+                                        <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/providers/firebase-service/firebase-service.ts:41</a></div>
                                     </td>
                                 </tr>
             
@@ -476,37 +476,6 @@
             
                                         <div class="io-description">
                                             <b>Returns : </b>    <code>any</code>
-            
-                                        </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                            <tr>
-                                <td class="col-md-4">
-                                    <b> getAllSnap</b>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="col-md-4">
-            <code>getAllSnap(snaps: any)</code>
-                                </td>
-                            </tr>
-            
-            
-                                <tr>
-                                    <td class="col-md-4">
-                                        <div class="io-line">Defined in <a href="" data-line="83" class="link-to-prism">src/providers/firebase-service/firebase-service.ts:83</a></div>
-                                    </td>
-                                </tr>
-            
-                            <tr>
-                                <td class="col-md-4">
-            
-                                        <div class="io-description">
-                                            <b>Returns : </b>    <code>void</code>
             
                                         </div>
                                 </td>
@@ -650,6 +619,26 @@
                             </tr>
                         </tbody>
                     </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b><span class="modifier">Static</span> user</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <span class="modifier-icon fa fa-export"></span><code>user:     <code><a href="../classes/User.html" target="_self" >User</a></code>
+            </bcode>
+                                </td>
+                            </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/providers/firebase-service/firebase-service.ts:21</a></div>
+                                    </td>
+                                </tr>
+                        </tbody>
+                    </table>
             </section>
     </div>
     <div class="tab-pane fade tab-source-code" id="source">
@@ -660,8 +649,8 @@ import { AngularFireDatabase } from &quot;angularfire2/database&quot;;
 import { EmailValidator } from &quot;../../validators/email&quot;;
 import { Injectable } from &quot;@angular/core&quot;;
 import { Storage } from &quot;@ionic/storage&quot;;
+import { User } from &quot;../../model/user&quot;;
 import firebase from &quot;firebase/app&quot;;
-import &quot;rxjs/add/operator/map&quot;;
 
 /*
 Generated class for the FirebaseServiceProvider provider.
@@ -673,6 +662,7 @@ for more info on providers and Angular 2 DI.
 export class FirebaseServiceProvider {
   public loginForm: FormGroup;
   public loading: Loading;
+  public user: User;
 
   constructor(
     public loadingCtrl: LoadingController,
@@ -681,9 +671,7 @@ export class FirebaseServiceProvider {
     public af: AngularFireDatabase,
     public authData: AuthProvider,
     public storage: Storage
-  ) {
-    console.log(&quot;Hello FirebaseServiceProvider Provider&quot;);
-  }
+  ) {}
 
   initializeLoginForm(): FormGroup {
     this.loginForm &#x3D; this.formBuilder.group({
@@ -695,26 +683,14 @@ export class FirebaseServiceProvider {
   }
 
   login(): firebase.Promise&lt;any&gt; {
-    if (!this.loginForm.valid) {
-      console.log(this.loginForm.value);
-    } else {
-      this.loading &#x3D; this.loadingCtrl.create();
-      this.loading.present();
+    this.loading &#x3D; this.loadingCtrl.create();
+    this.loading.present();
 
+    if (this.loginForm.valid) {
       return this.authData.loginUser(this.loginForm.value.email, this.loginForm.value.password).then(
         authData &#x3D;&gt; {
-          this.loading.dismiss().then(() &#x3D;&gt; {
-            this.af.list(&quot;/users&quot;, { preserveSnapshot: true }).subscribe(users &#x3D;&gt; {
-              users.forEach(user &#x3D;&gt; {
-                if (this.loginForm.value.email &#x3D;&#x3D; user.val().login) {
-                  this.storage.set(&quot;userId&quot;, user.key).then(() &#x3D;&gt; {
-                    this.storage.set(&quot;user&quot;, user.val()).then(() &#x3D;&gt; {
-                      console.log(&quot;everything set&quot;);
-                    });
-                  });
-                }
-              });
-            });
+          return this.loading.dismiss().then(() &#x3D;&gt; {
+            return this.storage.set(&quot;userUID&quot;, authData.uid);
           });
         },
         error &#x3D;&gt; {
@@ -733,19 +709,6 @@ export class FirebaseServiceProvider {
         }
       );
     }
-  }
-
-  getAllSnap(snaps) {
-    this.loading &#x3D; this.loadingCtrl.create();
-    this.loading.present();
-
-    this.af.list(&quot;/snaps&quot;, { preserveSnapshot: true }).subscribe(dbSnaps &#x3D;&gt; {
-      dbSnaps.forEach(dbSnap &#x3D;&gt; {
-        snaps.push(dbSnap.val());
-      });
-
-      this.loading.dismiss();
-    });
   }
 }
 </code></pre>

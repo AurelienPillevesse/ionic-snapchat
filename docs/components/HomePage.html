@@ -446,12 +446,12 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
-                            <code>constructor(navCtrl: NavController, storage: Storage, splashScreen: SplashScreen)</code>
+                            <code>constructor(alertCtrl: AlertController, navCtrl: NavController, storage: Storage, splashScreen: SplashScreen)</code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/pages/home/home.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/pages/home/home.ts:13</a></div>
                             </td>
                         </tr>
     
@@ -468,6 +468,37 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
+                            <b> ionViewCanEnter</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>ionViewCanEnter()</code>
+                        </td>
+                    </tr>
+    
+    
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/pages/home/home.ts:22</a></div>
+                            </td>
+                        </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+    
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code>void</code>
+    
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
                             <b> ionViewDidLoad</b>
                         </td>
                     </tr>
@@ -480,7 +511,7 @@
     
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/pages/home/home.ts:26</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/pages/home/home.ts:24</a></div>
                             </td>
                         </tr>
     
@@ -537,7 +568,7 @@
                         </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/pages/home/home.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/pages/home/home.ts:13</a></div>
                             </td>
                         </tr>
                 </tbody>
@@ -562,7 +593,7 @@
                         </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/pages/home/home.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/pages/home/home.ts:12</a></div>
                             </td>
                         </tr>
                 </tbody>
@@ -572,13 +603,10 @@
 
 
     <div class="tab-pane fade tab-source-code" id="source">
-        <pre class="line-numbers"><code class="language-typescript">import { Component } from &quot;@angular/core&quot;;
-import { IonicPage, NavController } from &quot;ionic-angular&quot;;
-import { Storage } from &quot;@ionic/storage&quot;;
+        <pre class="line-numbers"><code class="language-typescript">import { IonicPage, NavController, AlertController } from &quot;ionic-angular&quot;;
 import { SplashScreen } from &quot;@ionic-native/splash-screen&quot;;
-
-//import { SignUp } from &#x27;../sign-up/sign-up&#x27;;
-//import { SignIn } from &#x27;../sign-in/sign-in&#x27;;
+import { Component } from &quot;@angular/core&quot;;
+import { Storage } from &quot;@ionic/storage&quot;;
 
 @IonicPage()
 @Component({
@@ -589,17 +617,16 @@ export class HomePage {
   signUp &#x3D; &quot;SignUp&quot;;
   signIn &#x3D; &quot;SignIn&quot;;
 
-  constructor(public navCtrl: NavController, private storage: Storage, private splashScreen: SplashScreen) {
-    this.storage.get(&quot;user&quot;).then(val &#x3D;&gt; {
-      if (val !&#x3D; null) {
-        this.navCtrl.setRoot(&quot;Snap&quot;);
-      }
-    });
-  }
+  constructor(
+    private alertCtrl: AlertController,
+    public navCtrl: NavController,
+    private storage: Storage,
+    private splashScreen: SplashScreen
+  ) {}
 
-  ionViewDidLoad() {
-    this.splashScreen.hide();
-  }
+  ionViewCanEnter() {}
+
+  ionViewDidLoad() {}
 }
 </code></pre>
     </div>

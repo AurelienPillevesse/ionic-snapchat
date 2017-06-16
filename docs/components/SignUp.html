@@ -451,7 +451,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/pages/sign-up/sign-up.ts:24</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/pages/sign-up/sign-up.ts:18</a></div>
                             </td>
                         </tr>
     
@@ -481,37 +481,6 @@
                         <tr>
                             <td class="col-md-4">
                                 <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/pages/sign-up/sign-up.ts:39</a></div>
-                            </td>
-                        </tr>
-    
-                    <tr>
-                        <td class="col-md-4">
-    
-                                <div class="io-description">
-                                    <b>Returns : </b>    <code>void</code>
-    
-                                </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <table class="table table-sm table-bordered">
-                <tbody>
-                    <tr>
-                        <td class="col-md-4">
-                            <b> registerUser</b>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-    <code>registerUser(login: string, name: string, lastname: string)</code>
-                        </td>
-                    </tr>
-    
-    
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="70" class="link-to-prism">src/pages/sign-up/sign-up.ts:70</a></div>
                             </td>
                         </tr>
     
@@ -593,7 +562,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/pages/sign-up/sign-up.ts:24</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/pages/sign-up/sign-up.ts:18</a></div>
                             </td>
                         </tr>
                 </tbody>
@@ -643,7 +612,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/pages/sign-up/sign-up.ts:22</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/pages/sign-up/sign-up.ts:16</a></div>
                             </td>
                         </tr>
                 </tbody>
@@ -663,7 +632,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/pages/sign-up/sign-up.ts:23</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/pages/sign-up/sign-up.ts:17</a></div>
                             </td>
                         </tr>
                 </tbody>
@@ -673,89 +642,79 @@
 
 
     <div class="tab-pane fade tab-source-code" id="source">
-        <pre class="line-numbers"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
-import {
-    IonicPage,
-    NavController,
-    LoadingController,
-    Loading,
-    AlertController
-} from &#x27;ionic-angular&#x27;;
-import { FormBuilder, FormGroup, Validators } from &#x27;@angular/forms&#x27;;
-import { AuthProvider } from &#x27;../../providers/auth-service/auth-service&#x27;;
-import { AngularFireDatabase,FirebaseListObservable} from &#x27;angularfire2/database&#x27;;
-import { User} from &#x27;../../model/user&#x27;
-import { EmailValidator } from &#x27;../../validators/email&#x27;;
-import { Storage } from &#x27;@ionic/storage&#x27;;
+        <pre class="line-numbers"><code class="language-typescript">import { Component } from &quot;@angular/core&quot;;
+import { IonicPage, NavController, LoadingController, Loading, AlertController } from &quot;ionic-angular&quot;;
+import { FormBuilder, FormGroup, Validators } from &quot;@angular/forms&quot;;
+import { AuthProvider } from &quot;../../providers/auth-service/auth-service&quot;;
+import { AngularFireDatabase, FirebaseListObservable } from &quot;angularfire2/database&quot;;
+import { User } from &quot;../../model/user&quot;;
+import { EmailValidator } from &quot;../../validators/email&quot;;
+import { Storage } from &quot;@ionic/storage&quot;;
 
 @IonicPage()
 @Component({
-    selector: &#x27;page-sign-up&#x27;,
-    templateUrl: &#x27;sign-up.html&#x27;,
+  selector: &quot;page-sign-up&quot;,
+  templateUrl: &quot;sign-up.html&quot;
 })
 export class SignUp {
-    public signupForm: FormGroup;
-    users: FirebaseListObservable&lt;User[]&gt;;
-    loading: Loading;
+  public signupForm: FormGroup;
+  users: FirebaseListObservable&lt;User[]&gt;;
+  loading: Loading;
 
-    constructor(public navCtrl: NavController, public authProvider: AuthProvider,
-        public formBuilder: FormBuilder, public loadingCtrl: LoadingController,
-        public alertCtrl: AlertController, angularfire: AngularFireDatabase, private storage: Storage) {
-            this.users &#x3D; angularfire.list(&#x27;/users&#x27;);
-            this.signupForm &#x3D;  formBuilder.group({
-                email: [&#x27;&#x27;, Validators.compose([Validators.required, EmailValidator.isValid])],
-                name: [&#x27;&#x27;, Validators.compose([Validators.required])],
-                lastname: [&#x27;&#x27;, Validators.compose([Validators.required])],
-                password: [&#x27;&#x27;, Validators.compose([Validators.minLength(6), Validators.required])]
+  constructor(
+    public navCtrl: NavController,
+    public authProvider: AuthProvider,
+    public formBuilder: FormBuilder,
+    public loadingCtrl: LoadingController,
+    public alertCtrl: AlertController,
+    angularfire: AngularFireDatabase,
+    private storage: Storage
+  ) {
+    this.users &#x3D; angularfire.list(&quot;/users&quot;);
+    this.signupForm &#x3D; formBuilder.group({
+      email: [&quot;&quot;, Validators.compose([Validators.required, EmailValidator.isValid])],
+      name: [&quot;&quot;, Validators.compose([Validators.required])],
+      lastname: [&quot;&quot;, Validators.compose([Validators.required])],
+      password: [&quot;&quot;, Validators.compose([Validators.minLength(6), Validators.required])]
+    });
+    this.storage &#x3D; storage;
+  }
+
+  signupUser() {
+    if (this.signupForm.valid) {
+      this.authProvider
+        .signupUser(
+          this.signupForm.value.email,
+          this.signupForm.value.password,
+          this.signupForm.value.lastname,
+          this.signupForm.value.name
+        )
+        .then(
+          () &#x3D;&gt; {
+            this.loading.dismiss().then(() &#x3D;&gt; {
+              this.navCtrl.setRoot(&quot;Snap&quot;);
             });
-            this.storage &#x3D; storage;
-        }
-
-        signupUser(){
-            if (!this.signupForm.valid){
-                console.log(this.signupForm.value);
-            } else {
-                this.authProvider.signupUser(this.signupForm.value.email,
-                    this.signupForm.value.password)
-                    .then(() &#x3D;&gt; {
-                        this.loading.dismiss().then( () &#x3D;&gt; {
-                            this.navCtrl.setRoot(&#x27;Snap&#x27;);
-                        });
-                    }, (error) &#x3D;&gt; {
-                        this.loading.dismiss().then( () &#x3D;&gt; {
-                            let alert &#x3D; this.alertCtrl.create({
-                                message: error.message,
-                                buttons: [
-                                    {
-                                        text: &quot;Ok&quot;,
-                                        role: &#x27;cancel&#x27;
-                                    }
-                                ]
-                            });
-                            alert.present();
-                        });
-                    });
-                    this.loading &#x3D; this.loadingCtrl.create();
-                    this.loading.present();
-                    this.registerUser(this.signupForm.value.email,this.signupForm.value.name,this.signupForm.value.lastname);
-                }
-            }
-
-
-            registerUser(login:string,name:string,lastname:string){
-                let currentUser &#x3D; {
-                    name: name,
-                    lastname: lastname,
-                    login: login,
-                    score: 0,
-                };
-
-                let result &#x3D; this.users.push(currentUser);
-                this.storage.set(&#x27;userId&#x27;,result.key);
-                this.storage.set(&#x27;user&#x27;, currentUser);
-            }
-
-        }
+          },
+          error &#x3D;&gt; {
+            this.loading.dismiss().then(() &#x3D;&gt; {
+              let alert &#x3D; this.alertCtrl.create({
+                message: error.message,
+                buttons: [
+                  {
+                    text: &quot;Ok&quot;,
+                    role: &quot;cancel&quot;
+                  }
+                ]
+              });
+              alert.present();
+            });
+          }
+        );
+      this.loading &#x3D; this.loadingCtrl.create();
+      this.loading.present();
+    }
+  }
+}
 </code></pre>
     </div>
 

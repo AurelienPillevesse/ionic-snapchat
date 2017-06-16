@@ -517,7 +517,7 @@
     
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/pages/sign-in/sign-in.ts:33</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/pages/sign-in/sign-in.ts:31</a></div>
                             </td>
                         </tr>
     
@@ -548,7 +548,7 @@
     
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/pages/sign-in/sign-in.ts:37</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/pages/sign-in/sign-in.ts:35</a></div>
                             </td>
                         </tr>
     
@@ -635,10 +635,8 @@ export class SignIn {
   }
 
   loginUser() {
-    this.firebaseServiceProvider.login().then(async () &#x3D;&gt; {
-      console.log(&quot;before root&quot;);
+    this.firebaseServiceProvider.login().then(() &#x3D;&gt; {
       this.navCtrl.setRoot(&quot;Snap&quot;);
-      console.log(&quot;after root&quot;);
     });
   }
 

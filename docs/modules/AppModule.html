@@ -684,24 +684,24 @@
         </div>
     </div>
     <div class="tab-pane fade tab-source-code" id="source">
-        <pre class="line-numbers"><code class="language-typescript">import { BrowserModule } from &#x27;@angular/platform-browser&#x27;;
-import { ErrorHandler, NgModule } from &#x27;@angular/core&#x27;;
-import { IonicApp, IonicErrorHandler, IonicModule } from &#x27;ionic-angular&#x27;;
-import { SplashScreen } from &#x27;@ionic-native/splash-screen&#x27;;
-import { StatusBar } from &#x27;@ionic-native/status-bar&#x27;;
+        <pre class="line-numbers"><code class="language-typescript">import { BrowserModule } from &quot;@angular/platform-browser&quot;;
+import { ErrorHandler, NgModule } from &quot;@angular/core&quot;;
+import { IonicApp, IonicErrorHandler, IonicModule } from &quot;ionic-angular&quot;;
+import { SplashScreen } from &quot;@ionic-native/splash-screen&quot;;
+import { StatusBar } from &quot;@ionic-native/status-bar&quot;;
 
-import { CameraPreview } from &#x27;@ionic-native/camera-preview&#x27;;
+import { CameraPreview } from &quot;@ionic-native/camera-preview&quot;;
 
-import { Firebase } from &#x27;@ionic-native/firebase&#x27;;
-import { MyApp } from &#x27;./app.component&#x27;;
+import { Firebase } from &quot;@ionic-native/firebase&quot;;
+import { MyApp } from &quot;./app.component&quot;;
 
-import { AngularFireModule } from &#x27;angularfire2&#x27;;
-import { AngularFireDatabaseModule } from &#x27;angularfire2/database&#x27;;
-import { AngularFireAuth } from &#x27;angularfire2/auth&#x27;;
-import { AuthProvider } from &#x27;../providers/auth-service/auth-service&#x27;;
-import { IonicStorageModule } from &#x27;@ionic/storage&#x27;;
-import { FirebaseServiceProvider } from &#x27;../providers/firebase-service/firebase-service&#x27;;
-import { PictureServiceProvider } from &#x27;../providers/picture-service/picture-service&#x27;;
+import { AngularFireModule } from &quot;angularfire2&quot;;
+import { AngularFireDatabaseModule } from &quot;angularfire2/database&quot;;
+import { AngularFireAuth } from &quot;angularfire2/auth&quot;;
+import { AuthProvider } from &quot;../providers/auth-service/auth-service&quot;;
+import { IonicStorageModule } from &quot;@ionic/storage&quot;;
+import { FirebaseServiceProvider } from &quot;../providers/firebase-service/firebase-service&quot;;
+import { PictureServiceProvider } from &quot;../providers/picture-service/picture-service&quot;;
 
 export const firebaseConfig &#x3D; {
   apiKey: &quot;AIzaSyCe7MaeGS6o-Qtm1DjFGm6E9lwsB85QGJE&quot;,
@@ -713,9 +713,7 @@ export const firebaseConfig &#x3D; {
 };
 
 @NgModule({
-  declarations: [
-    MyApp
-  ],
+  declarations: [MyApp],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
@@ -724,15 +722,13 @@ export const firebaseConfig &#x3D; {
     IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
-  entryComponents: [
-    MyApp
-  ],
+  entryComponents: [MyApp],
   providers: [
     CameraPreview,
     Firebase,
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
     AngularFireAuth,
     AuthProvider,
     FirebaseServiceProvider,

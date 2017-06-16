@@ -402,12 +402,12 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <code>constructor(afAuth: AngularFireAuth)</code>
+                                    <code>constructor(afAuth: AngularFireAuth, storage: Storage, loadingCtrl: LoadingController, af: AngularFireDatabase, alertCtrl: AlertController)</code>
                                 </td>
                             </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">src/providers/auth-service/auth-service.ts:6</a></div>
+                                        <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/providers/auth-service/auth-service.ts:10</a></div>
                                     </td>
                                 </tr>
             
@@ -424,6 +424,37 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
+                                    <b> currentUserInfo</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+            <code>currentUserInfo(uid: any)</code>
+                                </td>
+                            </tr>
+            
+            
+                                <tr>
+                                    <td class="col-md-4">
+                                        <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/providers/auth-service/auth-service.ts:20</a></div>
+                                    </td>
+                                </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+            
+                                        <div class="io-description">
+                                            <b>Returns : </b>    <code>void</code>
+            
+                                        </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
                                     <b> loginUser</b>
                                 </td>
                             </tr>
@@ -436,7 +467,7 @@
             
                                 <tr>
                                     <td class="col-md-4">
-                                        <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/providers/auth-service/auth-service.ts:10</a></div>
+                                        <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/providers/auth-service/auth-service.ts:24</a></div>
                                     </td>
                                 </tr>
             
@@ -467,7 +498,7 @@
             
                                 <tr>
                                     <td class="col-md-4">
-                                        <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/providers/auth-service/auth-service.ts:14</a></div>
+                                        <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/providers/auth-service/auth-service.ts:28</a></div>
                                     </td>
                                 </tr>
             
@@ -498,7 +529,7 @@
             
                                 <tr>
                                     <td class="col-md-4">
-                                        <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/providers/auth-service/auth-service.ts:18</a></div>
+                                        <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/providers/auth-service/auth-service.ts:32</a></div>
                                     </td>
                                 </tr>
             
@@ -522,14 +553,14 @@
                             </tr>
                             <tr>
                                 <td class="col-md-4">
-            <code>signupUser(newEmail: string, newPassword: string)</code>
+            <code>signupUser(newEmail: string, newPassword: string, lastName: string, name: string)</code>
                                 </td>
                             </tr>
             
             
                                 <tr>
                                     <td class="col-md-4">
-                                        <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/providers/auth-service/auth-service.ts:22</a></div>
+                                        <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/providers/auth-service/auth-service.ts:36</a></div>
                                     </td>
                                 </tr>
             
@@ -555,6 +586,21 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
+                                    <b> af</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>af:     <code>AngularFireDatabase</code>
+            </bcode>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
                                     <b> afAuth</b>
                                 </td>
                             </tr>
@@ -566,17 +612,96 @@
                             </tr>
                         </tbody>
                     </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> alertCtrl</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>alertCtrl:     <code>AlertController</code>
+            </bcode>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b><span class="modifier">Static</span> loading</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <span class="modifier-icon fa fa-export"></span><code>loading:     <code>Loading</code>
+            </bcode>
+                                </td>
+                            </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/providers/auth-service/auth-service.ts:10</a></div>
+                                    </td>
+                                </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> loadingCtrl</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>loadingCtrl:     <code>LoadingController</code>
+            </bcode>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> storage</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>storage:     <code>Storage</code>
+            </bcode>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
             </section>
     </div>
     <div class="tab-pane fade tab-source-code" id="source">
-        <pre class="line-numbers"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
-import { AngularFireAuth } from &#x27;angularfire2/auth&#x27;;
-import firebase from &#x27;firebase/app&#x27;;
+        <pre class="line-numbers"><code class="language-typescript">import { LoadingController, Loading, AlertController } from &quot;ionic-angular&quot;;
+import { AngularFireDatabase } from &quot;angularfire2/database&quot;;
+import { AngularFireAuth } from &quot;angularfire2/auth&quot;;
+import { Injectable } from &quot;@angular/core&quot;;
+import { Storage } from &quot;@ionic/storage&quot;;
+import firebase from &quot;firebase/app&quot;;
 
 @Injectable()
 export class AuthProvider {
+  public loading: Loading;
 
-  constructor(public afAuth: AngularFireAuth) {}
+  constructor(
+    public afAuth: AngularFireAuth,
+    public storage: Storage,
+    public loadingCtrl: LoadingController,
+    public af: AngularFireDatabase,
+    public alertCtrl: AlertController
+  ) {}
+
+  currentUserInfo(uid) {
+    return firebase.database().ref(&quot;/users&quot;).child(uid);
+  }
 
   loginUser(newEmail: string, newPassword: string): firebase.Promise&lt;any&gt; {
     return this.afAuth.auth.signInWithEmailAndPassword(newEmail, newPassword);
@@ -590,10 +715,16 @@ export class AuthProvider {
     return this.afAuth.auth.signOut();
   }
 
-  signupUser(newEmail: string, newPassword: string): firebase.Promise&lt;any&gt; {
-    return this.afAuth.auth.createUserWithEmailAndPassword(newEmail, newPassword);
+  signupUser(newEmail: string, newPassword: string, lastName: string, name: string): firebase.Promise&lt;any&gt; {
+    return this.afAuth.auth.createUserWithEmailAndPassword(newEmail, newPassword).then(newUser &#x3D;&gt; {
+      firebase.database().ref(&quot;/users&quot;).child(newUser.uid).set({
+        lastname: lastName,
+        login: newEmail,
+        name: name,
+        score: 0
+      });
+    });
   }
-
 }
 </code></pre>
     </div>

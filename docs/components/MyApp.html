@@ -442,12 +442,12 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
-                            <code>constructor(platform: Platform, afAuth: AngularFireAuth, statusBar: StatusBar, splashScreen: SplashScreen)</code>
+                            <code>constructor(platform: Platform, afAuth: AngularFireAuth, statusBar: StatusBar, splashScreen: SplashScreen, storage: Storage, authProvider: <a href="../injectables/AuthProvider.html">AuthProvider</a>)</code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/app.component.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/app.component.ts:14</a></div>
                             </td>
                         </tr>
     
@@ -481,7 +481,7 @@
                         </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/app.component.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/app.component.ts:14</a></div>
                             </td>
                         </tr>
                 </tbody>
@@ -491,25 +491,40 @@
 
 
     <div class="tab-pane fade tab-source-code" id="source">
-        <pre class="line-numbers"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
-import { Platform } from &#x27;ionic-angular&#x27;;
-import { StatusBar } from &#x27;@ionic-native/status-bar&#x27;;
-import { SplashScreen } from &#x27;@ionic-native/splash-screen&#x27;;
-import { AngularFireAuth } from &#x27;angularfire2/auth&#x27;;
+        <pre class="line-numbers"><code class="language-typescript">import { Component } from &quot;@angular/core&quot;;
+import { Platform } from &quot;ionic-angular&quot;;
+import { StatusBar } from &quot;@ionic-native/status-bar&quot;;
+import { SplashScreen } from &quot;@ionic-native/splash-screen&quot;;
+import { AngularFireAuth } from &quot;angularfire2/auth&quot;;
+import { Storage } from &quot;@ionic/storage&quot;;
+import { AuthProvider } from &quot;../providers/auth-service/auth-service&quot;;
+import { User } from &quot;../model/user&quot;;
 
 @Component({
-  templateUrl: &#x27;app.html&#x27;
+  templateUrl: &quot;app.html&quot;
 })
 export class MyApp {
-  rootPage:any &#x3D; &#x27;HomePage&#x27;;
+  rootPage: any &#x3D; &quot;HomePage&quot;;
 
-  constructor(platform: Platform, afAuth: AngularFireAuth, statusBar: StatusBar, splashScreen: SplashScreen) {
-    const authObserver &#x3D; afAuth.authState.subscribe( user &#x3D;&gt; {
+  constructor(
+    platform: Platform,
+    afAuth: AngularFireAuth,
+    statusBar: StatusBar,
+    splashScreen: SplashScreen,
+    storage: Storage,
+    authProvider: AuthProvider
+  ) {
+    const authObserver &#x3D; afAuth.authState.subscribe(user &#x3D;&gt; {
       if (user) {
-        this.rootPage &#x3D; &#x27;Snap&#x27;;
+        /*authProvider.currentUserInfo(user.uid).on(&quot;value&quot;, data &#x3D;&gt; {
+          let user &#x3D; new User(data.val().name, data.val().lastname, data.val().login, data.val().score);
+          storage.set(&quot;user&quot;, user).then(() &#x3D;&gt; {
+          });
+        });*/
+        this.rootPage &#x3D; &quot;Snap&quot;;
         authObserver.unsubscribe();
       } else {
-        this.rootPage &#x3D; &#x27;HomePage&#x27;;
+        this.rootPage &#x3D; &quot;HomePage&quot;;
         authObserver.unsubscribe();
       }
     });
@@ -517,7 +532,7 @@ export class MyApp {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
-      //splashScreen.hide();
+      splashScreen.hide();
     });
   }
 }
