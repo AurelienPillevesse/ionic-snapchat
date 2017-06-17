@@ -22,9 +22,8 @@ export class HomePage {
     */
   signIn: string = "SignIn";
 
+  /**
+    * Constructor of HomePage
+    */
   constructor(private alertCtrl: AlertController, public navCtrl: NavController) {}
-
-  ionViewCanEnter() {}
-
-  ionViewDidLoad() {}
 }

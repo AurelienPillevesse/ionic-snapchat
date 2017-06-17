@@ -461,6 +461,11 @@
                             </td>
                         </tr>
     
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Constructor of SignIn</p><br/></div>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
     </section>
@@ -486,7 +491,7 @@
     
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/pages/sign-in/sign-in.ts:29</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/pages/sign-in/sign-in.ts:32</a></div>
                             </td>
                         </tr>
     
@@ -518,7 +523,7 @@
     
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/pages/sign-in/sign-in.ts:38</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/pages/sign-in/sign-in.ts:41</a></div>
                             </td>
                         </tr>
     
@@ -607,6 +612,9 @@ export class SignIn {
   */
   public loginForm: FormGroup;
 
+  /**
+    * Constructor of SignIn
+    */
   constructor(public navCtrl: NavController, private firebaseServiceProvider: FirebaseServiceProvider) {
     this.loginForm &#x3D; firebaseServiceProvider.initializeLoginForm();
   }

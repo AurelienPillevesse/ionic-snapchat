@@ -26,6 +26,9 @@ export class Snap {
     */
   public user: User;
 
+  /**
+    * Constructor of Snap
+    */
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,

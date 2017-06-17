@@ -19,6 +19,9 @@ export class SignIn {
   */
   public loginForm: FormGroup;
 
+  /**
+    * Constructor of SignIn
+    */
   constructor(public navCtrl: NavController, private firebaseServiceProvider: FirebaseServiceProvider) {
     this.loginForm = firebaseServiceProvider.initializeLoginForm();
   }
