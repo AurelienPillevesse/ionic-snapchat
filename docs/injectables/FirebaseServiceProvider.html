@@ -508,7 +508,7 @@
                                         <div class="io-description"><p>Login a user</p><br/></div>
             
                                         <div class="io-description">
-                                            <b>Returns : </b>    <code>any</code>
+                                            <b>Returns : </b>    <code>Promise&lt;any&gt;</code>
             
                                         </div>
                                 </td>
@@ -540,7 +540,7 @@
                                         <div class="io-description"><p>Signup a user</p><br/></div>
             
                                         <div class="io-description">
-                                            <b>Returns : </b>    <code>any</code>
+                                            <b>Returns : </b>    <code>Promise&lt;any&gt;</code>
             
                                         </div>
                                 </td>
@@ -572,7 +572,7 @@
                                         <div class="io-description"><p>Logout the current user</p><br/></div>
             
                                         <div class="io-description">
-                                            <b>Returns : </b>    <code>any</code>
+                                            <b>Returns : </b>    <code>Promise&lt;any&gt;</code>
             
                                         </div>
                                 </td>
@@ -818,7 +818,7 @@ import { EmailValidator } from &quot;../../validators/email&quot;;
 import { Injectable } from &quot;@angular/core&quot;;
 import { Storage } from &quot;@ionic/storage&quot;;
 import { User } from &quot;../../model/user&quot;;
-import firebase from &quot;firebase/app&quot;;
+import * as firebase from &quot;firebase/app&quot;;
 
 /**
 * Firebase service
