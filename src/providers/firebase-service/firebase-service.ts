@@ -6,7 +6,7 @@ import { EmailValidator } from "../../validators/email";
 import { Injectable } from "@angular/core";
 import { Storage } from "@ionic/storage";
 import { User } from "../../model/user";
-import firebase from "firebase/app";
+import * as firebase from "firebase/app";
 
 /**
 * Firebase service

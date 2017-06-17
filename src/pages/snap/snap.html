@@ -33,7 +33,7 @@
     </ion-fab>
 
     <ion-fab class="middle-bottom" *ngIf="!pictureServiceProvider.displayUserMenu && !pictureServiceProvider.tookSnap">
-        <button ion-fab outline (click)="takePicture()" class="takePhotoButton"><img class="takePhotoButtonImage" src="assets/images/photo-camera.svg" alt=""></button>
+        <button ion-fab outline (click)="takePicture()" id="takeSnap" class="takePhotoButton"><img class="takePhotoButtonImage" src="assets/images/photo-camera.svg" alt=""></button>
     </ion-fab>
 
     <ion-fab right bottom *ngIf="pictureServiceProvider.tookSnap">
