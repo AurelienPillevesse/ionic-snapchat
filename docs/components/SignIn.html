@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>ionic-hello-world documentation</title>
+        <title>Ionic-Snapchat documentation</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,7 +13,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">ionic-hello-world documentation</a>
+            <a href="../" class="navbar-brand">Ionic-Snapchat documentation</a>
             <button type="button" class="btn btn-default btn-menu fa fa-bars" id="btn-menu"></button>
         </div>
 
@@ -26,7 +26,7 @@
                 <ul class="list">
             
                     <li class="title">
-                        <a href="../index.html">ionic-hello-world documentation</a>
+                        <a href="../index.html">Ionic-Snapchat documentation</a>
                     </li>
             
                     <li class="divider"></li>
@@ -199,7 +199,7 @@
                        <ul class="list">
                    
                            <li class="title">
-                               <a href="../index.html">ionic-hello-world documentation</a>
+                               <a href="../index.html">Ionic-Snapchat documentation</a>
                            </li>
                    
                            <li class="divider"></li>
@@ -457,7 +457,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/pages/sign-in/sign-in.ts:17</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/pages/sign-in/sign-in.ts:20</a></div>
                             </td>
                         </tr>
     
@@ -486,43 +486,13 @@
     
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/pages/sign-in/sign-in.ts:23</a></div>
-                            </td>
-                        </tr>
-    
-                    <tr>
-                        <td class="col-md-4">
-    
-                                <div class="io-description">
-                                    <b>Returns : </b>    <code>void</code>
-    
-                                </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <table class="table table-sm table-bordered">
-                <tbody>
-                    <tr>
-                        <td class="col-md-4">
-                            <b> goToResetPassword</b>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-    <code>goToResetPassword()</code>
-                        </td>
-                    </tr>
-    
-    
-                        <tr>
-                            <td class="col-md-4">
                                 <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/pages/sign-in/sign-in.ts:29</a></div>
                             </td>
                         </tr>
     
                     <tr>
                         <td class="col-md-4">
+                                <div class="io-description"><p>Login method</p><br/></div>
     
                                 <div class="io-description">
                                     <b>Returns : </b>    <code>void</code>
@@ -548,12 +518,13 @@
     
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/pages/sign-in/sign-in.ts:33</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/pages/sign-in/sign-in.ts:38</a></div>
                             </td>
                         </tr>
     
                     <tr>
                         <td class="col-md-4">
+                                <div class="io-description"><p>Method that redirect to the SignUpPage</p><br/></div>
     
                                 <div class="io-description">
                                     <b>Returns : </b>    <code>void</code>
@@ -585,9 +556,14 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/pages/sign-in/sign-in.ts:17</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/pages/sign-in/sign-in.ts:20</a></div>
                             </td>
                         </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-description"><p>LoginForm that contains the form for the login</p><br/></div>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
             <table class="table table-sm table-bordered">
@@ -616,32 +592,37 @@ import { FormGroup } from &quot;@angular/forms&quot;;
 import { Component } from &quot;@angular/core&quot;;
 
 /**
- * The SignIn component
- *
- * Allows a user to login on the application.
- */
+* The SignIn component
+*
+* Allows a user to login on the application.
+*/
 @IonicPage()
 @Component({
   selector: &quot;page-sign-in&quot;,
   templateUrl: &quot;sign-in.html&quot;
 })
 export class SignIn {
+  /**
+  * LoginForm that contains the form for the login
+  */
   public loginForm: FormGroup;
 
   constructor(public navCtrl: NavController, private firebaseServiceProvider: FirebaseServiceProvider) {
     this.loginForm &#x3D; firebaseServiceProvider.initializeLoginForm();
   }
 
+  /**
+  * Login method
+  */
   loginUser() {
     this.firebaseServiceProvider.login().then(() &#x3D;&gt; {
       this.navCtrl.setRoot(&quot;Snap&quot;);
     });
   }
 
-  goToResetPassword() {
-    this.navCtrl.push(&quot;ResetPasswordPage&quot;);
-  }
-
+  /**
+  * Method that redirect to the SignUpPage
+  */
   createAccount() {
     this.navCtrl.push(&quot;SignupPage&quot;);
   }

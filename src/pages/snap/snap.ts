@@ -6,17 +6,24 @@ import { Storage } from "@ionic/storage";
 import { User } from "../../model/user";
 
 /**
- * The Snap component
- *
- * Display the main view of the application, to take snaps.
- */
+* The Snap component
+*
+* Display the main view of the application, to take snaps.
+*/
 @IonicPage()
 @Component({
   selector: "page-snap",
   templateUrl: "snap.html"
 })
 export class Snap {
+  /**
+    * Feed variable to redirect to Feed with LazyLoading page string
+    */
   public feed: String = "Feed";
+
+  /**
+    * Current user
+    */
   public user: User;
 
   constructor(
@@ -29,6 +36,9 @@ export class Snap {
     this.pictureServiceProvider.initialize();
   }
 
+  /**
+    * initialization of the user on init of the page
+    */
   ngOnInit() {
     if (this.user == null) {
       this.storage.get("userUID").then(userUID => {
@@ -39,38 +49,65 @@ export class Snap {
     }
   }
 
+  /**
+    * Start camera when page is loaded
+    */
   ionViewDidLoad() {
     this.pictureServiceProvider.startCamera();
   }
 
+  /**
+    * Close the camera
+    */
   closeCamera() {
     this.pictureServiceProvider.closeCamera();
   }
 
+  /**
+    * Switch the camera
+    */
   switchCamera() {
     this.pictureServiceProvider.switchCamera();
   }
 
-  clickFriendMenu() {
-    this.pictureServiceProvider.clickFriendMenu();
+  /**
+    * Open the user menu
+    */
+  clickUserMenu() {
+    this.pictureServiceProvider.clickUserMenu();
   }
 
-  closeFriendMenu() {
-    this.pictureServiceProvider.closeFriendMenu();
+  /**
+    * Close the user menu
+    */
+  closeUserMenu() {
+    this.pictureServiceProvider.closeUserMenu();
   }
 
+  /**
+    * Remove the user interface when snap is taken
+    */
   closeTookSnap() {
     this.pictureServiceProvider.closeTookSnap();
   }
 
+  /**
+    * Take a picture
+    */
   takePicture() {
     this.pictureServiceProvider.takePicture();
   }
 
+  /**
+    * Send a picture
+    */
   sendPicture() {
     this.pictureServiceProvider.sendPicture(this.user);
   }
 
+  /**
+    * Logout of the application
+    */
   logout() {
     this.pictureServiceProvider.logout().then(() => {
       this.navCtrl.setRoot("HomePage");

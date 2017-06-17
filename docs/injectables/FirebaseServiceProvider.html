@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>ionic-hello-world documentation</title>
+        <title>Ionic-Snapchat documentation</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,7 +13,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">ionic-hello-world documentation</a>
+            <a href="../" class="navbar-brand">Ionic-Snapchat documentation</a>
             <button type="button" class="btn btn-default btn-menu fa fa-bars" id="btn-menu"></button>
         </div>
 
@@ -26,7 +26,7 @@
                 <ul class="list">
             
                     <li class="title">
-                        <a href="../index.html">ionic-hello-world documentation</a>
+                        <a href="../index.html">Ionic-Snapchat documentation</a>
                     </li>
             
                     <li class="divider"></li>
@@ -199,7 +199,7 @@
                        <ul class="list">
                    
                            <li class="title">
-                               <a href="../index.html">ionic-hello-world documentation</a>
+                               <a href="../index.html">Ionic-Snapchat documentation</a>
                            </li>
                    
                            <li class="divider"></li>
@@ -436,12 +436,13 @@
             
                                 <tr>
                                     <td class="col-md-4">
-                                        <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/providers/firebase-service/firebase-service.ts:32</a></div>
+                                        <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/providers/firebase-service/firebase-service.ts:35</a></div>
                                     </td>
                                 </tr>
             
                             <tr>
                                 <td class="col-md-4">
+                                        <div class="io-description"><p>initialize a login form</p><br/></div>
             
                                         <div class="io-description">
                                             <b>Returns : </b>    <code><a href="https://angular.io/docs/ts/latest/api/forms/index/FormGroup-class.html" target="_blank" >FormGroup</a></code>
@@ -467,12 +468,13 @@
             
                                 <tr>
                                     <td class="col-md-4">
-                                        <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/providers/firebase-service/firebase-service.ts:41</a></div>
+                                        <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/providers/firebase-service/firebase-service.ts:47</a></div>
                                     </td>
                                 </tr>
             
                             <tr>
                                 <td class="col-md-4">
+                                        <div class="io-description"><p>Login a user</p><br/></div>
             
                                         <div class="io-description">
                                             <b>Returns : </b>    <code>any</code>
@@ -673,6 +675,9 @@ export class FirebaseServiceProvider {
     public storage: Storage
   ) {}
 
+  /**
+    * initialize a login form
+    */
   initializeLoginForm(): FormGroup {
     this.loginForm &#x3D; this.formBuilder.group({
       email: [&quot;&quot;, Validators.compose([Validators.required, EmailValidator.isValid])],
@@ -682,6 +687,9 @@ export class FirebaseServiceProvider {
     return this.loginForm;
   }
 
+  /**
+  * Login a user
+  */
   login(): firebase.Promise&lt;any&gt; {
     this.loading &#x3D; this.loadingCtrl.create();
     this.loading.present();

@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>ionic-hello-world documentation</title>
+        <title>Ionic-Snapchat documentation</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,7 +13,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">ionic-hello-world documentation</a>
+            <a href="../" class="navbar-brand">Ionic-Snapchat documentation</a>
             <button type="button" class="btn btn-default btn-menu fa fa-bars" id="btn-menu"></button>
         </div>
 
@@ -26,7 +26,7 @@
                 <ul class="list">
             
                     <li class="title">
-                        <a href="../index.html">ionic-hello-world documentation</a>
+                        <a href="../index.html">Ionic-Snapchat documentation</a>
                     </li>
             
                     <li class="divider"></li>
@@ -199,7 +199,7 @@
                        <ul class="list">
                    
                            <li class="title">
-                               <a href="../index.html">ionic-hello-world documentation</a>
+                               <a href="../index.html">Ionic-Snapchat documentation</a>
                            </li>
                    
                            <li class="divider"></li>
@@ -457,7 +457,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/pages/home/home.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/pages/home/home.ts:23</a></div>
                             </td>
                         </tr>
     
@@ -486,7 +486,7 @@
     
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/pages/home/home.ts:20</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/pages/home/home.ts:27</a></div>
                             </td>
                         </tr>
     
@@ -517,7 +517,7 @@
     
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/pages/home/home.ts:22</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/pages/home/home.ts:29</a></div>
                             </td>
                         </tr>
     
@@ -574,9 +574,14 @@
                         </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/pages/home/home.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/pages/home/home.ts:23</a></div>
                             </td>
                         </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-description"><p>SignIn variable to redirect to SignIn with LazyLoading page string</p><br/></div>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
             <table class="table table-sm table-bordered">
@@ -599,9 +604,14 @@
                         </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/pages/home/home.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/pages/home/home.ts:18</a></div>
                             </td>
                         </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-description"><p>SignUp variable to redirect to SignUp with LazyLoading page string</p><br/></div>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
     </section>
@@ -613,17 +623,24 @@
 import { Component } from &quot;@angular/core&quot;;
 
 /**
- * The home component
- *
- * Display buttons to go on signin or signup pages thanks to buttons.
- */
+* The home component
+*
+* Display buttons to go on signin or signup pages thanks to buttons.
+*/
 @IonicPage()
 @Component({
   selector: &quot;page-home&quot;,
   templateUrl: &quot;home.html&quot;
 })
 export class HomePage {
+  /**
+    * SignUp variable to redirect to SignUp with LazyLoading page string
+    */
   signUp: string &#x3D; &quot;SignUp&quot;;
+
+  /**
+    * SignIn variable to redirect to SignIn with LazyLoading page string
+    */
   signIn: string &#x3D; &quot;SignIn&quot;;
 
   constructor(private alertCtrl: AlertController, public navCtrl: NavController) {}

@@ -29,6 +29,9 @@ export class FirebaseServiceProvider {
     public storage: Storage
   ) {}
 
+  /**
+    * initialize a login form
+    */
   initializeLoginForm(): FormGroup {
     this.loginForm = this.formBuilder.group({
       email: ["", Validators.compose([Validators.required, EmailValidator.isValid])],
@@ -38,6 +41,9 @@ export class FirebaseServiceProvider {
     return this.loginForm;
   }
 
+  /**
+  * Login a user
+  */
   login(): firebase.Promise<any> {
     this.loading = this.loadingCtrl.create();
     this.loading.present();

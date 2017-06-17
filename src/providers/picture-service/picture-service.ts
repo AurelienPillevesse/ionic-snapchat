@@ -15,7 +15,7 @@ for more info on providers and Angular 2 DI.
 @Injectable()
 export class PictureServiceProvider {
   public picture: String;
-  public displayFriendMenu: Boolean;
+  public displayUserMenu: Boolean;
   public tookSnap: Boolean;
   public loading: Loading;
   public snaps: any;
@@ -27,12 +27,18 @@ export class PictureServiceProvider {
     public loadingCtrl: LoadingController
   ) {}
 
+  /**
+    * Initialize all variables and get reference of the list of snaps
+    */
   initialize() {
-    this.displayFriendMenu = false;
+    this.displayUserMenu = false;
     this.tookSnap = false;
     this.snaps = this.af.list("/snaps");
   }
 
+  /**
+    * Get all snaps fo all users
+    */
   getAllSnap(snaps) {
     this.loading = this.loadingCtrl.create();
     this.loading.present();
@@ -46,6 +52,9 @@ export class PictureServiceProvider {
     });
   }
 
+  /**
+    * Start the camera
+    */
   startCamera() {
     const cameraPreviewOpts: CameraPreviewOptions = {
       x: 0,
@@ -62,14 +71,23 @@ export class PictureServiceProvider {
     this.cameraPreview.startCamera(cameraPreviewOpts);
   }
 
+  /**
+    * Close the camera
+    */
   closeCamera() {
     this.cameraPreview.stopCamera();
   }
 
+  /**
+    * Switch the camera
+    */
   switchCamera() {
     this.cameraPreview.switchCamera();
   }
 
+  /**
+    * Take a picture
+    */
   takePicture() {
     const pictureOpts = {
       width: 1280,
@@ -86,24 +104,39 @@ export class PictureServiceProvider {
     );
   }
 
+  /**
+    * Close display when the user took a snap
+    */
   closeTookSnap() {
     this.tookSnap = false;
     this.startCamera();
   }
 
-  clickFriendMenu() {
-    this.displayFriendMenu = true;
+  /**
+    * Open the user menu
+    */
+  clickUserMenu() {
+    this.displayUserMenu = true;
   }
 
-  closeFriendMenu() {
-    this.displayFriendMenu = false;
+  /**
+    * Close the user menu
+    */
+  closeUserMenu() {
+    this.displayUserMenu = false;
   }
 
+  /**
+    * Send a picture
+    */
   sendPicture(user: User) {
     this.uploadPicture(user, 10);
     this.tookSnap = false;
   }
 
+  /**
+    * Upload a picture
+    */
   uploadPicture(user: User, duration: number) {
     this.snaps.push({
       from: user.login,
@@ -113,6 +146,9 @@ export class PictureServiceProvider {
     this.updateUserScore(user);
   }
 
+  /**
+    * Update the score of a user
+    */
   updateUserScore(user: User) {
     user.score++;
     this.storage.get("userUID").then(userUID => {
@@ -125,6 +161,9 @@ export class PictureServiceProvider {
     });
   }
 
+  /**
+    * Logout the current user
+    */
   logout(): Promise<any> {
     return this.storage.remove("userUID").then(() => {
       return this.closeCamera();

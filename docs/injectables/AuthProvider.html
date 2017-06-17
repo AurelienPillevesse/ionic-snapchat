@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>ionic-hello-world documentation</title>
+        <title>Ionic-Snapchat documentation</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,7 +13,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">ionic-hello-world documentation</a>
+            <a href="../" class="navbar-brand">Ionic-Snapchat documentation</a>
             <button type="button" class="btn btn-default btn-menu fa fa-bars" id="btn-menu"></button>
         </div>
 
@@ -26,7 +26,7 @@
                 <ul class="list">
             
                     <li class="title">
-                        <a href="../index.html">ionic-hello-world documentation</a>
+                        <a href="../index.html">Ionic-Snapchat documentation</a>
                     </li>
             
                     <li class="divider"></li>
@@ -199,7 +199,7 @@
                        <ul class="list">
                    
                            <li class="title">
-                               <a href="../index.html">ionic-hello-world documentation</a>
+                               <a href="../index.html">Ionic-Snapchat documentation</a>
                            </li>
                    
                            <li class="divider"></li>
@@ -436,12 +436,13 @@
             
                                 <tr>
                                     <td class="col-md-4">
-                                        <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/providers/auth-service/auth-service.ts:20</a></div>
+                                        <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/providers/auth-service/auth-service.ts:23</a></div>
                                     </td>
                                 </tr>
             
                             <tr>
                                 <td class="col-md-4">
+                                        <div class="io-description"><p>Get informations about the user thanks to its UID with firebase</p><br/></div>
             
                                         <div class="io-description">
                                             <b>Returns : </b>    <code>void</code>
@@ -467,12 +468,13 @@
             
                                 <tr>
                                     <td class="col-md-4">
-                                        <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/providers/auth-service/auth-service.ts:24</a></div>
+                                        <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/providers/auth-service/auth-service.ts:30</a></div>
                                     </td>
                                 </tr>
             
                             <tr>
                                 <td class="col-md-4">
+                                        <div class="io-description"><p>Login a user</p><br/></div>
             
                                         <div class="io-description">
                                             <b>Returns : </b>    <code>any</code>
@@ -498,12 +500,13 @@
             
                                 <tr>
                                     <td class="col-md-4">
-                                        <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/providers/auth-service/auth-service.ts:28</a></div>
+                                        <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/providers/auth-service/auth-service.ts:37</a></div>
                                     </td>
                                 </tr>
             
                             <tr>
                                 <td class="col-md-4">
+                                        <div class="io-description"><p>Reset a password</p><br/></div>
             
                                         <div class="io-description">
                                             <b>Returns : </b>    <code>any</code>
@@ -529,12 +532,13 @@
             
                                 <tr>
                                     <td class="col-md-4">
-                                        <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/providers/auth-service/auth-service.ts:32</a></div>
+                                        <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/providers/auth-service/auth-service.ts:44</a></div>
                                     </td>
                                 </tr>
             
                             <tr>
                                 <td class="col-md-4">
+                                        <div class="io-description"><p>Logout the current user</p><br/></div>
             
                                         <div class="io-description">
                                             <b>Returns : </b>    <code>any</code>
@@ -560,12 +564,13 @@
             
                                 <tr>
                                     <td class="col-md-4">
-                                        <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/providers/auth-service/auth-service.ts:36</a></div>
+                                        <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/providers/auth-service/auth-service.ts:51</a></div>
                                     </td>
                                 </tr>
             
                             <tr>
                                 <td class="col-md-4">
+                                        <div class="io-description"><p>Signun a new user</p><br/></div>
             
                                         <div class="io-description">
                                             <b>Returns : </b>    <code>any</code>
@@ -699,22 +704,37 @@ export class AuthProvider {
     public alertCtrl: AlertController
   ) {}
 
+  /**
+  * Get informations about the user thanks to its UID with firebase
+  */
   currentUserInfo(uid) {
     return firebase.database().ref(&quot;/users&quot;).child(uid);
   }
 
+  /**
+  * Login a user
+  */
   loginUser(newEmail: string, newPassword: string): firebase.Promise&lt;any&gt; {
     return this.afAuth.auth.signInWithEmailAndPassword(newEmail, newPassword);
   }
 
+  /**
+  * Reset a password
+  */
   resetPassword(email: string): firebase.Promise&lt;any&gt; {
     return this.afAuth.auth.sendPasswordResetEmail(email);
   }
 
+  /**
+  * Logout the current user
+  */
   logoutUser(): firebase.Promise&lt;any&gt; {
     return this.afAuth.auth.signOut();
   }
 
+  /**
+    * Signun a new user
+    */
   signupUser(newEmail: string, newPassword: string, lastName: string, name: string): firebase.Promise&lt;any&gt; {
     return this.afAuth.auth.createUserWithEmailAndPassword(newEmail, newPassword).then(newUser &#x3D;&gt; {
       firebase.database().ref(&quot;/users&quot;).child(newUser.uid).set({

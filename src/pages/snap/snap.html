@@ -1,5 +1,5 @@
 <ion-content>
-    <div *ngIf="pictureServiceProvider.displayFriendMenu" class="friendMenu">
+    <div *ngIf="pictureServiceProvider.displayUserMenu" class="friendMenu">
       <div class="logo_app_container">
         <img class="logo_app" src="assets/images/alien_logo.svg" alt="Logo">
       </div>
@@ -16,23 +16,23 @@
         <button ion-button block color="light" class="btnUser deconnectionColor"  (click)="logout()">Deconnexion</button>
     </div>
 
-    <ion-fab class="middle-top" *ngIf="!pictureServiceProvider.displayFriendMenu && !pictureServiceProvider.tookSnap">
-        <button ion-fab outline (click)="clickFriendMenu()" class="takePhotoButton"><img class="takePhotoButtonImage" src="assets/images/user.svg" alt=""></button>
+    <ion-fab class="middle-top" *ngIf="!pictureServiceProvider.displayUserMenu && !pictureServiceProvider.tookSnap">
+        <button ion-fab outline (click)="clickUserMenu()" class="takePhotoButton"><img class="takePhotoButtonImage" src="assets/images/user.svg" alt=""></button>
     </ion-fab>
 
-    <ion-fab right top *ngIf="!pictureServiceProvider.displayFriendMenu && !pictureServiceProvider.tookSnap">
+    <ion-fab right top *ngIf="!pictureServiceProvider.displayUserMenu && !pictureServiceProvider.tookSnap">
         <button ion-fab outline (click)="switchCamera()" class="takePhotoButton"><img class="takePhotoButtonImage" src="assets/images/revert.svg" alt=""></button>
     </ion-fab>
 
-    <ion-fab right top *ngIf="pictureServiceProvider.displayFriendMenu">
-        <button ion-fab outline (click)="closeFriendMenu()" class="closeButton"><ion-icon name="md-close"></ion-icon></button>
+    <ion-fab right top *ngIf="pictureServiceProvider.displayUserMenu">
+        <button ion-fab outline (click)="closeUserMenu()" class="closeButton"><ion-icon name="md-close"></ion-icon></button>
     </ion-fab>
 
     <ion-fab right top *ngIf="pictureServiceProvider.tookSnap">
         <button ion-fab outline (click)="closeTookSnap()"><ion-icon name="md-close"></ion-icon></button>
     </ion-fab>
 
-    <ion-fab class="middle-bottom" *ngIf="!pictureServiceProvider.displayFriendMenu && !pictureServiceProvider.tookSnap">
+    <ion-fab class="middle-bottom" *ngIf="!pictureServiceProvider.displayUserMenu && !pictureServiceProvider.tookSnap">
         <button ion-fab outline (click)="takePicture()" class="takePhotoButton"><img class="takePhotoButtonImage" src="assets/images/photo-camera.svg" alt=""></button>
     </ion-fab>
 
@@ -40,7 +40,7 @@
         <button ion-fab (click)="sendPicture()"></button>
     </ion-fab>
 
-    <ion-fab left bottom *ngIf="!pictureServiceProvider.displayFriendMenu && !pictureServiceProvider.tookSnap">
+    <ion-fab left bottom *ngIf="!pictureServiceProvider.displayUserMenu && !pictureServiceProvider.tookSnap">
         <button ion-fab outline [navPush]="feed" class="takePhotoButton"><img class="takePhotoButtonImage" src="assets/images/more.svg" alt=""></button>
     </ion-fab>
 
