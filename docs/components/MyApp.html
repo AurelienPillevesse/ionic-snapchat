@@ -453,10 +453,15 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/app.component.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/app.component.ts:17</a></div>
                             </td>
                         </tr>
     
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Constructor of MyApp</p><br/></div>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
     </section>
@@ -487,9 +492,14 @@
                         </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/app.component.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/app.component.ts:17</a></div>
                             </td>
                         </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-description"><p>RootPage variable to redirect to good page according to the user state (with LazyLoading page string)</p><br/></div>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
     </section>
@@ -510,8 +520,14 @@ import { Platform } from &quot;ionic-angular&quot;;
   templateUrl: &quot;app.html&quot;
 })
 export class MyApp {
+  /**
+    * RootPage variable to redirect to good page according to the user state (with LazyLoading page string)
+    */
   rootPage: any &#x3D; &quot;HomePage&quot;;
 
+  /**
+    * Constructor of MyApp
+    */
   constructor(platform: Platform, afAuth: AngularFireAuth, statusBar: StatusBar, splashScreen: SplashScreen) {
     const authObserver &#x3D; afAuth.authState.subscribe(user &#x3D;&gt; {
       if (user) {

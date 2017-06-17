@@ -11,8 +11,14 @@ import { Platform } from "ionic-angular";
   templateUrl: "app.html"
 })
 export class MyApp {
+  /**
+    * RootPage variable to redirect to good page according to the user state (with LazyLoading page string)
+    */
   rootPage: any = "HomePage";
 
+  /**
+    * Constructor of MyApp
+    */
   constructor(platform: Platform, afAuth: AngularFireAuth, statusBar: StatusBar, splashScreen: SplashScreen) {
     const authObserver = afAuth.authState.subscribe(user => {
       if (user) {
