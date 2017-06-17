@@ -457,7 +457,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/pages/feed/feed.ts:20</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/pages/feed/feed.ts:39</a></div>
                             </td>
                         </tr>
     
@@ -486,7 +486,7 @@
     
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/pages/feed/feed.ts:30</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/pages/feed/feed.ts:49</a></div>
                             </td>
                         </tr>
     
@@ -517,7 +517,7 @@
     
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/pages/feed/feed.ts:36</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/pages/feed/feed.ts:55</a></div>
                             </td>
                         </tr>
     
@@ -548,7 +548,7 @@
     
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/pages/feed/feed.ts:42</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">src/pages/feed/feed.ts:61</a></div>
                             </td>
                         </tr>
     
@@ -615,9 +615,14 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/pages/feed/feed.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/pages/feed/feed.ts:29</a></div>
                             </td>
                         </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-description"><p>Picture which is displaying</p><br/></div>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
             <table class="table table-sm table-bordered">
@@ -640,9 +645,14 @@
                         </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/pages/feed/feed.ts:17</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/pages/feed/feed.ts:24</a></div>
                             </td>
                         </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-description"><p>Showing a snap</p><br/></div>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
             <table class="table table-sm table-bordered">
@@ -660,9 +670,14 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/pages/feed/feed.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/pages/feed/feed.ts:19</a></div>
                             </td>
                         </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-description"><p>Array of snaps</p><br/></div>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
             <table class="table table-sm table-bordered">
@@ -685,9 +700,14 @@
                         </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/pages/feed/feed.ts:19</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/pages/feed/feed.ts:34</a></div>
                             </td>
                         </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-description"><p>Time of displaying a snap</p><br/></div>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
             <table class="table table-sm table-bordered">
@@ -705,9 +725,14 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/pages/feed/feed.ts:20</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/pages/feed/feed.ts:39</a></div>
                             </td>
                         </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-description"><p>Timeout variable of displaying a snap</p><br/></div>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
     </section>
@@ -730,10 +755,29 @@ import { Component } from &quot;@angular/core&quot;;
   templateUrl: &quot;feed.html&quot;
 })
 export class Feed {
+  /**
+    * Array of snaps
+    */
   snaps &#x3D; [];
+
+  /**
+    * Showing a snap
+    */
   showSnap &#x3D; false;
+
+  /**
+    * Picture which is displaying
+    */
   picture &#x3D; null;
+
+  /**
+    * Time of displaying a snap
+    */
   TIME_IN_MS: number &#x3D; 10000;
+
+  /**
+    * Timeout variable of displaying a snap
+    */
   timeoutDisplaySnap &#x3D; null;
 
   constructor(

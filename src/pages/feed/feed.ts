@@ -13,10 +13,29 @@ import { Component } from "@angular/core";
   templateUrl: "feed.html"
 })
 export class Feed {
+  /**
+    * Array of snaps
+    */
   snaps = [];
+
+  /**
+    * Showing a snap
+    */
   showSnap = false;
+
+  /**
+    * Picture which is displaying
+    */
   picture = null;
+
+  /**
+    * Time of displaying a snap
+    */
   TIME_IN_MS: number = 10000;
+
+  /**
+    * Timeout variable of displaying a snap
+    */
   timeoutDisplaySnap = null;
 
   constructor(
