@@ -22,7 +22,7 @@ export class SignIn {
   /**
     * Constructor of SignIn
     */
-  constructor(public navCtrl: NavController, private firebaseServiceProvider: FirebaseServiceProvider) {
+  constructor(private navCtrl: NavController, private firebaseServiceProvider: FirebaseServiceProvider) {
     this.loginForm = firebaseServiceProvider.initializeLoginForm();
   }
 
@@ -30,9 +30,14 @@ export class SignIn {
   * Login method
   */
   loginUser() {
-    this.firebaseServiceProvider.login().then(() => {
-      this.navCtrl.setRoot("Snap");
-    });
+    this.firebaseServiceProvider.login().then(
+      () => {
+        this.navCtrl.setRoot("Snap");
+      },
+      error => {
+        this.navCtrl.setRoot("SignIn");
+      }
+    );
   }
 
   /**

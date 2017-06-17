@@ -1,6 +1,6 @@
 import { CameraPreview, CameraPreviewOptions } from "@ionic-native/camera-preview";
+import { LoadingController, Loading, ToastController } from "ionic-angular";
 import { AngularFireDatabase } from "angularfire2/database";
-import { LoadingController, Loading } from "ionic-angular";
 import { Injectable } from "@angular/core";
 import { Storage } from "@ionic/storage";
 import { User } from "../../model/user";
@@ -40,10 +40,11 @@ export class PictureServiceProvider {
     * Constructor of PictureServiceProvider
     */
   constructor(
+    public loadingCtrl: LoadingController,
     private cameraPreview: CameraPreview,
-    private storage: Storage,
+    private toastCtrl: ToastController,
     private af: AngularFireDatabase,
-    public loadingCtrl: LoadingController
+    private storage: Storage
   ) {}
 
   /**
@@ -163,6 +164,7 @@ export class PictureServiceProvider {
       duration: duration
     });
     this.updateUserScore(user);
+    this.showToast("Successfully send the snap!");
   }
 
   /**
@@ -180,12 +182,16 @@ export class PictureServiceProvider {
     });
   }
 
-  /**
-    * Logout the current user
-    */
-  logout(): Promise<any> {
-    return this.storage.remove("userUID").then(() => {
-      return this.closeCamera();
+  /*
+  * Show a toast message
+  */
+  showToast(message: string) {
+    let toast = this.toastCtrl.create({
+      message: message,
+      duration: 2000,
+      position: "middle"
     });
+
+    toast.present();
   }
 }

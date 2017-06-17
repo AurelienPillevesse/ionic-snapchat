@@ -80,9 +80,6 @@
                                 <li class="link">
                                     <a href="../modules/SnapModule.html" >SnapModule</a>
                                 </li>
-                                <li class="link">
-                                    <a href="../modules/StoriesModule.html" >StoriesModule</a>
-                                </li>
                         </ul>
                     </li>
             
@@ -114,9 +111,6 @@
                                 </li>
                                 <li class="link">
                                     <a href="../components/Snap.html" >Snap</a>
-                                </li>
-                                <li class="link">
-                                    <a href="../components/Stories.html" >Stories</a>
                                 </li>
                         </ul>
                     </li>
@@ -256,9 +250,6 @@
                                        <li class="link">
                                            <a href="../modules/SnapModule.html" >SnapModule</a>
                                        </li>
-                                       <li class="link">
-                                           <a href="../modules/StoriesModule.html" >StoriesModule</a>
-                                       </li>
                                </ul>
                            </li>
                    
@@ -290,9 +281,6 @@
                                        </li>
                                        <li class="link">
                                            <a href="../components/Snap.html" >Snap</a>
-                                       </li>
-                                       <li class="link">
-                                           <a href="../components/Stories.html" >Stories</a>
                                        </li>
                                </ul>
                            </li>
@@ -523,7 +511,7 @@
     
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/pages/sign-in/sign-in.ts:41</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/pages/sign-in/sign-in.ts:46</a></div>
                             </td>
                         </tr>
     
@@ -571,21 +559,6 @@
                     </tr>
                 </tbody>
             </table>
-            <table class="table table-sm table-bordered">
-                <tbody>
-                    <tr>
-                        <td class="col-md-4">
-                            <b> navCtrl</b>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <code>navCtrl:     <code>NavController</code>
-    </bcode>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
     </section>
 </div>
 
@@ -615,7 +588,7 @@ export class SignIn {
   /**
     * Constructor of SignIn
     */
-  constructor(public navCtrl: NavController, private firebaseServiceProvider: FirebaseServiceProvider) {
+  constructor(private navCtrl: NavController, private firebaseServiceProvider: FirebaseServiceProvider) {
     this.loginForm &#x3D; firebaseServiceProvider.initializeLoginForm();
   }
 
@@ -623,9 +596,14 @@ export class SignIn {
   * Login method
   */
   loginUser() {
-    this.firebaseServiceProvider.login().then(() &#x3D;&gt; {
-      this.navCtrl.setRoot(&quot;Snap&quot;);
-    });
+    this.firebaseServiceProvider.login().then(
+      () &#x3D;&gt; {
+        this.navCtrl.setRoot(&quot;Snap&quot;);
+      },
+      error &#x3D;&gt; {
+        this.navCtrl.setRoot(&quot;SignIn&quot;);
+      }
+    );
   }
 
   /**
@@ -714,7 +692,7 @@ Ionic pages and navigation.
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><!--Generated template for the SignIn page.See http://ionicframework.com/docs/components/#navigation for more info onIonic pages and navigation.--><ion-header>  <ion-navbar>    <ion-title>signIn</ion-title>  </ion-navbar></ion-header><ion-content class="pageContentStyle" >  <h2 class="form_signup_title">Type here your personal information</h2>  <form [formGroup]="loginForm" (submit)="loginUser()" novalidate>    <ion-item>      <ion-label stacked>Email</ion-label>      <ion-input  class="input_signup" #email formControlName="email" type="email" placeholder="Your email address"        [class.invalid]="!loginForm.controls.email.valid &&          loginForm.controls.email.dirty"></ion-input>    </ion-item>    <ion-item class="error-message" *ngIf="!loginForm.controls.email.valid  &&      loginForm.controls.email.dirty">      <p>Please enter a valid email.</p>    </ion-item>    <ion-item>      <ion-label stacked>Password</ion-label>      <ion-input class="input_signup" #password formControlName="password" type="password" placeholder="Your password"        [class.invalid]="!loginForm.controls.password.valid &&          loginForm.controls.password.dirty"></ion-input>    </ion-item>    <ion-item class="error-message" *ngIf="!loginForm.controls.password.valid  &&      loginForm.controls.password.dirty">      <p>Your password needs more than 6 characters.</p>    </ion-item>    <button ion-button full [navPush]="snap" class="button_signup" type="submit">Valider</button>  </form></ion-content></div>'
-    var COMPONENTS = [{'name': 'Feed', 'selector': 'page-feed'},{'name': 'HomePage', 'selector': 'page-home'},{'name': 'MyApp', 'selector': ''},{'name': 'SignIn', 'selector': 'page-sign-in'},{'name': 'SignUp', 'selector': 'page-sign-up'},{'name': 'Snap', 'selector': 'page-snap'},{'name': 'Stories', 'selector': 'page-stories'}];
+    var COMPONENTS = [{'name': 'Feed', 'selector': 'page-feed'},{'name': 'HomePage', 'selector': 'page-home'},{'name': 'MyApp', 'selector': ''},{'name': 'SignIn', 'selector': 'page-sign-in'},{'name': 'SignUp', 'selector': 'page-sign-up'},{'name': 'Snap', 'selector': 'page-snap'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'SignIn'};
 </script>

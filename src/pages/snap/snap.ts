@@ -1,3 +1,4 @@
+import { FirebaseServiceProvider } from "../../providers/firebase-service/firebase-service";
 import { PictureServiceProvider } from "../../providers/picture-service/picture-service";
 import { AuthProvider } from "../../providers/auth-service/auth-service";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
@@ -30,10 +31,11 @@ export class Snap {
     * Constructor of Snap
     */
   constructor(
-    public navCtrl: NavController,
-    public navParams: NavParams,
+    private firebaseServiceProvider: FirebaseServiceProvider,
     private pictureServiceProvider: PictureServiceProvider,
     public authData: AuthProvider,
+    public navCtrl: NavController,
+    public navParams: NavParams,
     public storage: Storage
   ) {
     this.pictureServiceProvider.initialize();
@@ -112,8 +114,13 @@ export class Snap {
     * Logout of the application
     */
   logout() {
-    this.pictureServiceProvider.logout().then(() => {
-      this.navCtrl.setRoot("HomePage");
-    });
+    this.firebaseServiceProvider
+      .logout()
+      .then(() => {
+        return this.closeCamera();
+      })
+      .then(() => {
+        this.navCtrl.setRoot("HomePage");
+      });
   }
 }

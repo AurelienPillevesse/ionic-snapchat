@@ -25,5 +25,5 @@ export class HomePage {
   /**
     * Constructor of HomePage
     */
-  constructor(private alertCtrl: AlertController, public navCtrl: NavController) {}
+  constructor(public navCtrl: NavController) {}
 }

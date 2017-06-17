@@ -80,9 +80,6 @@
                                 <li class="link">
                                     <a href="../modules/SnapModule.html" >SnapModule</a>
                                 </li>
-                                <li class="link">
-                                    <a href="../modules/StoriesModule.html" >StoriesModule</a>
-                                </li>
                         </ul>
                     </li>
             
@@ -114,9 +111,6 @@
                                 </li>
                                 <li class="link">
                                     <a href="../components/Snap.html" >Snap</a>
-                                </li>
-                                <li class="link">
-                                    <a href="../components/Stories.html" >Stories</a>
                                 </li>
                         </ul>
                     </li>
@@ -256,9 +250,6 @@
                                        <li class="link">
                                            <a href="../modules/SnapModule.html" >SnapModule</a>
                                        </li>
-                                       <li class="link">
-                                           <a href="../modules/StoriesModule.html" >StoriesModule</a>
-                                       </li>
                                </ul>
                            </li>
                    
@@ -290,9 +281,6 @@
                                        </li>
                                        <li class="link">
                                            <a href="../components/Snap.html" >Snap</a>
-                                       </li>
-                                       <li class="link">
-                                           <a href="../components/Stories.html" >Stories</a>
                                        </li>
                                </ul>
                            </li>
@@ -848,8 +836,9 @@ export class Feed {
         &lt;/div&gt;
       &lt;/button&gt;
       &lt;button ion-item *ngIf&#x3D;&quot;snaps.length &#x3D;&#x3D; 0&quot; class&#x3D;&quot;snapContainer&quot;&gt;
+        &lt;ion-icon name&#x3D;&quot;square&quot; item-start class&#x3D;&quot;customIconSizeEmpty&quot;&gt;&lt;/ion-icon&gt;
         &lt;div class&#x3D;&quot;labelSnap&quot;&gt;
-          Aucun snaps...
+          Aucun snaps pour le moment...
         &lt;/div&gt;
       &lt;/button&gt;
     &lt;/ion-list&gt;
@@ -882,8 +871,8 @@ export class Feed {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><ion-header>    <ion-navbar>        <ion-title>Mes Snap</ion-title>    </ion-navbar></ion-header><div class="pageContentStyle">  <ion-content>    <ion-list *ngIf="!showSnap">      <button ion-item *ngFor="let snap of snaps" (click)="openSnap(snap)" class="snapContainer">        <ion-icon name="square" item-start class="customIconSize"></ion-icon>        <div class="labelSnap">          {{ snap.from }}        </div>      </button>      <button ion-item *ngIf="snaps.length == 0" class="snapContainer">        <div class="labelSnap">          Aucun snaps...        </div>      </button>    </ion-list>    <img [src]="picture" *ngIf="showSnap" (click)="clickOnSnapToClose()">  </ion-content></div></div>'
-    var COMPONENTS = [{'name': 'Feed', 'selector': 'page-feed'},{'name': 'HomePage', 'selector': 'page-home'},{'name': 'MyApp', 'selector': ''},{'name': 'SignIn', 'selector': 'page-sign-in'},{'name': 'SignUp', 'selector': 'page-sign-up'},{'name': 'Snap', 'selector': 'page-snap'},{'name': 'Stories', 'selector': 'page-stories'}];
+        var COMPONENT_TEMPLATE = '<div><ion-header>    <ion-navbar>        <ion-title>Mes Snap</ion-title>    </ion-navbar></ion-header><div class="pageContentStyle">  <ion-content>    <ion-list *ngIf="!showSnap">      <button ion-item *ngFor="let snap of snaps" (click)="openSnap(snap)" class="snapContainer">        <ion-icon name="square" item-start class="customIconSize"></ion-icon>        <div class="labelSnap">          {{ snap.from }}        </div>      </button>      <button ion-item *ngIf="snaps.length == 0" class="snapContainer">        <ion-icon name="square" item-start class="customIconSizeEmpty"></ion-icon>        <div class="labelSnap">          Aucun snaps pour le moment...        </div>      </button>    </ion-list>    <img [src]="picture" *ngIf="showSnap" (click)="clickOnSnapToClose()">  </ion-content></div></div>'
+    var COMPONENTS = [{'name': 'Feed', 'selector': 'page-feed'},{'name': 'HomePage', 'selector': 'page-home'},{'name': 'MyApp', 'selector': ''},{'name': 'SignIn', 'selector': 'page-sign-in'},{'name': 'SignUp', 'selector': 'page-sign-up'},{'name': 'Snap', 'selector': 'page-snap'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'Feed'};
 </script>

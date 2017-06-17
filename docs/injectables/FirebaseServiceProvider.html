@@ -80,9 +80,6 @@
                                 <li class="link">
                                     <a href="../modules/SnapModule.html" >SnapModule</a>
                                 </li>
-                                <li class="link">
-                                    <a href="../modules/StoriesModule.html" >StoriesModule</a>
-                                </li>
                         </ul>
                     </li>
             
@@ -114,9 +111,6 @@
                                 </li>
                                 <li class="link">
                                     <a href="../components/Snap.html" >Snap</a>
-                                </li>
-                                <li class="link">
-                                    <a href="../components/Stories.html" >Stories</a>
                                 </li>
                         </ul>
                     </li>
@@ -256,9 +250,6 @@
                                        <li class="link">
                                            <a href="../modules/SnapModule.html" >SnapModule</a>
                                        </li>
-                                       <li class="link">
-                                           <a href="../modules/StoriesModule.html" >StoriesModule</a>
-                                       </li>
                                </ul>
                            </li>
                    
@@ -290,9 +281,6 @@
                                        </li>
                                        <li class="link">
                                            <a href="../components/Snap.html" >Snap</a>
-                                       </li>
-                                       <li class="link">
-                                           <a href="../components/Stories.html" >Stories</a>
                                        </li>
                                </ul>
                            </li>
@@ -408,12 +396,12 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <code>constructor(loadingCtrl: LoadingController, alertCtrl: AlertController, formBuilder: <a href="https://angular.io/docs/ts/latest/api/forms/index/FormBuilder-class.html" target="_blank">FormBuilder</a>, af: AngularFireDatabase, authData: <a href="../injectables/AuthProvider.html">AuthProvider</a>, storage: Storage)</code>
+                                    <code>constructor(loadingCtrl: LoadingController, toastCtrl: ToastController, alertCtrl: AlertController, formBuilder: <a href="https://angular.io/docs/ts/latest/api/forms/index/FormBuilder-class.html" target="_blank">FormBuilder</a>, af: AngularFireDatabase, authData: <a href="../injectables/AuthProvider.html">AuthProvider</a>, storage: Storage)</code>
                                 </td>
                             </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/providers/firebase-service/firebase-service.ts:29</a></div>
+                                        <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/providers/firebase-service/firebase-service.ts:34</a></div>
                                     </td>
                                 </tr>
             
@@ -447,13 +435,45 @@
             
                                 <tr>
                                     <td class="col-md-4">
-                                        <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/providers/firebase-service/firebase-service.ts:46</a></div>
+                                        <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/providers/firebase-service/firebase-service.ts:52</a></div>
                                     </td>
                                 </tr>
             
                             <tr>
                                 <td class="col-md-4">
                                         <div class="io-description"><p>Initialize a login form</p><br/></div>
+            
+                                        <div class="io-description">
+                                            <b>Returns : </b>    <code><a href="https://angular.io/docs/ts/latest/api/forms/index/FormGroup-class.html" target="_blank" >FormGroup</a></code>
+            
+                                        </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> initializeSignupForm</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+            <code>initializeSignupForm()</code>
+                                </td>
+                            </tr>
+            
+            
+                                <tr>
+                                    <td class="col-md-4">
+                                        <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">src/providers/firebase-service/firebase-service.ts:64</a></div>
+                                    </td>
+                                </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+                                        <div class="io-description"><p>Initialize a singup form</p><br/></div>
             
                                         <div class="io-description">
                                             <b>Returns : </b>    <code><a href="https://angular.io/docs/ts/latest/api/forms/index/FormGroup-class.html" target="_blank" >FormGroup</a></code>
@@ -479,7 +499,7 @@
             
                                 <tr>
                                     <td class="col-md-4">
-                                        <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">src/providers/firebase-service/firebase-service.ts:58</a></div>
+                                        <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">src/providers/firebase-service/firebase-service.ts:78</a></div>
                                     </td>
                                 </tr>
             
@@ -489,6 +509,101 @@
             
                                         <div class="io-description">
                                             <b>Returns : </b>    <code>any</code>
+            
+                                        </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> signup</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+            <code>signup()</code>
+                                </td>
+                            </tr>
+            
+            
+                                <tr>
+                                    <td class="col-md-4">
+                                        <div class="io-line">Defined in <a href="" data-line="111" class="link-to-prism">src/providers/firebase-service/firebase-service.ts:111</a></div>
+                                    </td>
+                                </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+                                        <div class="io-description"><p>Signup a user</p><br/></div>
+            
+                                        <div class="io-description">
+                                            <b>Returns : </b>    <code>any</code>
+            
+                                        </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> logout</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+            <code>logout()</code>
+                                </td>
+                            </tr>
+            
+            
+                                <tr>
+                                    <td class="col-md-4">
+                                        <div class="io-line">Defined in <a href="" data-line="151" class="link-to-prism">src/providers/firebase-service/firebase-service.ts:151</a></div>
+                                    </td>
+                                </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+                                        <div class="io-description"><p>Logout the current user</p><br/></div>
+            
+                                        <div class="io-description">
+                                            <b>Returns : </b>    <code>any</code>
+            
+                                        </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> showToast</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+            <code>showToast(message: string)</code>
+                                </td>
+                            </tr>
+            
+            
+                                <tr>
+                                    <td class="col-md-4">
+                                        <div class="io-line">Defined in <a href="" data-line="157" class="link-to-prism">src/providers/firebase-service/firebase-service.ts:157</a></div>
+                                    </td>
+                                </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+            
+                                        <div class="io-description">
+                                            <b>Returns : </b>    <code>void</code>
             
                                         </div>
                                 </td>
@@ -577,7 +692,7 @@
                             </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/providers/firebase-service/firebase-service.ts:24</a></div>
+                                        <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/providers/firebase-service/firebase-service.ts:29</a></div>
                                     </td>
                                 </tr>
                             <tr>
@@ -631,6 +746,31 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
+                                    <b><span class="modifier">Static</span> signupForm</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <span class="modifier-icon fa fa-export"></span><code>signupForm:     <code><a href="https://angular.io/docs/ts/latest/api/forms/index/FormGroup-class.html" target="_blank" >FormGroup</a></code>
+            </bcode>
+                                </td>
+                            </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/providers/firebase-service/firebase-service.ts:24</a></div>
+                                    </td>
+                                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Form to signup</p><br/></div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
                                     <b> storage</b>
                                 </td>
                             </tr>
@@ -657,7 +797,7 @@
                             </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/providers/firebase-service/firebase-service.ts:29</a></div>
+                                        <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/providers/firebase-service/firebase-service.ts:34</a></div>
                                     </td>
                                 </tr>
                             <tr>
@@ -670,7 +810,7 @@
             </section>
     </div>
     <div class="tab-pane fade tab-source-code" id="source">
-        <pre class="line-numbers"><code class="language-typescript">import { LoadingController, Loading, AlertController } from &quot;ionic-angular&quot;;
+        <pre class="line-numbers"><code class="language-typescript">import { LoadingController, Loading, AlertController, ToastController } from &quot;ionic-angular&quot;;
 import { AuthProvider } from &quot;../../providers/auth-service/auth-service&quot;;
 import { FormBuilder, FormGroup, Validators } from &quot;@angular/forms&quot;;
 import { AngularFireDatabase } from &quot;angularfire2/database&quot;;
@@ -686,25 +826,31 @@ import firebase from &quot;firebase/app&quot;;
 @Injectable()
 export class FirebaseServiceProvider {
   /**
-    * Form to login
-    */
+  * Form to login
+  */
   public loginForm: FormGroup;
 
   /**
-    * Instance of loading for loading spinner
-    */
+  * Form to signup
+  */
+  public signupForm: FormGroup;
+
+  /**
+  * Instance of loading for loading spinner
+  */
   public loading: Loading;
 
   /**
-    * Current user
-    */
+  * Current user
+  */
   public user: User;
 
   /**
-    * Constructor of FirebaseServiceProvider
-    */
+  * Constructor of FirebaseServiceProvider
+  */
   constructor(
     public loadingCtrl: LoadingController,
+    private toastCtrl: ToastController,
     public alertCtrl: AlertController,
     public formBuilder: FormBuilder,
     public af: AngularFireDatabase,
@@ -713,8 +859,8 @@ export class FirebaseServiceProvider {
   ) {}
 
   /**
-    * Initialize a login form
-    */
+  * Initialize a login form
+  */
   initializeLoginForm(): FormGroup {
     this.loginForm &#x3D; this.formBuilder.group({
       email: [&quot;&quot;, Validators.compose([Validators.required, EmailValidator.isValid])],
@@ -722,6 +868,20 @@ export class FirebaseServiceProvider {
     });
 
     return this.loginForm;
+  }
+
+  /**
+  * Initialize a singup form
+  */
+  initializeSignupForm(): FormGroup {
+    this.signupForm &#x3D; this.formBuilder.group({
+      email: [&quot;&quot;, Validators.compose([Validators.required, EmailValidator.isValid])],
+      name: [&quot;&quot;, Validators.compose([Validators.required])],
+      lastname: [&quot;&quot;, Validators.compose([Validators.required])],
+      password: [&quot;&quot;, Validators.compose([Validators.minLength(6), Validators.required])]
+    });
+
+    return this.signupForm;
   }
 
   /**
@@ -735,11 +895,11 @@ export class FirebaseServiceProvider {
       return this.authData.loginUser(this.loginForm.value.email, this.loginForm.value.password).then(
         authData &#x3D;&gt; {
           return this.loading.dismiss().then(() &#x3D;&gt; {
-            return this.storage.set(&quot;userUID&quot;, authData.uid);
+            return this.storage.set(&quot;userUID&quot;, authData.uid).then(() &#x3D;&gt; this.showToast(&quot;Successfully login!&quot;));
           });
         },
         error &#x3D;&gt; {
-          this.loading.dismiss().then(() &#x3D;&gt; {
+          return this.loading.dismiss().then(() &#x3D;&gt; {
             let alert &#x3D; this.alertCtrl.create({
               message: error.message,
               buttons: [
@@ -750,10 +910,70 @@ export class FirebaseServiceProvider {
               ]
             });
             alert.present();
+            throw error;
           });
         }
       );
     }
+  }
+
+  /**
+  * Signup a user
+  */
+  signup(): firebase.Promise&lt;any&gt; {
+    this.loading &#x3D; this.loadingCtrl.create();
+    this.loading.present();
+
+    if (this.signupForm.valid) {
+      return this.authData
+        .signupUser(
+          this.signupForm.value.email,
+          this.signupForm.value.password,
+          this.signupForm.value.lastname,
+          this.signupForm.value.name
+        )
+        .then(
+          authData &#x3D;&gt; {
+            return this.loading.dismiss().then(() &#x3D;&gt; {
+              return this.storage.set(&quot;userUID&quot;, authData.uid).then(() &#x3D;&gt; this.showToast(&quot;Successfully registered!&quot;));
+            });
+          },
+          error &#x3D;&gt; {
+            return this.loading.dismiss().then(() &#x3D;&gt; {
+              let alert &#x3D; this.alertCtrl.create({
+                message: error.message,
+                buttons: [
+                  {
+                    text: &quot;Ok&quot;,
+                    role: &quot;cancel&quot;
+                  }
+                ]
+              });
+              alert.present();
+              throw error;
+            });
+          }
+        );
+    }
+  }
+
+  /**
+      * Logout the current user
+      */
+  logout(): firebase.Promise&lt;any&gt; {
+    return this.authData.logoutUser().then(() &#x3D;&gt; {
+      return this.storage.remove(&quot;userUID&quot;);
+    });
+  }
+
+  showToast(message: string) {
+    let toast &#x3D; this.toastCtrl.create({
+      message: message,
+      duration: 2000,
+      position: &quot;middle&quot;
+    });
+
+    toast.present();
   }
 }
 </code></pre>

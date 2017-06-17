@@ -80,9 +80,6 @@
                                 <li class="link">
                                     <a href="../modules/SnapModule.html" >SnapModule</a>
                                 </li>
-                                <li class="link">
-                                    <a href="../modules/StoriesModule.html" >StoriesModule</a>
-                                </li>
                         </ul>
                     </li>
             
@@ -114,9 +111,6 @@
                                 </li>
                                 <li class="link">
                                     <a href="../components/Snap.html" >Snap</a>
-                                </li>
-                                <li class="link">
-                                    <a href="../components/Stories.html" >Stories</a>
                                 </li>
                         </ul>
                     </li>
@@ -256,9 +250,6 @@
                                        <li class="link">
                                            <a href="../modules/SnapModule.html" >SnapModule</a>
                                        </li>
-                                       <li class="link">
-                                           <a href="../modules/StoriesModule.html" >StoriesModule</a>
-                                       </li>
                                </ul>
                            </li>
                    
@@ -290,9 +281,6 @@
                                        </li>
                                        <li class="link">
                                            <a href="../components/Snap.html" >Snap</a>
-                                       </li>
-                                       <li class="link">
-                                           <a href="../components/Stories.html" >Stories</a>
                                        </li>
                                </ul>
                            </li>
@@ -452,15 +440,20 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
-                            <code>constructor(navCtrl: NavController, authProvider: <a href="../injectables/AuthProvider.html">AuthProvider</a>, formBuilder: <a href="https://angular.io/docs/ts/latest/api/forms/index/FormBuilder-class.html" target="_blank">FormBuilder</a>, loadingCtrl: LoadingController, alertCtrl: AlertController, angularfire: AngularFireDatabase, storage: Storage)</code>
+                            <code>constructor(navCtrl: NavController, firebaseServiceProvider: <a href="../injectables/FirebaseServiceProvider.html">FirebaseServiceProvider</a>)</code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/pages/sign-up/sign-up.ts:23</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/pages/sign-up/sign-up.ts:20</a></div>
                             </td>
                         </tr>
     
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Constructor for SignUp page</p><br/></div>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
     </section>
@@ -486,12 +479,13 @@
     
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/pages/sign-up/sign-up.ts:44</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/pages/sign-up/sign-up.ts:32</a></div>
                             </td>
                         </tr>
     
                     <tr>
                         <td class="col-md-4">
+                                <div class="io-description"><p>Signun for a user</p><br/></div>
     
                                 <div class="io-description">
                                     <b>Returns : </b>    <code>void</code>
@@ -508,86 +502,6 @@
             <h3 id="inputs">
                 Properties
             </h3>
-            <table class="table table-sm table-bordered">
-                <tbody>
-                    <tr>
-                        <td class="col-md-4">
-                            <b> alertCtrl</b>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <code>alertCtrl:     <code>AlertController</code>
-    </bcode>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <table class="table table-sm table-bordered">
-                <tbody>
-                    <tr>
-                        <td class="col-md-4">
-                            <b> authProvider</b>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <code>authProvider:     <code><a href="../injectables/AuthProvider.html" target="_self" >AuthProvider</a></code>
-    </bcode>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <table class="table table-sm table-bordered">
-                <tbody>
-                    <tr>
-                        <td class="col-md-4">
-                            <b> formBuilder</b>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <code>formBuilder:     <code><a href="https://angular.io/docs/ts/latest/api/forms/index/FormBuilder-class.html" target="_blank" >FormBuilder</a></code>
-    </bcode>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <table class="table table-sm table-bordered">
-                <tbody>
-                    <tr>
-                        <td class="col-md-4">
-                            <b> loading</b>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <code>loading:     <code>Loading</code>
-    </bcode>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/pages/sign-up/sign-up.ts:23</a></div>
-                            </td>
-                        </tr>
-                </tbody>
-            </table>
-            <table class="table table-sm table-bordered">
-                <tbody>
-                    <tr>
-                        <td class="col-md-4">
-                            <b> loadingCtrl</b>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <code>loadingCtrl:     <code>LoadingController</code>
-    </bcode>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
             <table class="table table-sm table-bordered">
                 <tbody>
                     <tr>
@@ -618,29 +532,14 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/pages/sign-up/sign-up.ts:21</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/pages/sign-up/sign-up.ts:20</a></div>
                             </td>
                         </tr>
-                </tbody>
-            </table>
-            <table class="table table-sm table-bordered">
-                <tbody>
                     <tr>
                         <td class="col-md-4">
-                            <b> users</b>
+                            <div class="io-description"><p>SignupForm that contains the form for the signup</p><br/></div>
                         </td>
                     </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <code>users:     <code><a href="../classes/User.html" target="_self" >FirebaseListObservable&lt;User[]&gt;</a></code>
-    </bcode>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/pages/sign-up/sign-up.ts:22</a></div>
-                            </td>
-                        </tr>
                 </tbody>
             </table>
     </section>
@@ -648,14 +547,10 @@
 
 
     <div class="tab-pane fade tab-source-code" id="source">
-        <pre class="line-numbers"><code class="language-typescript">import { IonicPage, NavController, LoadingController, Loading, AlertController } from &quot;ionic-angular&quot;;
-import { AngularFireDatabase, FirebaseListObservable } from &quot;angularfire2/database&quot;;
-import { AuthProvider } from &quot;../../providers/auth-service/auth-service&quot;;
-import { FormBuilder, FormGroup, Validators } from &quot;@angular/forms&quot;;
-import { EmailValidator } from &quot;../../validators/email&quot;;
+        <pre class="line-numbers"><code class="language-typescript">import { FirebaseServiceProvider } from &quot;../../providers/firebase-service/firebase-service&quot;;
+import { IonicPage, NavController } from &quot;ionic-angular&quot;;
+import { FormGroup } from &quot;@angular/forms&quot;;
 import { Component } from &quot;@angular/core&quot;;
-import { Storage } from &quot;@ionic/storage&quot;;
-import { User } from &quot;../../model/user&quot;;
 
 /**
  * The SignUp component
@@ -668,62 +563,30 @@ import { User } from &quot;../../model/user&quot;;
   templateUrl: &quot;sign-up.html&quot;
 })
 export class SignUp {
+  /**
+  * SignupForm that contains the form for the signup
+  */
   public signupForm: FormGroup;
-  users: FirebaseListObservable&lt;User[]&gt;;
-  loading: Loading;
 
-  constructor(
-    public navCtrl: NavController,
-    public authProvider: AuthProvider,
-    public formBuilder: FormBuilder,
-    public loadingCtrl: LoadingController,
-    public alertCtrl: AlertController,
-    angularfire: AngularFireDatabase,
-    private storage: Storage
-  ) {
-    this.users &#x3D; angularfire.list(&quot;/users&quot;);
-    this.signupForm &#x3D; formBuilder.group({
-      email: [&quot;&quot;, Validators.compose([Validators.required, EmailValidator.isValid])],
-      name: [&quot;&quot;, Validators.compose([Validators.required])],
-      lastname: [&quot;&quot;, Validators.compose([Validators.required])],
-      password: [&quot;&quot;, Validators.compose([Validators.minLength(6), Validators.required])]
-    });
-    this.storage &#x3D; storage;
+  /**
+  * Constructor for SignUp page
+  */
+  constructor(public navCtrl: NavController, private firebaseServiceProvider: FirebaseServiceProvider) {
+    this.signupForm &#x3D; firebaseServiceProvider.initializeSignupForm();
   }
 
+  /**
+  * Signun for a user
+  */
   signupUser() {
-    if (this.signupForm.valid) {
-      this.authProvider
-        .signupUser(
-          this.signupForm.value.email,
-          this.signupForm.value.password,
-          this.signupForm.value.lastname,
-          this.signupForm.value.name
-        )
-        .then(
-          () &#x3D;&gt; {
-            this.loading.dismiss().then(() &#x3D;&gt; {
-              this.navCtrl.setRoot(&quot;Snap&quot;);
-            });
-          },
-          error &#x3D;&gt; {
-            this.loading.dismiss().then(() &#x3D;&gt; {
-              let alert &#x3D; this.alertCtrl.create({
-                message: error.message,
-                buttons: [
-                  {
-                    text: &quot;Ok&quot;,
-                    role: &quot;cancel&quot;
-                  }
-                ]
-              });
-              alert.present();
-            });
-          }
-        );
-      this.loading &#x3D; this.loadingCtrl.create();
-      this.loading.present();
-    }
+    this.firebaseServiceProvider.signup().then(
+      () &#x3D;&gt; {
+        this.navCtrl.setRoot(&quot;Snap&quot;);
+      },
+      error &#x3D;&gt; {
+        this.navCtrl.setRoot(&quot;SignUp&quot;);
+      }
+    );
   }
 }
 </code></pre>
@@ -810,7 +673,7 @@ Ionic pages and navigation.
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><!--Generated template for the SignUp page.See http://ionicframework.com/docs/components/#navigation for more info onIonic pages and navigation.--><ion-header>  <ion-navbar>    <ion-title>signUp</ion-title>  </ion-navbar></ion-header><ion-content class="pageContentStyle">  <h2 class="form_signup_title">Type here your personal information</h2>  <div class="form_signup_container">    <form [formGroup]="signupForm" (submit)="signupUser()" novalidate>       <ion-item>         <ion-label stacked>Email</ion-label>         <ion-input formControlName="email" type="email" placeholder="Your email address"           [class.invalid]="!signupForm.controls.email.valid && signupForm.controls.email.dirty"></ion-input>       </ion-item>       <ion-item>         <ion-label stacked>Name</ion-label>         <ion-input formControlName="name" type="name" placeholder="Your name address"           [class.invalid]="!signupForm.controls.name.valid && signupForm.controls.name.dirty"></ion-input>       </ion-item>       <ion-item>         <ion-label stacked>lastname</ion-label>         <ion-input formControlName="lastname" type="lastname" placeholder="Your lastname address"           [class.invalid]="!signupForm.controls.lastname.valid && signupForm.controls.lastname.dirty"></ion-input>       </ion-item>       <ion-item class="error-message" *ngIf="!signupForm.controls.email.valid  && signupForm.controls.email.dirty">         <p>Please enter a valid email.</p>       </ion-item>       <ion-item>         <ion-label stacked>Password</ion-label>         <ion-input formControlName="password" type="password"  placeholder="Your password"           [class.invalid]="!signupForm.controls.password.valid && signupForm.controls.password.dirty"></ion-input>       </ion-item>       <ion-item class="error-message" *ngIf="!signupForm.controls.password.valid  && signupForm.controls.password.dirty">         <p>Your password needs more than 6 characters.</p>       </ion-item>       <button ion-button full type="submit" class="button_signup">Create an Account</button>     </form>  </div></ion-content></div>'
-    var COMPONENTS = [{'name': 'Feed', 'selector': 'page-feed'},{'name': 'HomePage', 'selector': 'page-home'},{'name': 'MyApp', 'selector': ''},{'name': 'SignIn', 'selector': 'page-sign-in'},{'name': 'SignUp', 'selector': 'page-sign-up'},{'name': 'Snap', 'selector': 'page-snap'},{'name': 'Stories', 'selector': 'page-stories'}];
+    var COMPONENTS = [{'name': 'Feed', 'selector': 'page-feed'},{'name': 'HomePage', 'selector': 'page-home'},{'name': 'MyApp', 'selector': ''},{'name': 'SignIn', 'selector': 'page-sign-in'},{'name': 'SignUp', 'selector': 'page-sign-up'},{'name': 'Snap', 'selector': 'page-snap'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'SignUp'};
 </script>

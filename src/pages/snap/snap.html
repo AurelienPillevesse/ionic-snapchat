@@ -13,7 +13,7 @@
         <button ion-button block color="light" class="btnUser" >Ils m'ont ajouté</button>
         <button ion-button block color="light" class="btnUser" >Ajouter des amis</button>
         <button ion-button block color="light" class="btnUser" >Mes amis</button>
-        <button ion-button block color="light" class="btnUser deconnectionColor"  (click)="logout()">Deconnexion</button>
+        <button ion-button block color="light" class="btnUser deconnectionColor" (click)="logout()">Deconnexion</button>
     </div>
 
     <ion-fab class="middle-top" *ngIf="!pictureServiceProvider.displayUserMenu && !pictureServiceProvider.tookSnap">
@@ -37,7 +37,7 @@
     </ion-fab>
 
     <ion-fab right bottom *ngIf="pictureServiceProvider.tookSnap">
-        <button ion-fab (click)="sendPicture()"></button>
+        <button ion-fab (click)="sendPicture()"><ion-icon name="md-send"></ion-icon></button>
     </ion-fab>
 
     <ion-fab left bottom *ngIf="!pictureServiceProvider.displayUserMenu && !pictureServiceProvider.tookSnap">
