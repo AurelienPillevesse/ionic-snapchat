@@ -38,6 +38,9 @@ export class Feed {
     */
   timeoutDisplaySnap = null;
 
+  /**
+    * Constructor of Feed
+    */
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -46,18 +49,27 @@ export class Feed {
     pictureServiceProvider.getAllSnap(this.snaps);
   }
 
+  /**
+    * Open a snap
+    */
   openSnap(snap) {
     this.picture = snap.dataPicture;
     this.showSnap = true;
     this.displaySnapTimeout();
   }
 
+  /**
+    * Display a snap with a timer
+    */
   displaySnapTimeout() {
     this.timeoutDisplaySnap = setTimeout(() => {
       this.showSnap = false;
     }, this.TIME_IN_MS);
   }
 
+  /**
+    * Click on picture to close it before the timer is over
+    */
   clickOnSnapToClose() {
     this.showSnap = false;
     clearTimeout(this.timeoutDisplaySnap);

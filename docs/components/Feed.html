@@ -461,6 +461,11 @@
                             </td>
                         </tr>
     
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Constructor of Feed</p><br/></div>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
     </section>
@@ -486,12 +491,13 @@
     
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/pages/feed/feed.ts:49</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/pages/feed/feed.ts:55</a></div>
                             </td>
                         </tr>
     
                     <tr>
                         <td class="col-md-4">
+                                <div class="io-description"><p>Open a snap</p><br/></div>
     
                                 <div class="io-description">
                                     <b>Returns : </b>    <code>void</code>
@@ -517,12 +523,13 @@
     
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/pages/feed/feed.ts:55</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">src/pages/feed/feed.ts:64</a></div>
                             </td>
                         </tr>
     
                     <tr>
                         <td class="col-md-4">
+                                <div class="io-description"><p>Display a snap with a timer</p><br/></div>
     
                                 <div class="io-description">
                                     <b>Returns : </b>    <code>void</code>
@@ -548,12 +555,13 @@
     
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">src/pages/feed/feed.ts:61</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">src/pages/feed/feed.ts:73</a></div>
                             </td>
                         </tr>
     
                     <tr>
                         <td class="col-md-4">
+                                <div class="io-description"><p>Click on picture to close it before the timer is over</p><br/></div>
     
                                 <div class="io-description">
                                     <b>Returns : </b>    <code>void</code>
@@ -780,6 +788,9 @@ export class Feed {
     */
   timeoutDisplaySnap &#x3D; null;
 
+  /**
+    * Constructor of Feed
+    */
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -788,18 +799,27 @@ export class Feed {
     pictureServiceProvider.getAllSnap(this.snaps);
   }
 
+  /**
+    * Open a snap
+    */
   openSnap(snap) {
     this.picture &#x3D; snap.dataPicture;
     this.showSnap &#x3D; true;
     this.displaySnapTimeout();
   }
 
+  /**
+    * Display a snap with a timer
+    */
   displaySnapTimeout() {
     this.timeoutDisplaySnap &#x3D; setTimeout(() &#x3D;&gt; {
       this.showSnap &#x3D; false;
     }, this.TIME_IN_MS);
   }
 
+  /**
+    * Click on picture to close it before the timer is over
+    */
   clickOnSnapToClose() {
     this.showSnap &#x3D; false;
     clearTimeout(this.timeoutDisplaySnap);
