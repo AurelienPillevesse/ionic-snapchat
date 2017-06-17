@@ -11,12 +11,34 @@ import firebase from "firebase/app";
 */
 @Injectable()
 export class PictureServiceProvider {
+  /**
+    * Base64 picture
+    */
   public picture: String;
+
+  /**
+    * Boolean for the display of user menu
+    */
   public displayUserMenu: Boolean;
+
+  /**
+    * Boolean to know if user just took a snap
+    */
   public tookSnap: Boolean;
+
+  /**
+    * Instance of loading for loading spinner
+    */
   public loading: Loading;
+
+  /**
+    * List of snaps
+    */
   public snaps: any;
 
+  /**
+    * Constructor of PictureServiceProvider
+    */
   constructor(
     private cameraPreview: CameraPreview,
     private storage: Storage,

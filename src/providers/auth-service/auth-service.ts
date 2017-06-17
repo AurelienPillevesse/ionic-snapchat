@@ -10,8 +10,14 @@ import firebase from "firebase/app";
 */
 @Injectable()
 export class AuthProvider {
+  /**
+    * Instance of Loading for the loading spinner
+    */
   public loading: Loading;
 
+  /**
+    * Constructor of AuthProvider
+    */
   constructor(
     public afAuth: AngularFireAuth,
     public storage: Storage,

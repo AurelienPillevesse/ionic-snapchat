@@ -13,10 +13,24 @@ import firebase from "firebase/app";
 */
 @Injectable()
 export class FirebaseServiceProvider {
+  /**
+    * Form to login
+    */
   public loginForm: FormGroup;
+
+  /**
+    * Instance of loading for loading spinner
+    */
   public loading: Loading;
+
+  /**
+    * Current user
+    */
   public user: User;
 
+  /**
+    * Constructor of FirebaseServiceProvider
+    */
   constructor(
     public loadingCtrl: LoadingController,
     public alertCtrl: AlertController,

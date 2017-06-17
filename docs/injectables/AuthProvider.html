@@ -413,10 +413,15 @@
                             </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/providers/auth-service/auth-service.ts:13</a></div>
+                                        <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/providers/auth-service/auth-service.ts:16</a></div>
                                     </td>
                                 </tr>
             
+                            <tr>
+                                <td class="col-md-4">
+                                        <div class="io-description"><p>Constructor of AuthProvider</p><br/></div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
             </section>
@@ -442,7 +447,7 @@
             
                                 <tr>
                                     <td class="col-md-4">
-                                        <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/providers/auth-service/auth-service.ts:26</a></div>
+                                        <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/providers/auth-service/auth-service.ts:32</a></div>
                                     </td>
                                 </tr>
             
@@ -474,7 +479,7 @@
             
                                 <tr>
                                     <td class="col-md-4">
-                                        <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/providers/auth-service/auth-service.ts:33</a></div>
+                                        <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/providers/auth-service/auth-service.ts:39</a></div>
                                     </td>
                                 </tr>
             
@@ -506,7 +511,7 @@
             
                                 <tr>
                                     <td class="col-md-4">
-                                        <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/providers/auth-service/auth-service.ts:40</a></div>
+                                        <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/providers/auth-service/auth-service.ts:46</a></div>
                                     </td>
                                 </tr>
             
@@ -538,7 +543,7 @@
             
                                 <tr>
                                     <td class="col-md-4">
-                                        <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/providers/auth-service/auth-service.ts:47</a></div>
+                                        <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/providers/auth-service/auth-service.ts:53</a></div>
                                     </td>
                                 </tr>
             
@@ -570,7 +575,7 @@
             
                                 <tr>
                                     <td class="col-md-4">
-                                        <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/providers/auth-service/auth-service.ts:54</a></div>
+                                        <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">src/providers/auth-service/auth-service.ts:60</a></div>
                                     </td>
                                 </tr>
             
@@ -653,9 +658,14 @@
                             </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/providers/auth-service/auth-service.ts:13</a></div>
+                                        <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/providers/auth-service/auth-service.ts:16</a></div>
                                     </td>
                                 </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Instance of Loading for the loading spinner</p><br/></div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -703,8 +713,14 @@ import firebase from &quot;firebase/app&quot;;
 */
 @Injectable()
 export class AuthProvider {
+  /**
+    * Instance of Loading for the loading spinner
+    */
   public loading: Loading;
 
+  /**
+    * Constructor of AuthProvider
+    */
   constructor(
     public afAuth: AngularFireAuth,
     public storage: Storage,
