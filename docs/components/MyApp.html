@@ -400,6 +400,12 @@
     <code>src/app/app.component.ts</code>
 </p>
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>The main component</p><br/>
+    </p>
 
 
 
@@ -447,7 +453,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/app.component.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/app.component.ts:14</a></div>
                             </td>
                         </tr>
     
@@ -481,7 +487,7 @@
                         </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/app.component.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/app.component.ts:14</a></div>
                             </td>
                         </tr>
                 </tbody>
@@ -497,6 +503,9 @@ import { AngularFireAuth } from &quot;angularfire2/auth&quot;;
 import { Component } from &quot;@angular/core&quot;;
 import { Platform } from &quot;ionic-angular&quot;;
 
+/**
+ * The main component
+ */
 @Component({
   templateUrl: &quot;app.html&quot;
 })
@@ -513,6 +522,7 @@ export class MyApp {
         authObserver.unsubscribe();
       }
     });
+
     platform.ready().then(() &#x3D;&gt; {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
