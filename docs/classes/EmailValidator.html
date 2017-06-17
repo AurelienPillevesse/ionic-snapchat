@@ -397,6 +397,12 @@
             <code>src/validators/email.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Email validator</p><br/>
+            </p>
 
 
 
@@ -425,12 +431,13 @@
             
                                 <tr>
                                     <td class="col-md-4">
-                                        <div class="io-line">Defined in <a href="" data-line="5" class="link-to-prism">src/validators/email.ts:5</a></div>
+                                        <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/validators/email.ts:10</a></div>
                                     </td>
                                 </tr>
             
                             <tr>
                                 <td class="col-md-4">
+                                        <div class="io-description"><p>Check if the email is correct</p><br/></div>
             
                                         <div class="io-description">
                                             <b>Returns : </b>    <code>void</code>
@@ -445,21 +452,27 @@
 
     </div>
     <div class="tab-pane fade tab-source-code" id="source">
-        <pre class="line-numbers"><code class="language-typescript">import { FormControl } from &#x27;@angular/forms&#x27;;
+        <pre class="line-numbers"><code class="language-typescript">import { FormControl } from &quot;@angular/forms&quot;;
 
+/**
+* Email validator
+*/
 export class EmailValidator {
+  /**
+  * Check if the email is correct
+  */
+  static isValid(control: FormControl) {
+    const re &#x3D; /^(?:[a-z0-9!#$%&amp;&#x27;*+/&#x3D;?^_&#x60;{|}~-]+(?:\.[a-z0-9!#$%&amp;&#x27;*+/&#x3D;?^_&#x60;{|}~-]+)*|&quot;(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*&quot;)@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])$/.test(
+      control.value
+    );
 
-  static isValid(control: FormControl){
-    const re &#x3D; /^(?:[a-z0-9!#$%&amp;&#x27;*+/&#x3D;?^_&#x60;{|}~-]+(?:\.[a-z0-9!#$%&amp;&#x27;*+/&#x3D;?^_&#x60;{|}~-]+)*|&quot;(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*&quot;)@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])$/.test(control.value);
-
-    if (re){
+    if (re) {
       return null;
     }
 
     return {
-      &quot;invalidEmail&quot;: true
+      invalidEmail: true
     };
-
   }
 }
 </code></pre>

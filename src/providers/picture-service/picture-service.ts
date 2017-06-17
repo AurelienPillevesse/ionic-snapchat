@@ -6,11 +6,8 @@ import { Storage } from "@ionic/storage";
 import { User } from "../../model/user";
 import firebase from "firebase/app";
 
-/*
-Generated class for the PictureServiceProvider provider.
-
-See https://angular.io/docs/ts/latest/guide/dependency-injection.html
-for more info on providers and Angular 2 DI.
+/**
+* Picture service
 */
 @Injectable()
 export class PictureServiceProvider {

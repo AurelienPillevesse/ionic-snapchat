@@ -5,6 +5,9 @@ import { Injectable } from "@angular/core";
 import { Storage } from "@ionic/storage";
 import firebase from "firebase/app";
 
+/**
+* Authentication service
+*/
 @Injectable()
 export class AuthProvider {
   public loading: Loading;

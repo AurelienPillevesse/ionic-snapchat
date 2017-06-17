@@ -8,11 +8,8 @@ import { Storage } from "@ionic/storage";
 import { User } from "../../model/user";
 import firebase from "firebase/app";
 
-/*
-Generated class for the FirebaseServiceProvider provider.
-
-See https://angular.io/docs/ts/latest/guide/dependency-injection.html
-for more info on providers and Angular 2 DI.
+/**
+* Firebase service
 */
 @Injectable()
 export class FirebaseServiceProvider {
@@ -30,7 +27,7 @@ export class FirebaseServiceProvider {
   ) {}
 
   /**
-    * initialize a login form
+    * Initialize a login form
     */
   initializeLoginForm(): FormGroup {
     this.loginForm = this.formBuilder.group({
