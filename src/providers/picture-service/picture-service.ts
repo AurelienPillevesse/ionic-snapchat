@@ -182,7 +182,7 @@ export class PictureServiceProvider {
     });
   }
 
-  /*
+  /**
   * Show a toast message
   */
   showToast(message: string) {
