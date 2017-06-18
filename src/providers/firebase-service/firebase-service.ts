@@ -146,14 +146,17 @@ export class FirebaseServiceProvider {
   }
 
   /**
-      * Logout the current user
-      */
+  * Logout the current user
+  */
   logout(): firebase.Promise<any> {
     return this.authData.logoutUser().then(() => {
       return this.storage.remove("userUID");
     });
   }
 
+  /**
+  * Show a toast message
+  */
   showToast(message: string) {
     let toast = this.toastCtrl.create({
       message: message,

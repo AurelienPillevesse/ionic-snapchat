@@ -595,12 +595,13 @@
             
                                 <tr>
                                     <td class="col-md-4">
-                                        <div class="io-line">Defined in <a href="" data-line="157" class="link-to-prism">src/providers/firebase-service/firebase-service.ts:157</a></div>
+                                        <div class="io-line">Defined in <a href="" data-line="160" class="link-to-prism">src/providers/firebase-service/firebase-service.ts:160</a></div>
                                     </td>
                                 </tr>
             
                             <tr>
                                 <td class="col-md-4">
+                                        <div class="io-description"><p>Show a toast message</p><br/></div>
             
                                         <div class="io-description">
                                             <b>Returns : </b>    <code>void</code>
@@ -958,14 +959,17 @@ export class FirebaseServiceProvider {
   }
 
   /**
-      * Logout the current user
-      */
+  * Logout the current user
+  */
   logout(): firebase.Promise&lt;any&gt; {
     return this.authData.logoutUser().then(() &#x3D;&gt; {
       return this.storage.remove(&quot;userUID&quot;);
     });
   }
 
+  /**
+  * Show a toast message
+  */
   showToast(message: string) {
     let toast &#x3D; this.toastCtrl.create({
       message: message,

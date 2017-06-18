@@ -12,33 +12,33 @@ import * as firebase from "firebase/app";
 @Injectable()
 export class PictureServiceProvider {
   /**
-    * Base64 picture
-    */
+  * Base64 picture
+  */
   public picture: String;
 
   /**
-    * Boolean for the display of user menu
-    */
+  * Boolean for the display of user menu
+  */
   public displayUserMenu: Boolean;
 
   /**
-    * Boolean to know if user just took a snap
-    */
+  * Boolean to know if user just took a snap
+  */
   public tookSnap: Boolean;
 
   /**
-    * Instance of loading for loading spinner
-    */
+  * Instance of loading for loading spinner
+  */
   public loading: Loading;
 
   /**
-    * List of snaps
-    */
+  * List of snaps
+  */
   public snaps: any;
 
   /**
-    * Constructor of PictureServiceProvider
-    */
+  * Constructor of PictureServiceProvider
+  */
   constructor(
     public loadingCtrl: LoadingController,
     private cameraPreview: CameraPreview,
@@ -48,8 +48,8 @@ export class PictureServiceProvider {
   ) {}
 
   /**
-    * Initialize all variables and get reference of the list of snaps
-    */
+  * Initialize all variables and get reference of the list of snaps
+  */
   initialize() {
     this.displayUserMenu = false;
     this.tookSnap = false;
@@ -57,8 +57,8 @@ export class PictureServiceProvider {
   }
 
   /**
-    * Get all snaps fo all users
-    */
+  * Get all snaps fo all users
+  */
   getAllSnap(snaps) {
     this.loading = this.loadingCtrl.create();
     this.loading.present();
@@ -73,8 +73,8 @@ export class PictureServiceProvider {
   }
 
   /**
-    * Start the camera
-    */
+  * Start the camera
+  */
   startCamera() {
     const cameraPreviewOpts: CameraPreviewOptions = {
       x: 0,
@@ -92,22 +92,22 @@ export class PictureServiceProvider {
   }
 
   /**
-    * Close the camera
-    */
+  * Close the camera
+  */
   closeCamera() {
     this.cameraPreview.stopCamera();
   }
 
   /**
-    * Switch the camera
-    */
+  * Switch the camera
+  */
   switchCamera() {
     this.cameraPreview.switchCamera();
   }
 
   /**
-    * Take a picture
-    */
+  * Take a picture
+  */
   takePicture() {
     const pictureOpts = {
       width: 1280,
@@ -125,38 +125,38 @@ export class PictureServiceProvider {
   }
 
   /**
-    * Close display when the user took a snap
-    */
+  * Close display when the user took a snap
+  */
   closeTookSnap() {
     this.tookSnap = false;
     this.startCamera();
   }
 
   /**
-    * Open the user menu
-    */
+  * Open the user menu
+  */
   clickUserMenu() {
     this.displayUserMenu = true;
   }
 
   /**
-    * Close the user menu
-    */
+  * Close the user menu
+  */
   closeUserMenu() {
     this.displayUserMenu = false;
   }
 
   /**
-    * Send a picture
-    */
+  * Send a picture
+  */
   sendPicture(user: User) {
     this.uploadPicture(user, 10);
     this.tookSnap = false;
   }
 
   /**
-    * Upload a picture
-    */
+  * Upload a picture
+  */
   uploadPicture(user: User, duration: number) {
     this.snaps.push({
       from: user.login,
@@ -168,8 +168,8 @@ export class PictureServiceProvider {
   }
 
   /**
-    * Update the score of a user
-    */
+  * Update the score of a user
+  */
   updateUserScore(user: User) {
     user.score++;
     this.storage.get("userUID").then(userUID => {
