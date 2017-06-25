@@ -28,7 +28,7 @@ export class Snap {
   public user: User;
 
   /**
-    * Current user
+    * Display the user menu
     */
   public displayUserMenu: Boolean;
 

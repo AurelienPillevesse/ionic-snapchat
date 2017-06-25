@@ -825,7 +825,7 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-description"><p>Current user</p><br/></div>
+                            <div class="io-description"><p>Display the user menu</p><br/></div>
                         </td>
                     </tr>
                 </tbody>
@@ -965,7 +965,7 @@ export class Snap {
   public user: User;
 
   /**
-    * Current user
+    * Display the user menu
     */
   public displayUserMenu: Boolean;
 
@@ -1059,7 +1059,7 @@ export class Snap {
     this.firebaseServiceProvider
       .logout()
       .then(() &#x3D;&gt; {
-        return this.closeCamera();
+        return this.pictureServiceProvider.closeCamera();
       })
       .then(() &#x3D;&gt; {
         this.navCtrl.setRoot(&quot;HomePage&quot;);
