@@ -122,7 +122,7 @@ export class Snap {
     this.firebaseServiceProvider
       .logout()
       .then(() => {
-        return this.closeCamera();
+        return this.pictureServiceProvider.closeCamera();
       })
       .then(() => {
         this.navCtrl.setRoot("HomePage");
