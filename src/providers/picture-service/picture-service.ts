@@ -4,6 +4,7 @@ import { AngularFireDatabase } from "angularfire2/database";
 import { Injectable } from "@angular/core";
 import { Storage } from "@ionic/storage";
 import { User } from "../../model/user";
+import { Picture } from "../../model/picture";
 import * as firebase from "firebase/app";
 
 /**
@@ -14,33 +15,28 @@ export class PictureServiceProvider {
   /**
   * Base64 picture
   */
-  public picture: String;
+  private picture: String;
 
   /**
   * Boolean for the display of user menu
   */
-  public displayUserMenu: Boolean;
+  private displayUserMenu: Boolean;
 
   /**
   * Boolean to know if user just took a snap
   */
-  public tookSnap: Boolean;
+  private tookSnap: Boolean;
 
   /**
   * Instance of loading for loading spinner
   */
-  public loading: Loading;
-
-  /**
-  * List of snaps
-  */
-  public snaps: any;
+  private loading: Loading;
 
   /**
   * Constructor of PictureServiceProvider
   */
   constructor(
-    public loadingCtrl: LoadingController,
+    private loadingCtrl: LoadingController,
     private cameraPreview: CameraPreview,
     private toastCtrl: ToastController,
     private af: AngularFireDatabase,
@@ -53,7 +49,6 @@ export class PictureServiceProvider {
   initialize() {
     this.displayUserMenu = false;
     this.tookSnap = false;
-    this.snaps = this.af.list("/snaps");
   }
 
   /**
@@ -65,7 +60,7 @@ export class PictureServiceProvider {
 
     this.af.list("/snaps", { preserveSnapshot: true }).subscribe(dbSnaps => {
       dbSnaps.forEach(dbSnap => {
-        snaps.push(dbSnap.val());
+        snaps.push(new Picture(dbSnap.val().dataPicture, dbSnap.val().from, dbSnap.val().duration));
       });
 
       this.loading.dismiss();
@@ -135,15 +130,17 @@ export class PictureServiceProvider {
   /**
   * Open the user menu
   */
-  clickUserMenu() {
+  clickUserMenu(): Boolean {
     this.displayUserMenu = true;
+    return this.displayUserMenu;
   }
 
   /**
   * Close the user menu
   */
-  closeUserMenu() {
+  closeUserMenu(): Boolean {
     this.displayUserMenu = false;
+    return this.displayUserMenu;
   }
 
   /**
@@ -158,7 +155,7 @@ export class PictureServiceProvider {
   * Upload a picture
   */
   uploadPicture(user: User, duration: number) {
-    this.snaps.push({
+    this.af.list("/snaps").push({
       from: user.login,
       dataPicture: this.picture,
       duration: duration
@@ -193,5 +190,13 @@ export class PictureServiceProvider {
     });
 
     toast.present();
+  }
+
+  /**
+  * Return if the user menu have to be shown
+  */
+  public get _displayUserMenu() {
+    console.log("getDisplayUserMenu()");
+    return this.displayUserMenu;
   }
 }

@@ -14,28 +14,28 @@ import * as firebase from "firebase/app";
 @Injectable()
 export class FirebaseServiceProvider {
   /**
-  * Form to login
-  */
+    * Form to login
+    */
   public loginForm: FormGroup;
 
   /**
-  * Form to signup
-  */
+    * Form to signup
+    */
   public signupForm: FormGroup;
 
   /**
-  * Instance of loading for loading spinner
-  */
+    * Instance of loading for loading spinner
+    */
   public loading: Loading;
 
   /**
-  * Current user
-  */
+    * Current user
+    */
   public user: User;
 
   /**
-  * Constructor of FirebaseServiceProvider
-  */
+    * Constructor of FirebaseServiceProvider
+    */
   constructor(
     public loadingCtrl: LoadingController,
     private toastCtrl: ToastController,
@@ -47,8 +47,8 @@ export class FirebaseServiceProvider {
   ) {}
 
   /**
-  * Initialize a login form
-  */
+    * Initialize a login form
+    */
   initializeLoginForm(): FormGroup {
     this.loginForm = this.formBuilder.group({
       email: ["", Validators.compose([Validators.required, EmailValidator.isValid])],
@@ -59,8 +59,8 @@ export class FirebaseServiceProvider {
   }
 
   /**
-  * Initialize a singup form
-  */
+    * Initialize a singup form
+    */
   initializeSignupForm(): FormGroup {
     this.signupForm = this.formBuilder.group({
       email: ["", Validators.compose([Validators.required, EmailValidator.isValid])],
@@ -73,8 +73,8 @@ export class FirebaseServiceProvider {
   }
 
   /**
-  * Login a user
-  */
+    * Login a user
+    */
   login(): firebase.Promise<any> {
     this.loading = this.loadingCtrl.create();
     this.loading.present();
@@ -106,8 +106,8 @@ export class FirebaseServiceProvider {
   }
 
   /**
-  * Signup a user
-  */
+    * Signup a user
+    */
   signup(): firebase.Promise<any> {
     this.loading = this.loadingCtrl.create();
     this.loading.present();
@@ -146,8 +146,8 @@ export class FirebaseServiceProvider {
   }
 
   /**
-  * Logout the current user
-  */
+    * Logout the current user
+    */
   logout(): firebase.Promise<any> {
     return this.authData.logoutUser().then(() => {
       return this.storage.remove("userUID");
@@ -155,8 +155,8 @@ export class FirebaseServiceProvider {
   }
 
   /**
-  * Show a toast message
-  */
+    * Show a toast message
+    */
   showToast(message: string) {
     let toast = this.toastCtrl.create({
       message: message,

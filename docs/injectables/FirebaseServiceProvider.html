@@ -827,28 +827,28 @@ import * as firebase from &quot;firebase/app&quot;;
 @Injectable()
 export class FirebaseServiceProvider {
   /**
-  * Form to login
-  */
+    * Form to login
+    */
   public loginForm: FormGroup;
 
   /**
-  * Form to signup
-  */
+    * Form to signup
+    */
   public signupForm: FormGroup;
 
   /**
-  * Instance of loading for loading spinner
-  */
+    * Instance of loading for loading spinner
+    */
   public loading: Loading;
 
   /**
-  * Current user
-  */
+    * Current user
+    */
   public user: User;
 
   /**
-  * Constructor of FirebaseServiceProvider
-  */
+    * Constructor of FirebaseServiceProvider
+    */
   constructor(
     public loadingCtrl: LoadingController,
     private toastCtrl: ToastController,
@@ -860,8 +860,8 @@ export class FirebaseServiceProvider {
   ) {}
 
   /**
-  * Initialize a login form
-  */
+    * Initialize a login form
+    */
   initializeLoginForm(): FormGroup {
     this.loginForm &#x3D; this.formBuilder.group({
       email: [&quot;&quot;, Validators.compose([Validators.required, EmailValidator.isValid])],
@@ -872,8 +872,8 @@ export class FirebaseServiceProvider {
   }
 
   /**
-  * Initialize a singup form
-  */
+    * Initialize a singup form
+    */
   initializeSignupForm(): FormGroup {
     this.signupForm &#x3D; this.formBuilder.group({
       email: [&quot;&quot;, Validators.compose([Validators.required, EmailValidator.isValid])],
@@ -886,8 +886,8 @@ export class FirebaseServiceProvider {
   }
 
   /**
-  * Login a user
-  */
+    * Login a user
+    */
   login(): firebase.Promise&lt;any&gt; {
     this.loading &#x3D; this.loadingCtrl.create();
     this.loading.present();
@@ -919,8 +919,8 @@ export class FirebaseServiceProvider {
   }
 
   /**
-  * Signup a user
-  */
+    * Signup a user
+    */
   signup(): firebase.Promise&lt;any&gt; {
     this.loading &#x3D; this.loadingCtrl.create();
     this.loading.present();
@@ -959,8 +959,8 @@ export class FirebaseServiceProvider {
   }
 
   /**
-  * Logout the current user
-  */
+    * Logout the current user
+    */
   logout(): firebase.Promise&lt;any&gt; {
     return this.authData.logoutUser().then(() &#x3D;&gt; {
       return this.storage.remove(&quot;userUID&quot;);
@@ -968,8 +968,8 @@ export class FirebaseServiceProvider {
   }
 
   /**
-  * Show a toast message
-  */
+    * Show a toast message
+    */
   showToast(message: string) {
     let toast &#x3D; this.toastCtrl.create({
       message: message,

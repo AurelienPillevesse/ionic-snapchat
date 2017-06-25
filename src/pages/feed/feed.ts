@@ -1,6 +1,7 @@
 import { PictureServiceProvider } from "../../providers/picture-service/picture-service";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
 import { Component } from "@angular/core";
+import { Picture } from "../../model/picture";
 
 /**
  * The feed component
@@ -16,7 +17,7 @@ export class Feed {
   /**
     * Array of snaps
     */
-  snaps = [];
+  public snaps: Array<Picture> = [];
 
   /**
     * Showing a snap

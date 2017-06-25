@@ -28,6 +28,11 @@ export class Snap {
   public user: User;
 
   /**
+    * Current user
+    */
+  public displayUserMenu: Boolean;
+
+  /**
     * Constructor of Snap
     */
   constructor(
@@ -79,14 +84,14 @@ export class Snap {
     * Open the user menu
     */
   clickUserMenu() {
-    this.pictureServiceProvider.clickUserMenu();
+    this.displayUserMenu = this.pictureServiceProvider.clickUserMenu();
   }
 
   /**
     * Close the user menu
     */
   closeUserMenu() {
-    this.pictureServiceProvider.closeUserMenu();
+    this.displayUserMenu = this.pictureServiceProvider.closeUserMenu();
   }
 
   /**

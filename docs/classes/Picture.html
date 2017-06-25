@@ -400,7 +400,7 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <code>constructor(content: string, from: string, to: string[])</code>
+                                    <code>constructor(dataPicture: string, from: string, duration: number)</code>
                                 </td>
                             </tr>
                                 <tr>
@@ -429,12 +429,27 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <b> content</b>
+                                    <b> dataPicture</b>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <code>content:     <code>string</code>
+                                    <code>dataPicture:     <code>string</code>
+            </bcode>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> duration</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <code>duration:     <code>number</code>
             </bcode>
                                 </td>
                             </tr>
@@ -455,21 +470,6 @@
                             </tr>
                         </tbody>
                     </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                            <tr>
-                                <td class="col-md-4">
-                                    <b> to</b>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                    <code>to:     <code>string[]</code>
-            </bcode>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
             </section>
     </div>
     <div class="tab-pane fade tab-source-code" id="source">
@@ -477,7 +477,7 @@
   /**
     * Constructor of Picture
     */
-  constructor(public content: string, public from: string, public to: Array&lt;string&gt;) {}
+  constructor(public dataPicture: string, public from: string, public duration: number) {}
 }
 </code></pre>
     </div>

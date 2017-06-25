@@ -5,5 +5,5 @@ export class Picture {
   /**
     * Constructor of Picture
     */
-  constructor(public content: string, public from: string, public to: Array<string>) {}
+  constructor(public dataPicture: string, public from: string, public duration: number) {}
 }

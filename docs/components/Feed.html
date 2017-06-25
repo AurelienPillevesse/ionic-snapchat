@@ -445,7 +445,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/pages/feed/feed.ts:39</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/pages/feed/feed.ts:40</a></div>
                             </td>
                         </tr>
     
@@ -479,7 +479,7 @@
     
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/pages/feed/feed.ts:55</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/pages/feed/feed.ts:56</a></div>
                             </td>
                         </tr>
     
@@ -511,7 +511,7 @@
     
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">src/pages/feed/feed.ts:64</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">src/pages/feed/feed.ts:65</a></div>
                             </td>
                         </tr>
     
@@ -543,7 +543,7 @@
     
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">src/pages/feed/feed.ts:73</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="74" class="link-to-prism">src/pages/feed/feed.ts:74</a></div>
                             </td>
                         </tr>
     
@@ -611,7 +611,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/pages/feed/feed.ts:29</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/pages/feed/feed.ts:30</a></div>
                             </td>
                         </tr>
                     <tr>
@@ -641,7 +641,7 @@
                         </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/pages/feed/feed.ts:24</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/pages/feed/feed.ts:25</a></div>
                             </td>
                         </tr>
                     <tr>
@@ -655,18 +655,18 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
-                            <b> snaps</b>
+                            <b><span class="modifier">Static</span> snaps</b>
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <code>snaps:     <code>any[]</code>
+                            <span class="modifier-icon fa fa-export"></span><code>snaps:     <code><a href="../classes/Picture.html" target="_self" >Picture[]</a></code>
     </bcode>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/pages/feed/feed.ts:19</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/pages/feed/feed.ts:20</a></div>
                             </td>
                         </tr>
                     <tr>
@@ -696,7 +696,7 @@
                         </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/pages/feed/feed.ts:34</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/pages/feed/feed.ts:35</a></div>
                             </td>
                         </tr>
                     <tr>
@@ -721,7 +721,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/pages/feed/feed.ts:39</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/pages/feed/feed.ts:40</a></div>
                             </td>
                         </tr>
                     <tr>
@@ -739,6 +739,7 @@
         <pre class="line-numbers"><code class="language-typescript">import { PictureServiceProvider } from &quot;../../providers/picture-service/picture-service&quot;;
 import { IonicPage, NavController, NavParams } from &quot;ionic-angular&quot;;
 import { Component } from &quot;@angular/core&quot;;
+import { Picture } from &quot;../../model/picture&quot;;
 
 /**
  * The feed component
@@ -754,7 +755,7 @@ export class Feed {
   /**
     * Array of snaps
     */
-  snaps &#x3D; [];
+  public snaps: Array&lt;Picture&gt; &#x3D; [];
 
   /**
     * Showing a snap
