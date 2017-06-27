@@ -356,27 +356,48 @@
                </div>
                <div class="content readme">
                    <div class="content-data">
-<h1 id="ionic-snapchat">ionic-snapchat</h1>
-<p>Use:</p>
-<pre class="line-numbers"><code class="language-none">- Local storage
-- Camera preview
-- Firebase</code></pre><p>Tests:</p>
-<pre class="line-numbers"><code class="language-none">- Karma</code></pre><p>Documentation:</p>
-<pre class="line-numbers"><code class="language-none">- Compodoc</code></pre><p>Todo:</p>
+<h1 id="ionic-snapchat-projet-licence">IONIC Snapchat – Projet Licence</h1>
+<h1 id="un-projet-r-alis-par-aurelien-pillevesse-et-pic-pierre-">Un projet réalisé par Aurelien Pillevesse et Pic Pierre </h1>
+<h4 id="description">Description</h4>
+<p>Notre projet consistait à créer une application Ionic, semblable à la célèbre application SnapChat.
+Permettre l’envoie de photos via l’application, pouvoir en recevoir les afficher, etc.
+Et également se connecter avec son compte personnel au sein de l’application</p>
+<h4 id="solution">Solution</h4>
+<p>Afin de développer cette application, nous avons réalisé différents choix techniques.</p>
+<h5 id="firebase-firebase-auth">FireBase &amp; FireBase Auth</h5>
+<p>Pour stocker l’ensemble des données de l’application nous avons opter pour utiliser le module AngularFireModule qui permet à une application Ionic de pouvoir faire transiter des données avec un compte FireBase.
+Nous avons également implémenté une connexion Email / mot de passe via Firebase 
+<a href="https://github.com/angular/angularfire2">https://github.com/angular/angularfire2</a></p>
+<h5 id="localstorage">LocalStorage</h5>
+<p>Afin d’optimiser légèrement les performances de l’application, on évite une requête afin de connaître l&#39;id de l&#39;utilisateur connecté, nous avons stocker cette information grâce au module LocalStorage permettant de stocker des informations directement sur le téléphone.</p>
+<h5 id="camerapreview">CameraPreview</h5>
+<p>Afin de prendre des photos et de les envoyer directement sur le Web, nous avons choisi d’utiliser le plugin CameraPreview permettant un accès direct a la camera du téléphone</p>
+<h4 id="sc-nario">Scénario</h4>
+<p>Un utilisateur existant se connecte :
+    Enregistrement en Local de son identifiant d&#39;utilisateur
+    Fenêtre de prise de photo
+  Demande d&#39;autorisation de la caméra (si pas déjà accepté)
+    Il prend une photo
+    L’envoie directement sur Firebase
+  Photo visible par lui-même et les autres utilisateurs</p>
+<p>Un utilisateur créer un compte :
+    Enregistrement sur Firebase de son compte
+    Enregistrement de son identifiant d&#39;utilisateur
+    Fenêtre de prise de photo
+    …</p>
+<h4 id="travail-effectu-">Travail Effectué</h4>
 <ul>
-<li>[ ] Providers</li>
-<li>[ ] Modules</li>
-<li>[ ] Documentation</li>
+<li>Connexion / Déconnexion / Création de compte FireBase Auth.</li>
+<li>Informations stocké Utilisateur / Photo sur FireBase.</li>
+<li>Utilisation de CameraPreview</li>
+<li>Utilisation de LocalStorage</li>
+<li>LazyLoading</li>
+<li>Mise en place de différents services</li>
 </ul>
-<p>Done:</p>
-<ul>
-<li>[x] Lazy loading</li>
-<li>[x] Send snap</li>
-<li>[x] Register</li>
-<li>[x] Login</li>
-<li>[x] Logout</li>
-<li>[x] Localstorage for user informations</li>
-</ul>
+<h4 id="conclusion">Conclusion</h4>
+<p>Compte firebase:
+snapchat-ionic@gmail.com
+pipicaurelien</p>
 
 
 
